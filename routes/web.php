@@ -1,4 +1,6 @@
 <?php
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +15,21 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// Route::get('admin', function () {
+//     return View::make('admin.layouts');
+// });
+
+// Route::group('team',function(){
+//     Route::get('layout',function(){
+//         return View::make('team.layout');
+//     });
+
+// });
+
+Route::name('team.')->group(function () {
+    Route::get('/team', function () {
+        return View::make('team/layouts');
+    })->name('team');
 });
