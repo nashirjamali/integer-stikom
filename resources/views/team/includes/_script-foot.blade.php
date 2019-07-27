@@ -4,6 +4,11 @@
 <script src="{{ asset('assets/argon/vendor/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
 <!-- datatable -->
 <script src="{{ asset('/assets/argon/vendor/datatable.js/datatables.min.js') }}" defer></script>
+<script>
+    $(document).ready(function() {
+        $('#list_anggota').DataTable();
+    });
+</script>
 <!-- bootstrap -->
 <script src="{{ asset('assets/argon/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- js files -->
@@ -16,19 +21,4 @@
             application: "argon-dashboard-free"
         });
 </script>
-<script>
-    $(document).ready(function() {
-        $('#list_anggota').DataTable();
-    });
-</script>
-<!-- <script>
-let Employees = {
-    init: function () {
 
-        $('#list anggota').DataTable({
-            "scrollY": 450,
-            "scrollX": true
-        });
-    }
-};
-</script> -->
