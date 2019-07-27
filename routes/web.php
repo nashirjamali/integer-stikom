@@ -29,7 +29,10 @@ Route::get('/', function () {
 // });
 
 Route::name('team.')->group(function () {
-    Route::get('/team', function () {
+    Route::get('team', function () {
         return View::make('team.dashboard-peserta');
-    })->name('team');
+    })->name('dashboard-peserta');
+    Route::get('team/submission', function () {
+        return View::make('team.submission');
+    })->name('submission');
 });
