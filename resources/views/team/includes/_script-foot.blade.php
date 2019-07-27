@@ -1,5 +1,5 @@
 <!-- jquery -->
-<script src="{{ asset('js/app.js') }}"></script>
+<!-- <script src="{{ asset('js/app.js') }}"></script> -->
 <script src="{{ asset('assets/argon/vendor/jquery/dist/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('assets/argon/vendor/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
 <!-- datatable -->
