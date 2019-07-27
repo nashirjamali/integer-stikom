@@ -30,6 +30,6 @@ Route::get('/', function () {
 
 Route::name('team.')->group(function () {
     Route::get('/team', function () {
-        return View::make('team/layouts');
+        return View::make('team.dashboard-peserta');
     })->name('team');
 });
