@@ -19,22 +19,14 @@
                     <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Kartu Identitas</th>
-                                <th>Nama</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Email</th>
-                                <th>No. Telepon</th>
-                                <th>T-Shirt</th>
-                                <th>Vegetarian</th>
-                                <th>Status</th>
+                                <th>Judul</th>
+                                <th>Proposal</th>
+                                <th>Link Video</th>
+                                <th>Waktu Submit</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
