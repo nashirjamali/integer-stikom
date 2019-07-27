@@ -7,3 +7,5 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('/assets/argon/vendor/@fontawesome/fontawesome-free/all.min.css') }}">
 <!-- css files -->
 <link rel="stylesheet" type="text/css" href="{{ asset('/assets/argon/css/argon-dashboard.css') }}">
+<!-- datatable -->
+<link rel="stylesheet" type="text/css" href="{{ asset('/assets/argon/vendor/datatable.js/datatables.min.css') }}">

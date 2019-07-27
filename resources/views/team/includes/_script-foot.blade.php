@@ -12,3 +12,6 @@
             application: "argon-dashboard-free"
         });
 </script>
+
+<!-- datatable -->
+<link rel="stylesheet" type="text/css" href="{{ asset('/assets/argon/vendor/datatable.js/datatables.min.js') }}">
