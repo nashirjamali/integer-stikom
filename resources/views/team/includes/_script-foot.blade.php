@@ -1,9 +1,13 @@
 <!-- jquery -->
-<script type="text/javascript" src="{{ asset('assets/argon/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('assets/argon/vendor/jquery/dist/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ asset('assets/argon/vendor/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
+<!-- datatable -->
+<script src="{{ asset('/assets/argon/vendor/datatable.js/datatables.min.js') }}" defer></script>
 <!-- bootstrap -->
-<script type="text/javascript" src="{{ asset('assets/argon/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/argon/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- js files -->
-<script type="text/javascript" src="{{ asset('assets/argon/js/argon-dashboard.min.js') }}"></script>
+<script src="{{ asset('assets/argon/js/argon-dashboard.min.js') }}"></script>
 <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 <script>
     window.TrackJS &&
@@ -12,6 +16,19 @@
             application: "argon-dashboard-free"
         });
 </script>
+<script>
+    $(document).ready(function() {
+        $('#list_anggota').DataTable();
+    });
+</script>
+<!-- <script>
+let Employees = {
+    init: function () {
 
-<!-- datatable -->
-<link rel="stylesheet" type="text/css" href="{{ asset('/assets/argon/vendor/datatable.js/datatables.min.js') }}">
+        $('#list anggota').DataTable({
+            "scrollY": 450,
+            "scrollX": true
+        });
+    }
+};
+</script> -->
