@@ -6,7 +6,7 @@
     </button>
     <!-- Brand -->
     <a class="navbar-brand pt-0" href="./index.html">
-      <img src="{{ asset('/assets/argon/img/brand/blue.png') }}" class="navbar-brand-img" alt="...">
+      <img src="{{ asset('/assets/argon/img/brand/integer-1.png') }}" class="navbar-brand-img" alt="...">
     </a>
     <!-- Collapse -->
     <div class="collapse navbar-collapse" id="sidenav-collapse-main">
@@ -18,7 +18,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link " href="{{URL::to('/team/submission')}}">
-            <i class="ni ni-send text-blue"></i> Kirim Berkas
+            <i class="ni ni-send text-blue"></i> Berkas
           </a>
         </li>
       </ul>
