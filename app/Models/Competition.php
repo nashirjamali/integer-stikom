@@ -13,9 +13,9 @@ class Competition extends Model
         'name',
     ];
 
-    public function competition()
+    public function team()
     {
-        return $this->hasMany(Competition::class);
+        return $this->hasMany(Team::class);
     }
 
     public function submission()
