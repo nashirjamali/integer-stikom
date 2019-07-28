@@ -23,4 +23,19 @@ class Team extends Model
     {
         return $this->belongsTo(Competition::class);
     }
+
+    public function participants()
+    {
+        return $this->hasMany(Participants::class);
+    }
+
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    public function submission_team()
+    {
+        return $this->hasMany(Submission_team::class);
+    }
 }

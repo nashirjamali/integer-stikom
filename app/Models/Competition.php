@@ -12,4 +12,14 @@ class Competition extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function competition()
+    {
+        return $this->hasMany(Competition::class);
+    }
+
+    public function submission()
+    {
+        return $this->hasMany(Submission::class);
+    }
 }

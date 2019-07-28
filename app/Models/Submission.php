@@ -22,4 +22,9 @@ class Submission extends Model
     {
         return $this->belongsTo(Competition::class);
     }
+
+    public function submission_team()
+    {
+        return $this->hasMany(Submission_team::class);
+    }
 }
