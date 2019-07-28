@@ -1,3 +1,6 @@
+<!-- favicon -->
+<link  rel="icon" href="{{ asset('/assets/argon/img/brand/integer-2.png') }}" type="image/png">
+<!-- jquery -->
 <script rel="stylesheet" href="{{ asset('assets/argon/vendor/jquery-ui-1.12.1/jquery-ui.min.css') }}"></script>
 <!-- bootstrap -->
 <link rel="stylesheet" href="{{ asset('/assets/argon/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
