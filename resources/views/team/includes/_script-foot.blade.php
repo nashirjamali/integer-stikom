@@ -6,7 +6,7 @@
 <script src="{{ asset('/assets/argon/vendor/datatable.js/datatables.min.js') }}" defer></script>
 <script>
     $(document).ready(function() {
-        $('#list_anggota').DataTable();
+        $('#list_anggota').DataTable({});
     });
 </script>
 <!-- bootstrap -->
@@ -21,4 +21,3 @@
             application: "argon-dashboard-free"
         });
 </script>
-
