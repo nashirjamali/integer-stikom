@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\MasterModel;
 
-class submission extends Model
+class Submission extends Model
 {
     protected $table= 'submission';
     protected $gruarderd= ['id'];
-
     protected $fillable = [
         'name',
         'date_start',
@@ -17,8 +16,6 @@ class submission extends Model
         'competition_id',
     ];
     // protected $primaryKey = 'id';
-
-
     public function competition()
     {
         return $this->belongsTo(competition::class);

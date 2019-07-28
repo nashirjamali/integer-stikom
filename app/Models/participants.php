@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\MasterModel;
 
-class participants extends Model
+class Participants extends Model
 {
     protected $table= 'participants';
     protected $gruarderd= ['id'];
-
     protected $fillable = [
         'name',
         'birth_date',
@@ -21,7 +20,6 @@ class participants extends Model
         'status',
         'team_id',
     ];
-
     public function team()
     {
         return $this->belongsTo(team::class);

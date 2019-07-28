@@ -26,7 +26,6 @@ class CreateParticipantsTable extends Migration
             $table->string('team_id')->index();
             $table->timestamps();
             $table->softDeletes();
-
             $table->foreign('team_id')
                     ->references('id')->on('team');
         });

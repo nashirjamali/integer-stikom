@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubmissionTable extends Migration
+class CreateTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,22 @@ class CreateSubmissionTable extends Migration
      */
     public function up()
     {
-        Schema::create('submission', function (Blueprint $table) {
-            $table->string('id')->primary();
+        Schema::create('teams', function (Blueprint $table) {
+            $table->string('id')->index();
+            $table->primary('id');
             $table->string('name');
-            $table->date('date_start');
-            $table->date('date_end');
+            $table->string('username');
+            $table->string('password');
+            $table->string('institution');
+            $table->string('status');
             $table->unsignedBigInteger('competition_id');
             $table->timestamps();
             $table->softDeletes();
-
             $table->foreign('competition_id')
                     ->references('id')->on('competition')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
+
         });
     }
 
@@ -36,6 +39,6 @@ class CreateSubmissionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('submission');
+        Schema::dropIfExists('teams');
     }
 }

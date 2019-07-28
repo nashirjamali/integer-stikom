@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubmissionTeamTable extends Migration
+class CreateSubmissionTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateSubmissionTeamTable extends Migration
      */
     public function up()
     {
-        Schema::create('submission_team', function (Blueprint $table) {
+        Schema::create('submission_teams', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('submission_id');
             $table->string('team_id');
             $table->string('document');
             $table->timestamps();
             $table->softDeletes();
-
             $table->foreign('submission_id')
                     ->references('id')->on('submission')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
-
             $table->foreign('team_id')
                     ->references('id')->on('team')
                     ->onUpdate('cascade')
@@ -40,6 +38,6 @@ class CreateSubmissionTeamTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('submission_team');
+        Schema::dropIfExists('submission_teams');
     }
 }
