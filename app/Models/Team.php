@@ -5,19 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\MasterModel;
 
-class Submission extends Model
+class Team extends Model
 {
-    protected $table= 'submission';
+    protected $table= 'team';
     protected $gruarderd= ['id'];
     protected $fillable = [
         'name',
-        'date_start',
-        'date_end',
+        'username',
+        'password',
+        'institution',
+        'status',
         'competition_id',
     ];
     // protected $primaryKey = 'id';
+    // public $incrementing = false;
     public function competition()
     {
-        return $this->belongsTo(competition::class);
+        return $this->belongsTo(Competition::class);
     }
 }

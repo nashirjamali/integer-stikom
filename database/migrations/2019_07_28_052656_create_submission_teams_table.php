@@ -20,10 +20,12 @@ class CreateSubmissionTeamsTable extends Migration
             $table->string('document');
             $table->timestamps();
             $table->softDeletes();
+
             $table->foreign('submission_id')
                     ->references('id')->on('submission')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
+                    
             $table->foreign('team_id')
                     ->references('id')->on('team')
                     ->onUpdate('cascade')

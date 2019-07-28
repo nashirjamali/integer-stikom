@@ -16,10 +16,10 @@ class Submission_team extends Model
     ];
     public function team()
     {
-        return $this->belongsTo(team::class);
+        return $this->belongsTo(Team::class);
     }
     public function submission()
     {
-        return $this->belongsTo(submission::class);
+        return $this->belongsTo(Submission::class);
     }
 }

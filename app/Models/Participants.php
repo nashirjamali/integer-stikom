@@ -20,8 +20,10 @@ class Participants extends Model
         'status',
         'team_id',
     ];
+
+
     public function team()
     {
-        return $this->belongsTo(team::class);
+        return $this->belongsTo(Team::class);
     }
 }
