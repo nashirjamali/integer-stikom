@@ -5,23 +5,11 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header" style="padding-bottom:1px;">
-                <h5 class="card-title" style="margin-bottom:1px;">Nama Team</h5>
+                <h5 class="card-title" style="margin-bottom:1px;">Quotes</h5>
             </div>
             <div class="card-body" style="padding-bottom:1em;">
-                <h3 class="card-subtitle mb-2">Stikom-DEV</h3>
-                <h4 class="card-subtitle mb-2 text-muted">Institut Bisnis dan Informatika Stikom Surabaya</h4>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header" style="padding-bottom:1px;">
-                <h5 class="card-title" style="margin-bottom:1px;">Kategori Lomba</h5>
-            </div>
-            <div class="card-body" style="padding-bottom:1em;">
-                <h3 class="card-subtitle mb-2">Software Development</h3>
-                <h4 class="card-subtitle mb-2 text-muted">status?</h4>
+                <h3 class="card-subtitle mb-2">Welcome Admin</h3>
+                <h4 class="card-subtitle mb-2 text-muted">Integer Stikom</h4>
             </div>
         </div>
     </div>
@@ -44,14 +32,11 @@
                     <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Kartu Identitas</th>
-                                <th>Nama</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Email</th>
-                                <th>No. Telepon</th>
-                                <th>T-Shirt</th>
-                                <th>Vegetarian</th>
-                                <th>Status</th>
+                                <th>Nama Tim</th>
+                                <th>Institusi</th>
+                                <th>Kategori Lomba</th>
+                                <th>Status Bayar</th>
+                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,10 +45,9 @@
                                 <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td>
+                                <button type="button" class="btn btn-primary btn-sm">Detail</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
