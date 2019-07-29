@@ -22,12 +22,12 @@ class CreateSubmissionTeamsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('submission_id')
-                    ->references('id')->on('submission')
+                    ->references('id')->on('submissions')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
                     
             $table->foreign('team_id')
-                    ->references('id')->on('team')
+                    ->references('id')->on('teams')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
         });

@@ -24,7 +24,7 @@ class CreateSubmissionsTable extends Migration
 
             
             $table->foreign('competition_id')
-                    ->references('id')->on('competition')
+                    ->references('id')->on('competitions')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
         });
