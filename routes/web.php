@@ -37,7 +37,6 @@ Route::name('team.')->group(function () {
     })->name('submission');
 });
 
-
 Route::name('admin.')->group(function () {
     Route::get('admin', function () {
         return View::make('admin.dashboard-admin');
