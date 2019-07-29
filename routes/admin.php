@@ -1,6 +1,5 @@
 <?php
 
-
 Route::name('admin.')->group(function () {
     Route::group([
 
