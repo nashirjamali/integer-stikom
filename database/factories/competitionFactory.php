@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Models\competition;
+use App\Models\Competition;
 
-$factory->define(competition::class, function (Faker $faker) {
+$factory->define(Competition::class, function (Faker $faker) {
     return [
         'name' => $faker-> firstName(),
     ];

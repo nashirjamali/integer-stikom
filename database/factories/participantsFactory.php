@@ -1,10 +1,10 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Models\team;
-use App\Models\participants;
+use App\Models\Team;
+use App\Models\Participants;
 
-$factory->define(participants::class, function (Faker $faker) {
+$factory->define(Participants::class, function (Faker $faker) {
     
     return [
         'name' => $faker->firstname(),
@@ -15,6 +15,6 @@ $factory->define(participants::class, function (Faker $faker) {
         'vegetarian' => $faker-> randomElement(['Yes','No']),
         'identity_card' => $faker-> image(),
         'status' => $faker-> randomElement(['Yes','No']),
-        'team_id'=> $faker->randomElement(team::pluck('id')->toArray()),
+        'team_id'=> $faker->randomElement(Team::pluck('id')->toArray()),
     ];
 });

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\submission_team;
+use App\Models\Submission_team;
 
 class submission_teamSeeder extends Seeder
 {
@@ -12,6 +12,6 @@ class submission_teamSeeder extends Seeder
      */
     public function run()
     {
-        factory(submission_team::class,15)->create();
+        factory(Submission_team::class,15)->create();
     }
 }

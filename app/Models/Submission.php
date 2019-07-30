@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\MasterModel;
 
 
-class Submission extends Model
+class Submission extends MasterModel
 {
     protected $table= 'submission';
     protected $gruarderd= ['id'];

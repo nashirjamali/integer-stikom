@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\competition;
+use App\Models\Competition;
 
 class competitionSeeder extends Seeder
 {
@@ -12,6 +12,6 @@ class competitionSeeder extends Seeder
      */
     public function run()
     {
-        factory(competition::class,15)->create();
+        factory(Competition::class,15)->create();
     }
 }

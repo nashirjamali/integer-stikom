@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\participants;
+use App\Models\Participants;
 
 class participantsSeeder extends Seeder
 {
@@ -12,6 +12,6 @@ class participantsSeeder extends Seeder
      */
     public function run()
     {
-        factory(participants::class,15)->create();
+        factory(Participants::class,15)->create();
     }
 }
