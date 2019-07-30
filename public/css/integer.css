@@ -1,0 +1,27 @@
+@import "./vendor/dimitri-swank/dimis.css";
+html,
+body {
+  height: 100%;
+}
+
+.hero {
+  height: 100vh;
+  text-align: center;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+#schedule-nav{
+  margin: auto;
+}
+
+#schedule-nav>ul>li>a{
+  color: #283891;
+  font-weight: 600;
+}
+
+#schedule-nav>ul>li>.active{
+  background-color: #FCB040;
+}
