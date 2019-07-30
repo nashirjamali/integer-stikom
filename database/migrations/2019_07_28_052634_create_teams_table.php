@@ -26,7 +26,7 @@ class CreateTeamsTable extends Migration
             $table->softDeletes();
             
             $table->foreign('competition_id')
-                    ->references('id')->on('competition')
+                    ->references('id')->on('competitions')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
         });

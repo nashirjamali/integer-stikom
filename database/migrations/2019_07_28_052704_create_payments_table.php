@@ -22,7 +22,7 @@ class CreatePaymentsTable extends Migration
             $table->softDeletes();
             
             $table->foreign('team_id')
-                    ->references('id')->on('team')
+                    ->references('id')->on('teams')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
         });
