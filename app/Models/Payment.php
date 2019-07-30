@@ -6,7 +6,7 @@ use App\MasterModel;
 
 class Payment extends MasterModel
 {
-    protected $table= 'payment';
+    protected $table= 'payments';
     protected $gruarderd= ['id'];
     protected $fillable = [
         'evidence',

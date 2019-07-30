@@ -6,7 +6,7 @@ use App\MasterModel;
 
 class Team extends MasterModel
 {
-    protected $table= 'team';
+    protected $table= 'teams';
     protected $gruarderd= ['id'];
 
     protected $fillable = [

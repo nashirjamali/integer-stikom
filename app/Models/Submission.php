@@ -7,7 +7,7 @@ use App\MasterModel;
 
 class Submission extends MasterModel
 {
-    protected $table= 'submission';
+    protected $table= 'submissions';
     protected $gruarderd= ['id'];
     protected $fillable = [
         'name',

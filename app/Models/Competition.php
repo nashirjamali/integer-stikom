@@ -6,7 +6,7 @@ use App\MasterModel;
 
 class Competition extends MasterModel
 {
-    protected $table= 'competition';
+    protected $table= 'competitions';
     protected $gruarderd= ['id'];
     
     protected $fillable = [
