@@ -13,9 +13,9 @@ class TeamsSeeder extends Seeder
     {
         //
         DB::table('teams')->insert([
-            'id'            => Str::random(10),
-            'name'          => 'StikomDev',
-            'username'      => Str::random(5),
+            'id'            => 'stikomdev',
+            'name'          => 'Stikom Dev',
+            'username'      => 'stikomdev',
             'password'      => bcrypt('password'),
             'institution'   => 'Stikom Surabaya',
             'status'        => 1,
