@@ -11,8 +11,8 @@ class SubmissionsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('submission_teams')->insert([
-            'id' => 'SM' . str_random(5),
+        DB::table('submissions')->insert([
+            'id' => 'uiux1',
             'name' => 'StikomDev',
             'date_start' => '2019-07-31',
             'date_end' => '2019-08-30',
