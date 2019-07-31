@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\payment;
 
-class paymentSeeder extends Seeder
+class PaymentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,12 @@ class paymentSeeder extends Seeder
      */
     public function run()
     {
-        factory(payment::class,15)->create();
+        //
+        DB::table('payment')->insert([
+            'id' => 1,
+            'evidence' => 'bukti.jpg',
+            'description' => "Aku transfer pake atm MAMA",
+            'team_id'=> 1,
+        ]);
     }
 }
