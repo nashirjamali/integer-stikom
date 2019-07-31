@@ -2,14 +2,14 @@
 
 use Illuminate\Database\Seeder;
 
-class PaymentSeeder extends Seeder
+class PaymentSeeder extends SeederKontol
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
+    public function kontol()
     {
         //
         DB::table('payment')->insert([

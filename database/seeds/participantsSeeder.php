@@ -15,7 +15,7 @@ class ParticipantsSeeder extends Seeder
             [
                 'id'   => 1,
                 'name' => 'Sebastianus Sembara',
-                'birth_date' => '1999-01-20',
+                'birth_date' => 1999-01-20,
                 'email' => str_random(10) . '@stikom.edu',
                 'phone' => '089616645409',
                 'tshirt' => 'XL',
@@ -27,7 +27,7 @@ class ParticipantsSeeder extends Seeder
             [
                 'id'   => 2,
                 'name' => 'Nashir Jamali',
-                'birth_date' => '1998-06-13',
+                'birth_date' => 1998-06-13,
                 'email' => str_random(10) . '@stikom.edu',
                 'phone' => '089616645409',
                 'tshirt' => 'L',
@@ -39,7 +39,7 @@ class ParticipantsSeeder extends Seeder
             [
                 'id'   => 3,
                 'name' => 'Ibnu Pratama',
-                'birth_date' => '1999-10-22',
+                'birth_date' => 1999-10-22,
                 'email' => str_random(10) . '@stikom.edu',
                 'phone' => '089616645098',
                 'tshirt' => 'L',
