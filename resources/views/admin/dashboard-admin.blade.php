@@ -46,7 +46,11 @@
                                 <td>-</td>
                                 <td>-</td>
                                 <td>
+<<<<<<< HEAD
                                 <a class="btn btn-primary btn-sm" href="{{URL::to('/admin/admin-detail')}}">Detail</a>
+=======
+                                <a class="btn btn-primary btn-sm" href="{{URL::to('admin/admin-detail')}}">Detail</a>
+>>>>>>> ayub
                                 </td>
                             </tr>
                         </tbody>
