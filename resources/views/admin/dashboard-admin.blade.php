@@ -1,4 +1,4 @@
-@extends('team.layouts')
+@extends('admin.layouts')
 
 @section('content-head')
 <div class="row">
@@ -23,7 +23,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="mb-0">List Anggota</h3>
+                        <h3 class="mb-0">List Tim</h3>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                                 <td>-</td>
                                 <td>-</td>
                                 <td>
-                                <button type="button" class="btn btn-primary btn-sm">Detail</button>
+                                <a class="btn btn-primary btn-sm" href="{{URL::to('/admin-detail')}}">Detail</a>
                                 </td>
                             </tr>
                         </tbody>
