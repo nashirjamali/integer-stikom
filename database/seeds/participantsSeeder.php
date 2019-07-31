@@ -11,7 +11,7 @@ class ParticipantsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('teams')->insert([
+        DB::table('participants')->insert([
             [
                 'id'   => 1,
                 'name' => 'Sebastianus Sembara',
