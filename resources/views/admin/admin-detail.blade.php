@@ -1,46 +1,123 @@
-@extends('team.layouts')
+@extends('admin.layouts')
 
 @section('content-head')
 @endsection
 
 @section('content-body')
-<section class="content">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box" style="padding-bottom:30px;padding-left:10px">
-                                <div class="box-header">
-                                    <h3 class="box-title">Profil <?=ucwords($data_edit->username);?></h3>
-                                   
-                                </div><!-- /.box-header -->
-                                <span class="foto_profil"><img src="../../upload/back_profil_foto/<?=$data_edit->foto_user;?>" class="img-thumbnail"></span>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header" style="padding-bottom:1px;">
+                <h5 class="card-title" style="margin-bottom:1px;">Profil Tim</h5>
+            </div>
+            <div class="card-body" style="padding-bottom:1em;">
+                <h3 class="card-subtitle mb-2">Nama Tim</h3>
+                <h4 class="card-subtitle mb-2 text-muted">Kategori Lomba</h4>
+                <span class="kartu identitas"><img src="../../upload/back_profil_foto/" class="img-thumbnail"></span>
                                 <div class="box-body table-responsive no-padding">
                                     <table class="table table-hover">
-
                                         <tbody>
-                                        <tr>
-                                            <th class="col-md-2">Username</th>
-                                            <td><?=$data_edit->username;?></td>
+                                            <tr>
+                                            <th>Status</th>
+                                            <td>-</td>
                                             </tr>
-                                        <tr>
-                                            <th>First Name</th>
-                                            <td><?=ucwords($data_edit->first_name);?></td>
+                                            <tr>
+                                            <th>Nama</th>
+                                            <td>-</td>
                                             </tr>
-                                        <tr>
-                                            <th>Last Name</th>
-                                            <td><?=ucwords($data_edit->last_name);?></td>
+                                            <tr>
+                                            <th>Tanggal Lahir</th>
+                                            <td>-</td>
                                             </tr>
-                                        <tr>
+                                            <tr>
                                             <th>Email</th>
-                                            <td><?=ucwords($data_edit->email);?></td>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>No. Telepon</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>T-Shirt</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Vegetarian</th>
+                                            <td>-</td>
                                             </tr>
                                     </tbody></table>
-                                </div><!-- /.box-body -->
-                                <p></p>
-                                <a href="<?=base_index();?>profil/edit" class="btn btn-primary">Edit Profil</a> <a href="<?=base_index();?>profil/change-password" class="btn btn-primary">Change Password</a>
-                            <p></p>
-                            </div><!-- /.box -->
+                                </div>
+                                <span class="kartu identitas"><img src="../../upload/back_profil_foto/" class="img-thumbnail"></span>
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                            <th>Status</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Nama</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Tanggal Lahir</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Email</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>No. Telepon</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>T-Shirt</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Vegetarian</th>
+                                            <td>-</td>
+                                            </tr>
+                                    </tbody></table>
+                                </div>
+                                <span class="kartu identitas"><img src="../../upload/back_profil_foto/" class="img-thumbnail"></span>
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                            <th>Status</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Nama</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Tanggal Lahir</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Email</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>No. Telepon</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>T-Shirt</th>
+                                            <td>-</td>
+                                            </tr>
+                                            <tr>
+                                            <th>Vegetarian</th>
+                                            <td>-</td>
+                                            </tr>
+                                    </tbody></table>
+                                </div>
+                                <a href="{{URL::to('/admin')}}" class="btn btn-primary">Kembali</a>
+                            </div>
                         </div>
                     </div>
-                  
-                </section><!-- /.content -->
+                </div>
 @endsection
