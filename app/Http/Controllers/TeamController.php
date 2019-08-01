@@ -9,9 +9,7 @@ use App\Models\Participants;
 class TeamController extends Controller
 {
     public function index(){
-        // $teams = Teams::all();
         $participants = Participants::all();
-        // return view('team.dashboard-peserta',['teams' => $teams]);
         return view('team.dashboard-peserta',['participants' => $participants]);
     }
 
