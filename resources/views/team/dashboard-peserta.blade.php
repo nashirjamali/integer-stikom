@@ -8,8 +8,8 @@
                 <h5 class="card-title" style="margin-bottom:1px;">Nama Team</h5>
             </div>
             <div class="card-body" style="padding-bottom:1em;">
-                <h3 class="card-subtitle mb-2">Stikom-DEV</h3>
-                <h4 class="card-subtitle mb-2 text-muted">Institut Bisnis dan Informatika Stikom Surabaya</h4>
+                <h3 class="card-subtitle mb-2">Stikom Dev</h3>
+                <h4 class="card-subtitle mb-2 text-muted">Stikom Surabaya</h4>
             </div>
         </div>
 
@@ -54,22 +54,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($participants as $x)
                             <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td>{{ $x->identity_card }}</td>
+                                <td>{{ $x->name }}</td>
+                                <td>{{ $x->email }}</td>
+                                <td>{{ $x->phone }}</td>
+                                <td>{{ $x->tshirt }}</td>
+                                <td>{{ $x->status }}</td>
                                 <td>
+
+                                    @if( $x->status=="Ketua" )
+                                    <button type="button" class="btn btn-info btn-sm">
+                                        <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
+                                    </button>
+                                    @else
                                     <button type="button" class="btn btn-info btn-sm">
                                         <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-sm">
                                         <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
                                     </button>
+                                    @endif
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
