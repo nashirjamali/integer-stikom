@@ -19,9 +19,9 @@ class Team extends MasterModel
     ];
     // protected $primaryKey = 'id';
     // public $incrementing = false;
-    public function competition()
+    public function competitions()
     {
-        return $this->belongsTo(Competition::class);
+        return $this->belongsTo(Competitions::class);
     }
 
     public function participants()

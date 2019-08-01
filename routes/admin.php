@@ -13,5 +13,9 @@ Route::name('admin.')->group(function () {
             return View::make('admin.dashboard-admin');
         })->name('dashboard-admin');
 
+        Route::get('admin/admin-detail', function () {
+            return View::make('admin.admin-detail');
+        })->name('admin-detail');
+
     });
 });

@@ -10,14 +10,14 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="mb-0">Submission</h3>
+                        <h3 class="mb-0">Submission 2</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md-2" style="margin-top:1em;">
                 <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
                     <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
-                    <span class="btn-inner--text">Upload Proposal</span>
+                    <span class="btn-inner--text">Upload Video</span>
                 </button>
             </div>
             <div class="card-body">
@@ -26,7 +26,7 @@
                         <thead>
                             <tr>
                                 <th>Judul</th>
-                                <th>Proposal</th>
+                                <th>Link Video</th>
                                 <th>Waktu Submit</th>
                             </tr>
                         </thead>
@@ -44,12 +44,12 @@
     </div>
 </div>
 
-<!-- modal upload proposal-->
+<!-- modal upload video-->
 <div class="modal fade" id="proposal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Upload Proposal</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Upload Link Video</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -57,8 +57,7 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input class="form-control" type="text" placeholder="Input Link Video">
                     </div>
                 </form>
             </div>
@@ -69,5 +68,5 @@
         </div>
     </div>
 </div>
-<!-- modal upload proposal-->
+<!-- modal upload video-->
 @endsection

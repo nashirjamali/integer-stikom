@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\MasterModel;
 
-class Competition extends MasterModel
+class Competitions extends MasterModel
 {
     protected $table= 'competitions';
     protected $gruarderd= ['id'];
@@ -15,7 +15,7 @@ class Competition extends MasterModel
 
     public function team()
     {
-        return $this->hasMany(Team::class);
+        return $this->hasMany(Teams::class);
     }
 
     public function submission()

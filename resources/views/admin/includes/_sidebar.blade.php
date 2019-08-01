@@ -16,11 +16,6 @@
           <a class=" nav-link active " href="{{URL::to('/admin')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{URL::to('/team/submission')}}">
-            <i class="ni ni-send text-blue"></i> Berkas
-          </a>
-        </li>
       </ul>
       <!-- Divider -->
       <hr class="my-3">

@@ -23,6 +23,6 @@ class Participants extends MasterModel
 
     public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Teams::class);
     }
 }
