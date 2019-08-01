@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\MasterModel;
 
-class Team extends Model
+
+class Teams extends Model
 {
     protected $table= 'teams';
     protected $gruarderd= ['id'];
@@ -19,9 +20,9 @@ class Team extends Model
     ];
     // protected $primaryKey = 'id';
     // public $incrementing = false;
-    public function competition()
+    public function competitions()
     {
-        return $this->belongsTo(Competition::class);
+        return $this->belongsTo(Competitions::class);
     }
 
     public function participants()
