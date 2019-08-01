@@ -46,12 +46,11 @@
                             <tr>
                                 <th>Kartu Identitas</th>
                                 <th>Nama</th>
-                                <th>Tanggal Lahir</th>
                                 <th>Email</th>
                                 <th>No. Telepon</th>
                                 <th>T-Shirt</th>
-                                <th>Vegetarian</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,8 +61,14 @@
                                 <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td>
+                                    <button type="button" class="btn btn-info btn-sm">
+                                        <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm">
+                                        <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
