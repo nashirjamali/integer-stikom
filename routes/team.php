@@ -5,7 +5,7 @@ Route::name('team.')->group(function () {
 
         // 'middleware'    => ['auth','checkRole:Admin'],
 
-        // 'middleware'    => 'auth',
+        'middleware'    => 'auth',
     
       ], function () {
 
