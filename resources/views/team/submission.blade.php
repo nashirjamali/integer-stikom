@@ -30,13 +30,15 @@
                                 <th>Waktu Submit</th>
                             </tr>
                         </thead>
+                        @foreach ($submissionsteam as $submissionteam)
                         <tbody>
                             <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td>{{ $submissionteam->team_id }}</td>
+                                <td>{{ $submissionteam->document }}</td>
+                                <td>{{ $submissionteam->created_at }}</td>
                             </tr>
                         </tbody>
+                        @endforeach
                     </table>
                 </div>
             </div>
@@ -55,16 +57,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" enctype="multipart/form-data">
+                @csrf
                     <div class="form-group">
-
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input type="text" hidden name="submission_id" value="uiux1" >
+                        <input type="text" hidden name="team_id"  value="Stikomdev" >
+                        
+                        <input type="file" class="form-control-file" name="document" id="exampleFormControlFile1">
+                    </div>
+                
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Upload</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Upload</button>
             </div>
         </div>
     </div>
