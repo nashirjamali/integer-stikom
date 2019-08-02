@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\MasterModel;
 
-
-class Teams extends Model
+class Team extends MasterModel
 {
     protected $table= 'teams';
     protected $gruarderd= ['id'];
+
     protected $fillable = [
         'name',
         'username',

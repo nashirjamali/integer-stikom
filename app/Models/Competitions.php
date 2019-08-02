@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\MasterModel;
 
-
-class Competitions extends Model
+class Competitions extends MasterModel
 {
     protected $table= 'competitions';
     protected $gruarderd= ['id'];

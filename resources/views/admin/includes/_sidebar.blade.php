@@ -13,7 +13,17 @@
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li class="nav-item" class="" active>
-          <a class=" nav-link active " href="{{URL::to('/admin')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link active {{ request()->is('team') ? 'active' : '' }}" href="{{URL::to('/admin')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('admin/dashboard-admin') ? 'active' : '' }}" href="{{URL::to('/admin/list-tim')}}">
+            <i class="ni ni-book-bookmark text-red"></i> List Tim
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('admin/admin-submission') ? 'active' : '' }}" href="{{URL::to('/admin/admin-submission')}}">
+            <i class="ni ni-folder-17 text-green"></i> Submission
           </a>
         </li>
       </ul>

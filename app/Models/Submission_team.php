@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\MasterModel;
 
-class Submission_team extends Model
+class Submission_team extends MasterModel
 {
-    protected $table= 'submission_team';
+    protected $table= 'submission_teams';
     protected $gruarderd= ['id'];
     protected $fillable = [
         'submission_id',

@@ -115,7 +115,7 @@
                                             </tr>
                                     </tbody></table>
                                 </div>
-                                <a href="{{URL::to('/admin')}}" class="btn btn-primary">Kembali</a>
+                                <a href="{{URL::to('/admin/list-tim')}}" class="btn btn-primary">Kembali</a>
                             </div>
                         </div>
                     </div>
