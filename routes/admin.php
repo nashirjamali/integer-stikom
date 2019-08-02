@@ -3,9 +3,9 @@
 Route::name('admin.')->group(function () {
     Route::group([
 
-        // 'middleware'    => ['auth','checkRole:Admin'],
+        'middleware'    => ['auth','userRole'],
 
-        'middleware'    => 'auth',
+        // 'middleware'    => 'auth',
     
       ], function () {
 
