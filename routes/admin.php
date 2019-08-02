@@ -3,7 +3,7 @@
 Route::name('admin.')->group(function () {
     Route::group([
 
-        // 'middleware'    => ['auth','checkRole:Admin'],
+        'middleware'    => ['auth','userRole'],
 
         // 'middleware'    => 'auth',
     
@@ -13,6 +13,14 @@ Route::name('admin.')->group(function () {
             return View::make('admin.dashboard-admin');
         })->name('dashboard-admin');
 
+        Route::get('admin/list-tim', function () {
+            return View::make('admin.list-tim');
+        })->name('list-tim');
+
+        Route::get('admin/admin-submission', function () {
+            return View::make('admin.admin-submission');
+        })->name('admin-submission');
+        
         Route::get('admin/admin-detail', function () {
             return View::make('admin.admin-detail');
         })->name('admin-detail');
