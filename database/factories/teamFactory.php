@@ -1,10 +1,10 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Models\team;
-use App\Models\competition;
+use App\Models\Team;
+use App\Models\Competition;
 
-$factory->define(team::class, function (Faker $faker) {
+$factory->define(Team::class, function (Faker $faker) {
     return [
         'id' => 'TM'.$faker-> unixTime(),
         'name' => $faker->firstname(),
@@ -12,6 +12,6 @@ $factory->define(team::class, function (Faker $faker) {
         'password' => $faker->password(),
         'institution' => $faker->company(),
         'status' => $faker-> randomElement(['Yes','No']),
-        'competition_id'=> $faker->randomElement(competition::pluck('id')->toArray()),
+        'competition_id'=> $faker->randomElement(Competition::pluck('id')->toArray()),
     ];
 });

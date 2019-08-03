@@ -14,6 +14,12 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-2" style="margin-top:1em;">
+                <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
+                    <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
+                    <span class="btn-inner--text">Upload Proposal</span>
+                </button>
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
@@ -21,13 +27,11 @@
                             <tr>
                                 <th>Judul</th>
                                 <th>Proposal</th>
-                                <th>Link Video</th>
                                 <th>Waktu Submit</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
@@ -39,4 +43,31 @@
         </div>
     </div>
 </div>
+
+<!-- modal upload proposal-->
+<div class="modal fade" id="proposal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Upload Proposal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal upload proposal-->
 @endsection

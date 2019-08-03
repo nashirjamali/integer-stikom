@@ -13,17 +13,36 @@
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li class="nav-item" class="" active>
-          <a class=" nav-link active " href="{{URL::to('/team')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class="nav-link {{ request()->is('team') ? 'active' : '' }}" href="{{URL::to('/team')}}">
+            <i class="ni ni-tv-2 text-primary"></i> Dashboard
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{URL::to('/team/submission')}}">
-            <i class="ni ni-send text-blue"></i> Berkas
+          <a class="nav-link {{ request()->is('team/payments') ? 'active' : '' }}" href="{{URL::to('/team/payments')}}">
+            <i class="ni ni-money-coins text-red"></i> Payment
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('team/submission') ? 'active' : '' }}" href="{{URL::to('/team/submission')}}">
+            <i class="ni ni-paper-diploma text-info"></i> Upload Proposal
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('team/video') ? 'active' : '' }}" href="{{URL::to('/team/video')}}">
+            <i class="ni ni-button-play text-green"></i> Upload Video
           </a>
         </li>
       </ul>
       <!-- Divider -->
       <hr class="my-3">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('team/setting') ? 'active' : '' }}" href="{{URL::to('/team/submission')}}">
+            <i class="ni ni-settings-gear-65 text-black"></i> Setting
+          </a>
+        </li>
+      </ul>
     </div>
+
   </div>
 </nav>

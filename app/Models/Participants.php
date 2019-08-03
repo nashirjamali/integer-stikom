@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\MasterModel;
 
-class Participants extends Model
+class Participants extends MasterModel
 {
     protected $table= 'participants';
     protected $gruarderd= ['id'];
@@ -24,6 +23,6 @@ class Participants extends Model
 
     public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Teams::class);
     }
 }

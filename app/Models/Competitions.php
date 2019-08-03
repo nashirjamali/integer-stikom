@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\MasterModel;
 
-class Competition extends Model
+class Competitions extends MasterModel
 {
-    protected $table= 'competition';
+    protected $table= 'competitions';
     protected $gruarderd= ['id'];
     
     protected $fillable = [
@@ -15,7 +15,7 @@ class Competition extends Model
 
     public function team()
     {
-        return $this->hasMany(Team::class);
+        return $this->hasMany(Teams::class);
     }
 
     public function submission()
