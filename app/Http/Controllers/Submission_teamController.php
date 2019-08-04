@@ -16,6 +16,9 @@ class Submission_teamController extends Controller
     {
         $submissionsteam = Submission_team::all();
         return view('team.submission',['submissionsteam' => $submissionsteam]);
+        // $tampilkan_data = Auth::user()->team()->paginate(10);
+        // $submissionsteam = count($tampilkan_data['team']);
+        // return view('team.submission', ['submissionsteam' => $submissionsteam]);
     }
 
     /**

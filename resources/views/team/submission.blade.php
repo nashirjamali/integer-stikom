@@ -10,7 +10,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="mb-0">Submission</h3>
+                        <h3 class="mb-0">Submission {{ Auth::user()->name }} </h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,6 @@
                     <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Judul</th>
                                 <th>Proposal</th>
                                 <th>Waktu Submit</th>
                             </tr>
@@ -33,7 +32,6 @@
                         @foreach ($submissionsteam as $submissionteam)
                         <tbody>
                             <tr>
-                                <td>{{ $submissionteam->team_id }}</td>
                                 <td>{{ $submissionteam->document }}</td>
                                 <td>{{ $submissionteam->created_at }}</td>
                             </tr>
