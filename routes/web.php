@@ -4,9 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', 'LandingPageController');
+Route::post('/registerteam', 'LandingPageController@registerteam')->name('registerteam');
 
 
 require('admin.php');
