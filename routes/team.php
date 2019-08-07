@@ -3,7 +3,8 @@
 Route::name('team.')->group(function () {
     Route::group([
       
-        'middleware'    => 'auth',
+
+        'middleware'    => ['auth','checkRole:team'],
     
       ], function () {
 

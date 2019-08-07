@@ -58,9 +58,15 @@
                     </li>
                     @if (Route::has('login'))
                         @auth
+                            @if(Auth::user()->role == "team")
+                                <li class="nav-item">
+                                    <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/team">hi {{ Auth::user()->name }}</a>
+                                </li>
+                            @else
                             <li class="nav-item">
-                                <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/team">hi {{ Auth::user()->name }}</a>
+                                <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/admin">hi {{ Auth::user()->name }}</a>
                             </li>
+                            @endif
                         @else
                             <li class="nav-item">
                                 <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/#pendaftaran">PENDAFTARAN</a>
