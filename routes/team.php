@@ -13,6 +13,8 @@ Route::name('team.')->group(function () {
         Route::get( 'team/submission', 'TeamController@submission' );
         Route::get( 'team/video', 'TeamController@video' );
 
+        Route::resource('team/submission','Submission_teamController');
+
 
         // Route::get('team', function () {
         //     return View::make('team.dashboard-peserta');
