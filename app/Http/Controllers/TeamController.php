@@ -44,7 +44,7 @@ class TeamController extends Controller
             //kurang modal berhasil
         }else{
 
-            dd("salah");
+            dd("kurang notifikasi kalau password lama tidak cocok");
             //kurang notifikasi kalau password lama tidak cocok
         }
 
