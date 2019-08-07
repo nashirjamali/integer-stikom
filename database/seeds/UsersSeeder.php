@@ -18,7 +18,7 @@ class UsersSeeder extends Seeder
             'name'         => 'Stikom Dev',
             'username'     => 'stikomdev',
             'password'     => Hash::make('1234567890'),
-            'role'         => 'user',
+            'role'         => 'team',
         ]);
 
         $user = User::create([

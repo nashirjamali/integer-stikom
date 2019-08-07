@@ -7,6 +7,7 @@ use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Participants;
+use App\User;
 
 class LandingPageController extends Controller
 {
@@ -110,16 +111,15 @@ class LandingPageController extends Controller
         $team->competition_id = $competition_id;
         $team->save();
 
-        $participant = new Participants;
-
         for ($i = 1; $i < 3; $i++) {
+            $participant = new Participants;
             $team_id = $username;
+            $participant->team_id = $team_id;
             $name = 'name_' . $i;
             $birth_date = 'birth_date_' . $i;
             $email = 'email_' . $i;
             $phone = 'phone_' . $i;
             $status = 'status_' . $i;
-            $username = 'username_' . $i;
             $identity_card = 'identity_card_' . $i;
             $participant->name = $$name;
             $participant->birth_date = $$birth_date;
@@ -127,10 +127,16 @@ class LandingPageController extends Controller
             $participant->identity_card = $$identity_card;
             $participant->status = $$status;
             $participant->phone = $$phone;
-            $participant->team_id = $team_id;
+            $participant->save();
         }
 
-        $participant->save();
+        $user = new User;
+        $user->username = $username;
+        $user->team_id = $username;
+        $user->password = $password;
+        $user->name = $name_team;
+        $user->role = "user";
+        $user->save();
 
         return redirect('/');
     }
