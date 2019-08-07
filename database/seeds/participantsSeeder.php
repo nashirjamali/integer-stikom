@@ -48,6 +48,18 @@ class ParticipantsSeeder extends Seeder
                 'status' => 'Anggota',
                 'team_id'=> 'stikomdev',
             ],
+            [
+                'id'   => 4,
+                'name' => 'Anjing Nakal',
+                'birth_date' => '1999-10-22',
+                'email' => str_random(10) . '@stikom.edu',
+                'phone' => '089616645098',
+                'tshirt' => 'M',
+                'vegetarian' => 'Y',
+                'identity_card' => 'ktm4.jpg',
+                'status' => 'Anggota',
+                'team_id'=> 'anjingkancili',
+            ],
            
         ]);
     }
