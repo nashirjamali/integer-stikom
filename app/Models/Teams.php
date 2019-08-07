@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\MasterModel;
 
-class Team extends MasterModel
+class Teams extends MasterModel
 {
     protected $table= 'teams';
     protected $gruarderd= ['id'];
