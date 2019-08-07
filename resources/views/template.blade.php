@@ -60,11 +60,17 @@
                         <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/#pendaftaran">PENDAFTARAN</a>
                     </li>
                 </ul>
-                <span class="nav-item">
-                    <button class="btn">
-                        <a class="btn-solid-reg" href="{{ route('login') }}">LOGIN</a>
-                    </button>
-                </span>
+                @if (Route::has('login'))
+                    @auth
+                        
+                    @else
+                        <span class="nav-item">
+                            <button class="btn">
+                                <a class="btn-solid-reg" href="{{ route('login') }}">LOGIN</a>
+                            </button>
+                        </span>
+                    @endauth
+                @endif
             </div>
         </div>
     </nav>
