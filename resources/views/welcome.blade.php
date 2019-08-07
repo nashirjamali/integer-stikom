@@ -174,73 +174,79 @@
 
 <div class="slider-2" id="pendaftaran">
     <div class="container">
-        <div class="text-center">
-            <h3 class="text-dark">Pendaftaran Tim</h3>
-            <img src="images/line.svg" alt="" srcset="">
-        </div>
-        <div class="row mt-5">
-            <div class="col-12 col-lg-8 offset-lg-2">
-                @if($errors->any())
-                <div class="alert alert-danger" role="alert">
-                    {{$errors->first()}}
-                </div>
-                @endif
-                <div class="card" style="background-color: #001E36; padding: 1rem">
-                    <div class="card-body">
-                        <form action="{{ route('register-team') }}" method="POST">
-                            {{ csrf_field() }}
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Nama Tim</label>
-                                        <input id="name" type="text" class="form-control-input" name="name" required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Institusi</label>
-                                        <input type="text" class="form-control-input" name="institution" required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Kategori Lomba</label>
-                                        <select class="form-control-select" name="competition_id">
-                                            @foreach($competitions as $key)
-                                            <option value="{{ $key->id }}">{{ $key->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Username (Terisi Otomatis)</label>
-                                        <input type="text" class="form-control-input username" disabled>
-                                        <input type="text" class="username" hidden name="username">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control-input" name="password" required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-4">
-                                    <div class="form-group">
-                                        <button type="submit" class="form-control-submit-button">DAFTAR</button>
-                                    </div>
+            @if (Route::has('login'))
+                @auth
+                    
+                @else
+                    <div class="text-center">
+                        <h3 class="text-dark">Pendaftaran Tim</h3>
+                        <img src="images/line.svg" alt="" srcset="">
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12 col-lg-8 offset-lg-2">
+                            @if($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                {{$errors->first()}}
+                            </div>
+                            @endif
+                            <div class="card" style="background-color: #001E36; padding: 1rem">
+                                <div class="card-body">
+                                    <form action="{{ route('register-team') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Nama Tim</label>
+                                                    <input id="name" type="text" class="form-control-input" name="name" required>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Institusi</label>
+                                                    <input type="text" class="form-control-input" name="institution" required>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Kategori Lomba</label>
+                                                    <select class="form-control-select" name="competition_id">
+                                                        @foreach($competitions as $key)
+                                                        <option value="{{ $key->id }}">{{ $key->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Username (Terisi Otomatis)</label>
+                                                    <input type="text" class="form-control-input username" disabled>
+                                                    <input type="text" class="username" hidden name="username">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input type="password" class="form-control-input" name="password" required>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-4">
+                                                <div class="form-group">
+                                                    <button type="submit" class="form-control-submit-button">DAFTAR</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                @endauth
+            @endif
     </div>
 </div>
 <div class="basic-1" id="kontak">

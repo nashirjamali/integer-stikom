@@ -56,9 +56,17 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll {{ request()->is('#jadwal') ? 'active' : '' }}" href="/#jadwal">JADWAL</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/#pendaftaran">PENDAFTARAN</a>
-                    </li>
+                    @if (Route::has('login'))
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/team">hi {{ Auth::user()->name }}</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/#pendaftaran">PENDAFTARAN</a>
+                            </li>
+                        @endauth
+                    @endif
                 </ul>
                 @if (Route::has('login'))
                     @auth
