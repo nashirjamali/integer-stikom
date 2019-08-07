@@ -13,6 +13,7 @@
     <link href="{{asset('css/fontawesome-all.css')}}" rel="stylesheet">
     <link href="{{asset('css/swiper.css')}}" rel="stylesheet">
     <link href="{{asset('css/magnific-popup.css')}}" rel="stylesheet">
+    <link href="{{asset('css/timeline.css')}}" rel="stylesheet" />
     <link href="{{asset('css/styles.css')}}" rel="stylesheet">
 
     @stack('custom-css')
@@ -47,19 +48,16 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#header">BERANDA<span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll {{ request()->is('#header') ? 'active' : '' }} " href="/#header">BERANDA<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="">LOMBA</a>
+                        <a class="nav-link page-scroll {{ request()->is('#lomba') ? 'active' : '' }}" href="/#lomba">LOMBA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="">JADWAL</a>
+                        <a class="nav-link page-scroll {{ request()->is('#jadwal') ? 'active' : '' }}" href="/#jadwal">JADWAL</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="">PENDAFTARAN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll">FAQ</a>
+                        <a class="nav-link page-scroll {{ request()->is('#pendaftaran') ? 'active' : '' }}" href="/#pendaftaran">PENDAFTARAN</a>
                     </li>
                 </ul>
                 <span class="nav-item">
@@ -76,26 +74,28 @@
 
 
     <!-- Scripts -->
-    <script src="js/jquery.min.js"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
     <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="js/popper.min.js"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
     <!-- Popper tooltip library for Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- Bootstrap framework -->
-    <script src="js/jquery.easing.min.js"></script>
+    <script src="{{asset('js/jquery.easing.min.js')}}"></script>
     <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="js/swiper.min.js"></script>
+    <script src="{{asset('js/swiper.min.js')}}"></script>
     <!-- Swiper for image and text sliders -->
-    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="{{asset('js/jquery.magnific-popup.js')}}"></script>
     <!-- Magnific Popup for lightboxes -->
-    <script src="js/morphext.min.js"></script>
+    <script src="{{asset('js/morphext.min.js')}}"></script>
     <!-- Morphtext rotating text in the header -->
-    <script src="js/validator.min.js"></script>
+    <script src="{{asset('js/validator.min.js')}}"></script>
     <!-- Validator.js - Bootstrap plugin that validates forms -->
-    <script src="js/scripts.js"></script>
+    <script src="{{asset('js/timeline.min.js')}}"></script>
+    <!-- Timeline.js -->
+    <script src="{{asset('js/scripts.js')}}"></script>
 
     @stack('custom-script')
 
-    </body>
+</body>
 
 </html>
