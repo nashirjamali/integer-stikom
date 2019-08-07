@@ -19,8 +19,8 @@ class CreateParticipantsTable extends Migration
             $table->date('birth_date');
             $table->string('email');
             $table->string('phone');
-            $table->string('tshirt');
-            $table->string('vegetarian');
+            $table->string('tshirt')->nullable();
+            $table->string('vegetarian')->nullable();
             $table->string('identity_card');
             $table->string('status');
             $table->string('team_id')->index();
