@@ -42,6 +42,7 @@ class LandingPageController extends Controller
 
         return view('register-team', [
             'name' => $name,
+            'username' => $username,
             'competition_id' => $competition_id,
             'password' => $password,
             'institution' => $institution
@@ -91,34 +92,42 @@ class LandingPageController extends Controller
         $status_1 = "Ketua";
         $status_2 = "Anggota";
         $status_3 = "Anggota";
+        
 
         $name_team = $request->get('name_team');
         $username = $request->get('username');
         $password = $request->get('password');
         $institution = $request->get('institution');
+        $competition_id = $request->get('competition_id');
 
         $team = new Team;
+        $team->id = $username;
         $team->name = $name_team;
         $team->username = $username;
         $team->password = $password;
         $team->institution = $institution;
+        $team->status = "belum";
+        $team->competition_id = $competition_id;
         $team->save();
 
         $participant = new Participants;
 
         for ($i = 1; $i < 3; $i++) {
+            $team_id = $username;
             $name = 'name_' . $i;
             $birth_date = 'birth_date_' . $i;
             $email = 'email_' . $i;
+            $phone = 'phone_' . $i;
             $status = 'status_' . $i;
             $username = 'username_' . $i;
-            $identity_card = 'identitiy_card_' . $i;
+            $identity_card = 'identity_card_' . $i;
             $participant->name = $$name;
             $participant->birth_date = $$birth_date;
             $participant->email = $$email;
-            $participant->username = $$username;
             $participant->identity_card = $$identity_card;
             $participant->status = $$status;
+            $participant->phone = $$phone;
+            $participant->team_id = $team_id;
         }
 
         $participant->save();

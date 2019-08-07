@@ -148,6 +148,7 @@
                             <input type="hidden" value="{{ $competition_id }}" name="competition_id">
                             <input type="hidden" value="{{ $password }}" name="password">
                             <input type="hidden" value="{{ $name }}" name="name_team">
+                            <input type="hidden" value="{{ $username }}" name="username">
 
                             <input type="button" name="previous" class="previous action-button" value="Kembali" />
                             <input type="submit" name="next" class="next action-button" value="Daftar" />
