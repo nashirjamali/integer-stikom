@@ -38,4 +38,9 @@ class Team extends MasterModel
     {
         return $this->hasMany(Submission_team::class);
     }
+
+    public function user()
+    {
+        return $this->hasMany(App\User::class);
+    }
 }
