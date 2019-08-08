@@ -28,6 +28,11 @@ class TeamController extends Controller
         return view('team.video');
     }
 
+    public function videostore(){
+        dd("asd");
+        return view('team.video');
+    }
+
     public function setting(){
         return view('team.setting');
     }

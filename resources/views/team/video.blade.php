@@ -25,14 +25,12 @@
                     <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Judul</th>
                                 <th>Link Video</th>
                                 <th>Waktu Submit</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
                             </tr>
@@ -54,17 +52,18 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form>
+            <form action="{{ route('team.video.store')}}" method="POST">
+                {{csrf_field()}}
+                <div class="modal-body">
                     <div class="form-group">
                         <input class="form-control" type="text" placeholder="Input Link Video">
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Upload</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
