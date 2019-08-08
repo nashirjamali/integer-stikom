@@ -15,15 +15,18 @@
                 </div>
             </div>
             <div class="card-body">
+
                 <form>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="pembayaran">Upload Bukti Pembayaran</label>
-                                <input type="file" class="form-control-file" id="pembayaran">
+                                <input type="file" class="form-control-file" name="evidence" id="pembayaran">
+                                
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control form-control-alternative" rows="3" placeholder="Keterangan"></textarea>
+                                <textarea class="form-control form-control-alternative" rows="3" name="description" placeholder="Keterangan"></textarea>
+                                <input type="text" class="form-control-file" name="team_id" value="Stikomdev" id="pembayaran" hidden>
                             </div>
                         </div>
                         <div class="col-md-3">

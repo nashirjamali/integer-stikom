@@ -15,6 +15,7 @@ Route::name('team.')->group(function () {
         Route::get( 'team/video', 'TeamController@video' );
 
         Route::resource('team/submission','Submission_teamController');
+        Route::resource('team/payments','PaymentController');
 
 
         // Route::get('team', function () {
