@@ -14,8 +14,9 @@ class TeamController extends Controller
     public function index(){
         $teams = Auth::user()->username;
         // dd($teams);
+        $team_ahh = Teams::join('competitions', 'teams.competition_id', '=', 'competitions.id')->where('username', $teams)->get();
         $participants = Participants::where('team_id' , $teams )->get();
-        return view('team.dashboard-peserta',['participants' => $participants]);
+        return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh]);
     }
 
     public function payments(){

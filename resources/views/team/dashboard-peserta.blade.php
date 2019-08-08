@@ -4,15 +4,15 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
+        @foreach ($teamku as $y)
             <div class="card-header" style="padding-bottom:1px;">
                 <h5 class="card-title" style="margin-bottom:1px;">Nama Team</h5>
             </div>
             <div class="card-body" style="padding-bottom:1em;">
-                <h3 class="card-subtitle mb-2">Stikom Dev</h3>
-                <h4 class="card-subtitle mb-2 text-muted">Stikom Surabaya</h4>
+                <h3 class="card-subtitle mb-2">{{ $y->name }}</h3>
+                <h4 class="card-subtitle mb-2 text-muted">{{ $y->institution }}</h4>
             </div>
         </div>
-
     </div>
     <div class="col-md-6">
         <div class="card">
@@ -20,11 +20,12 @@
                 <h5 class="card-title" style="margin-bottom:1px;">Kategori Lomba</h5>
             </div>
             <div class="card-body" style="padding-bottom:1em;">
-                <h3 class="card-subtitle mb-2">Software Development</h3>
-                <h4 class="card-subtitle mb-2 text-muted">status?</h4>
+                <h3 class="card-subtitle mb-2">{{ $y->name }}</h3>
+                <h4 class="card-subtitle mb-2 text-muted">{{ $y->status}}</h4>
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 @endsection
 
