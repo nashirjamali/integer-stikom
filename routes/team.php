@@ -13,6 +13,8 @@ Route::name('team.')->group(function () {
         Route::get( 'team/payments', 'TeamController@payments' );
         Route::get( 'team/submission', 'TeamController@submission' );
         Route::get( 'team/video', 'TeamController@video' );
+        Route::get( 'team/setting', 'TeamController@setting')->name('setting.index');
+        Route::put( 'team/setting/store', 'TeamController@settingstore' )->name('setting.store');
 
         Route::resource('team/submission','Submission_teamController');
         Route::resource('team/payments','PaymentController');

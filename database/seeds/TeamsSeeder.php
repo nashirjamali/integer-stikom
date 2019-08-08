@@ -18,7 +18,7 @@ class TeamsSeeder extends Seeder
             'username'      => 'stikomdev',
             'password'      => bcrypt('1234567890'),
             'institution'   => 'Stikom Surabaya',
-            'status'        => 1,
+            'status'        => 'belum',
             'competition_id'=> 1,
         ]);
     }
