@@ -15,7 +15,9 @@ class Submission extends MasterModel
         'date_end',
         'competition_id',
     ];
+    protected $primaryKey = 'id'; // or null
 
+    public $incrementing = false;
     // protected $primaryKey = 'id';
     public function competition()
     {

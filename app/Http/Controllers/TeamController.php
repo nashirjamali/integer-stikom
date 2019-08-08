@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Teams;
+use App\Models\Team;
 use App\Models\Participants;
 use App\User;
+use App\Models\Submission_team;
+use App\Models\Submission;
 
 class TeamController extends Controller
 {
@@ -25,12 +27,38 @@ class TeamController extends Controller
     }
 
     public function video(){
-        return view('team.video');
+        $team_id = Auth::user()->team_id;
+        $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
+
+        $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
+                                                 ->where('competition_id', $competition_id)
+                                                 ->first()->id;
+
+        $submission_team = Submission_team::where('team_id', Auth::user()->team_id)
+                                            ->where('submission_id', $submission_id)
+                                            ->get();
+
+        return view('team.video',['submission_team' => $submission_team]);
     }
 
-    public function videostore(){
-        dd("asd");
-        return view('team.video');
+    public function videostore(Request $request){
+
+        $team_id = Auth::user()->team_id;
+        $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
+
+        $document = $request->document;
+        $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
+                                                 ->where('competition_id', $competition_id)
+                                                 ->first()->id;
+
+
+        Submission_team::create([
+            'submission_id' => $submission_id,
+            'team_id'       => $team_id,
+            'document'      => $document,
+        ]);
+
+        return redirect('team/video')->with('success', 'Data telah terkirim');
     }
 
     public function setting(){

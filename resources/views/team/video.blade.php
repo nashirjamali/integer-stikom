@@ -30,10 +30,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
+                            @foreach ($submission_team as $sub)
+                                <tr>
+                                    <td>{{ $sub->document }}</td>
+                                    <td>{{ $sub->created_at }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -56,7 +58,7 @@
                 {{csrf_field()}}
                 <div class="modal-body">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Input Link Video">
+                        <input class="form-control" name="document" type="text" placeholder="Input Link Video">
                     </div>
                 </div>
                 <div class="modal-footer">
