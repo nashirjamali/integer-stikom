@@ -98,7 +98,7 @@
                                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                     consequat
                                 </p>
-                                <a href="" class="btn-solid-reg">Selengkapnya</a>
+                                <a href="https://docs.google.com/document/u/0/d/1KZ-j4HQdTsd82Q6MYCT0PLIpODpS4dPNFNlQIgBKLJk/export?format=docx" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                     consequat
                                 </p>
-                                <a href="" class="btn-solid-reg">Selengkapnya</a>
+                                <a href="https://docs.google.com/document/u/0/d/1WxYokVf34tFBA6HVzeg8-lI-4wWCLfgxS4hEpvGs_h4/export?format=docx" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>

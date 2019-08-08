@@ -37,7 +37,7 @@
       <hr class="my-3">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('team/setting') ? 'active' : '' }}" href="{{URL::to('/team/submission')}}">
+          <a class="nav-link {{ request()->is('team/setting') ? 'active' : '' }}" href="{{URL::to('/team/setting')}}">
             <i class="ni ni-settings-gear-65 text-black"></i> Setting
           </a>
         </li>
