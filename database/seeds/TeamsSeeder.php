@@ -21,5 +21,15 @@ class TeamsSeeder extends Seeder
             'status'        => 'belum',
             'competition_id'=> 1,
         ]);
+
+        DB::table('teams')->insert([
+            'id'            => 'ubayadev',
+            'name'          => 'Ubaya Dev',
+            'username'      => 'ubayadev',
+            'password'      => bcrypt('1234567890'),
+            'institution'   => 'Ubaya Surabaya',
+            'status'        => 'belum',
+            'competition_id'=> 2,
+        ]);
     }
 }

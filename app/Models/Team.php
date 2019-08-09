@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\MasterModel;
+use App\User;
 
-class Teams extends MasterModel
+class Team extends MasterModel
 {
     protected $table= 'teams';
     protected $gruarderd= ['id'];
@@ -41,6 +42,6 @@ class Teams extends MasterModel
 
     public function user()
     {
-        return $this->hasMany(App\User::class);
+        return $this->hasOne(User::class);
     }
 }
