@@ -17,7 +17,7 @@ class PaymentSeeder extends Seeder
             'id' => 1,
             'evidence' => 'bukti.jpg',
             'description' => "Aku transfer pake atm MAMA",
-            'team_id'=> 'stikomdev',
+            'teams_id'=> 'stikomdev',
         ]);
     }
 }

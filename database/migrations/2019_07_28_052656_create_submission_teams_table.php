@@ -16,7 +16,7 @@ class CreateSubmissionTeamsTable extends Migration
         Schema::create('submission_teams', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('submission_id');
-            $table->string('team_id');
+            $table->string('teams_id');
             $table->string('document');
             $table->timestamps();
             $table->softDeletes();
@@ -26,7 +26,7 @@ class CreateSubmissionTeamsTable extends Migration
                     ->onUpdate('cascade')
                     ->onDelete('restrict');
                     
-            $table->foreign('team_id')
+            $table->foreign('teams_id')
                     ->references('id')->on('teams')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');

@@ -22,7 +22,7 @@ class ParticipantsSeeder extends Seeder
                 'vegetarian' => 'Y',
                 'identity_card' => 'ktm.jpg',
                 'status' => 'Ketua',
-                'team_id'=> 'stikomdev',
+                'teams_id'=> 'stikomdev',
             ],
             [
                 'id'   => 2,
@@ -34,7 +34,7 @@ class ParticipantsSeeder extends Seeder
                 'vegetarian' => 'Y',
                 'identity_card' => 'ktm2.jpg',
                 'status' => 'Anggota',
-                'team_id'=> 'stikomdev',  
+                'teams_id'=> 'stikomdev',  
             ],
             [
                 'id'   => 3,
@@ -46,7 +46,7 @@ class ParticipantsSeeder extends Seeder
                 'vegetarian' => 'Y',
                 'identity_card' => 'ktm3.jpg',
                 'status' => 'Anggota',
-                'team_id'=> 'stikomdev',
+                'teams_id'=> 'stikomdev',
             ],
            
         ]);

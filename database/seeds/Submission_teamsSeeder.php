@@ -13,7 +13,7 @@ class Submission_teamsSeeder extends Seeder
     {
         DB::table('submission_teams')->insert([
             'submission_id'=> 'uiux1',
-            'team_id'=> 'stikomdev',
+            'teams_id'=> 'stikomdev',
             'document' => 'berkas.pdf',
         ]);
     }

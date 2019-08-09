@@ -23,11 +23,11 @@ class CreateParticipantsTable extends Migration
             $table->string('vegetarian')->nullable();
             $table->string('identity_card');
             $table->string('status');
-            $table->string('team_id')->index();
+            $table->string('teams_id')->index();
             $table->timestamps();
             $table->softDeletes();
             
-            $table->foreign('team_id')
+            $table->foreign('teams_id')
                     ->references('id')->on('teams');
         });
     }
