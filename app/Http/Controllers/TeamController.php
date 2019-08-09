@@ -38,7 +38,15 @@ class TeamController extends Controller
                                             ->where('submission_id', $submission_id)
                                             ->get();
 
-        return view('team.video',['submission_team' => $submission_team]);
+        $done = Submission_team::select('id')->where('team_id', Auth::user()->team_id)
+                                            ->where('submission_id', $submission_id)
+                                            ->first();
+                    
+        
+        return view('team.video',[
+            'submission_team' => $submission_team,
+            'done' => $done,
+        ]);
     }
 
     public function videostore(Request $request){
@@ -50,7 +58,6 @@ class TeamController extends Controller
         $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
                                                  ->where('competition_id', $competition_id)
                                                  ->first()->id;
-
 
         Submission_team::create([
             'submission_id' => $submission_id,

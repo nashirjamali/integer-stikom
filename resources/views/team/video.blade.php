@@ -1,6 +1,13 @@
 @extends('team.layouts')
 
 @section('content-head')
+
+@if(isset($done->id))
+    <div class="alert alert-success">
+        <strong>Sukses!</strong> Terimakasih atas partisipasi anda:) tunggu hasilnya ya hehe
+    </div>
+@endif
+
 @endsection
 
 @section('content-body')
@@ -14,12 +21,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2" style="margin-top:1em;">
-                <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
-                    <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
-                    <span class="btn-inner--text">Upload Video</span>
-                </button>
-            </div>
+            @if(!isset($done->id))
+                <div class="col-md-2" style="margin-top:1em;">
+                    <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
+                        <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
+                        <span class="btn-inner--text">Upload Video</span>
+                    </button>
+                </div>
+            @endif
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
@@ -58,7 +67,7 @@
                 {{csrf_field()}}
                 <div class="modal-body">
                     <div class="form-group">
-                        <input class="form-control" name="document" type="text" placeholder="Input Link Video">
+                        <input class="form-control" name="document" type="text" placeholder="Input Link Video" required>
                     </div>
                 </div>
                 <div class="modal-footer">
