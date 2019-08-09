@@ -10,6 +10,7 @@ use App\Models\Participants;
 use App\User;
 use App\Models\Submission_team;
 use App\Models\Submission;
+use Illuminate\Support\Facades\Session;
 
 class TeamController extends Controller
 {
@@ -80,12 +81,11 @@ class TeamController extends Controller
         if (Hash::check($request->password_lama, $pass)) {
             
             User::where('team_id', Auth::user()->team_id)->update(array('password' => Hash::make($request->password)));
-            Teams::where('id', Auth::user()->team_id)->update(array('password' => Hash::make($request->password)));
-            //kurang modal berhasil
+            Team::where('id', Auth::user()->team_id)->update(array('password' => Hash::make($request->password)));
+            Session::flash('sukses','Selamat password anda telah diubah');
+            
         }else{
-
-            dd("kurang notifikasi kalau password lama tidak cocok");
-            //kurang notifikasi kalau password lama tidak cocok
+            Session::flash('gagal','Maaf password yang anda masukan salah');
         }
 
         return redirect('team/setting')->with('success', 'Data telah terkirim');
