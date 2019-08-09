@@ -23,6 +23,15 @@ class UsersSeeder extends Seeder
 
         $user = User::create([
             'id'           => '2',
+            'team_id'      => 'ubayadev',
+            'name'         => 'Ubaya Dev',
+            'username'     => 'ubayadev',
+            'password'     => Hash::make('1234567890'),
+            'role'         => 'team',
+        ]);
+
+        $user = User::create([
+            'id'           => '3',
             'team_id'      => '',
             'name'         => 'admin',
             'username'     => 'admin',
@@ -31,7 +40,7 @@ class UsersSeeder extends Seeder
         ]);
 
         $user = User::create([
-            'id'           => '3',
+            'id'           => '4',
             'team_id'      => '',
             'name'         => 'ibnu',
             'username'     => 'ibnuprtma',
