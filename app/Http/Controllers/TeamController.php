@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Session;
 class TeamController extends Controller
 {
     public function index(){
-        $participants = Participants::all();
-        return view('team.dashboard-peserta',['participants' => $participants]);
+        $teams = Auth::user()->username;
+        // dd($teams);
+        $team_ahh = Team::join('competitions', 'teams.competition_id', '=', 'competitions.id')->where('username', $teams)->get();
+        $participants = Participants::where('team_id' , $teams )->get();
+        return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh]);
     }
 
     public function payments(){
