@@ -34,14 +34,12 @@ class TeamController extends Controller
         $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
                                                  ->where('competition_id', $competition_id)
                                                  ->first()->id;
+        $submission_teams = Submission_team::where('team_id', Auth::user()->team_id)
+                                            ->where('submission_id', $submission_id);
 
-        $submission_team = Submission_team::where('team_id', Auth::user()->team_id)
-                                            ->where('submission_id', $submission_id)
-                                            ->get();
+        $submission_team = $submission_teams->get();
 
-        $done = Submission_team::select('id')->where('team_id', Auth::user()->team_id)
-                                            ->where('submission_id', $submission_id)
-                                            ->first();
+        $done = $submission_teams->first();
                     
         
         return view('team.video',[
