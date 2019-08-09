@@ -1,6 +1,13 @@
 @extends('team.layouts')
 
 @section('content-head')
+
+@if(isset($done->id))
+    <div class="alert alert-success">
+        <strong>Sukses!</strong> Terimakasih atas partisipasi anda:) tunggu hasilnya ya hehe
+    </div>
+@endif
+
 @endsection
 
 @section('content-body')
@@ -14,28 +21,30 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2" style="margin-top:1em;">
-                <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
-                    <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
-                    <span class="btn-inner--text">Upload Video</span>
-                </button>
-            </div>
+            @if(!isset($done->id))
+                <div class="col-md-2" style="margin-top:1em;">
+                    <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
+                        <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
+                        <span class="btn-inner--text">Upload Video</span>
+                    </button>
+                </div>
+            @endif
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Judul</th>
                                 <th>Link Video</th>
                                 <th>Waktu Submit</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
+                            @foreach ($submission_team as $sub)
+                                <tr>
+                                    <td>{{ $sub->document }}</td>
+                                    <td>{{ $sub->created_at }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -54,17 +63,18 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form>
+            <form action="{{ route('team.video.store')}}" method="POST">
+                {{csrf_field()}}
+                <div class="modal-body">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Input Link Video">
+                        <input class="form-control" name="document" type="text" placeholder="Input Link Video" required>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Upload</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

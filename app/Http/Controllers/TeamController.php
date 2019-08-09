@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Teams;
+use App\Models\Team;
 use App\Models\Participants;
 use App\User;
+use App\Models\Submission_team;
+use App\Models\Submission;
+use Illuminate\Support\Facades\Session;
 
 class TeamController extends Controller
 {
@@ -28,7 +31,43 @@ class TeamController extends Controller
     }
 
     public function video(){
-        return view('team.video');
+        $team_id = Auth::user()->team_id;
+        $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
+
+        $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
+                                                 ->where('competition_id', $competition_id)
+                                                 ->first()->id;
+        $submission_teams = Submission_team::where('team_id', Auth::user()->team_id)
+                                            ->where('submission_id', $submission_id);
+
+        $submission_team = $submission_teams->get();
+
+        $done = $submission_teams->first();
+                    
+        
+        return view('team.video',[
+            'submission_team' => $submission_team,
+            'done' => $done,
+        ]);
+    }
+
+    public function videostore(Request $request){
+
+        $team_id = Auth::user()->team_id;
+        $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
+
+        $document = $request->document;
+        $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
+                                                 ->where('competition_id', $competition_id)
+                                                 ->first()->id;
+
+        Submission_team::create([
+            'submission_id' => $submission_id,
+            'team_id'       => $team_id,
+            'document'      => $document,
+        ]);
+
+        return redirect('team/video')->with('success', 'Data telah terkirim');
     }
 
     public function setting(){
@@ -43,12 +82,11 @@ class TeamController extends Controller
         if (Hash::check($request->password_lama, $pass)) {
             
             User::where('team_id', Auth::user()->team_id)->update(array('password' => Hash::make($request->password)));
-            Teams::where('id', Auth::user()->team_id)->update(array('password' => Hash::make($request->password)));
-            //kurang modal berhasil
+            Team::where('id', Auth::user()->team_id)->update(array('password' => Hash::make($request->password)));
+            Session::flash('sukses','Selamat password anda telah diubah');
+            
         }else{
-
-            dd("kurang notifikasi kalau password lama tidak cocok");
-            //kurang notifikasi kalau password lama tidak cocok
+            Session::flash('gagal','Maaf password yang anda masukan salah');
         }
 
         return redirect('team/setting')->with('success', 'Data telah terkirim');

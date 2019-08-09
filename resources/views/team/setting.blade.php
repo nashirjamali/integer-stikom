@@ -1,6 +1,19 @@
 @extends('team.layouts')
 
 @section('content-head')
+@if ($message = Session::get('gagal'))
+    <div class="alert alert-danger alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button> 
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+
+@if ($message = Session::get('sukses'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $message }}</strong>
+</div>
+@endif
 @endsection
 
 @section('content-body')
@@ -22,11 +35,11 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-first-name">Password lama</label>
-                                <input type="password" name="password_lama" id="password" class="form-control form-control-alternative" placeholder="Password">
+                                <input type="password" name="password_lama" id="password" class="form-control form-control-alternative" placeholder="Password" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-first-name">Password Baru</label>
-                                <input type="password" name="password" id="password" class="form-control form-control-alternative" placeholder="Password">
+                                <input type="password" name="password" id="password" class="form-control form-control-alternative" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="col-md-3">
