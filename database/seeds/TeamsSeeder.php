@@ -13,26 +13,6 @@ class TeamsSeeder extends Seeder
     {
         //
         DB::table('teams')->insert([
-<<<<<<< HEAD
-            [
-                'id'            => 'stikomdev',
-                'name'          => 'Stikom Dev',
-                'username'      => 'stikomdev',
-                'password'      => bcrypt('1234567890'),
-                'institution'   => 'Stikom Surabaya',
-                'status'        => 1,
-                'competition_id' => 1,
-            ],
-            [
-                'id'            => 'anjingkancili',
-                'name'          => 'Anjing Kancili',
-                'username'      => 'anjingkancili',
-                'password'      => bcrypt('1234567890'),
-                'institution'   => 'Universitas Airlangga',
-                'status'        => 1,
-                'competition_id' => 1,
-            ],
-=======
             'id'            => 'stikomdev',
             'name'          => 'Stikom Dev',
             'username'      => 'stikomdev',
@@ -40,7 +20,6 @@ class TeamsSeeder extends Seeder
             'institution'   => 'Stikom Surabaya',
             'status'        => 'Belum Terverifikasi',
             'competition_id'=> 1,
->>>>>>> ibnu
         ]);
 
         DB::table('teams')->insert([

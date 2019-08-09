@@ -47,14 +47,5 @@ class UsersSeeder extends Seeder
             'password'     => Hash::make('1234567890'),
             'role'         => 'commite',
         ]);
-
-        $user = User::create([
-            'id'           => '4',
-            'team_id'      => 'anjingkancili',
-            'name'         => 'Anjing Kancili',
-            'username'     => 'anjingkancili',
-            'password'     => Hash::make('1234567890'),
-            'role'         => 'team',
-        ]);
     }
 }

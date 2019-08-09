@@ -111,15 +111,15 @@
                     <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                <span class="input-group-text"><i class="ni ni-image"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Kartu Identitsa" type="file">
+                            <input class="form-control" placeholder="Kartu Identitas" type="file">
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                             </div>
                             <input class="form-control" placeholder="Nama Lengkap" type="text">
                         </div>
@@ -127,7 +127,7 @@
                     <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                             </div>
                             <input class="form-control" placeholder="Tanggal Lahir" type="date">
                         </div>
@@ -143,64 +143,9 @@
                     <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                             </div>
                             <input class="form-control" placeholder="Phone" type="number">
-                        </div>
-                    </div>
-                    <div class="card" style="margin-top:1em;">
-                        <div class="card-header" style="padding-bottom:1px">
-                            <h5 class="card-title">Vegetarian</h5>
-                        </div>
-                        <div class="card-body" style="padding-bottom:1px">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="custom-control custom-radio mb-3">
-                                        <input name="custom-radio-2" class="custom-control-input" id="customRadio5" type="radio">
-                                        <label class="custom-control-label" for="customRadio5">Ya</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="custom-control custom-radio mb-3">
-                                        <input name="custom-radio-2" class="custom-control-input" id="customRadio6" type="radio">
-                                        <label class="custom-control-label" for="customRadio6">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="margin-top:1em;">
-                        <div class="card-header" style="padding-bottom:1px">
-                            <h5 class="card-title">T-shirt</h5>
-                        </div>
-                        <div class="card-body" style="padding-bottom:1px">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="custom-control custom-radio mb-3">
-                                        <input name="custom-radio-3" class="custom-control-input" id="customRadio7" type="radio">
-                                        <label class="custom-control-label" for="customRadio7">Ya</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="custom-control custom-radio mb-3">
-                                        <input name="custom-radio-3" class="custom-control-input" id="customRadio8" type="radio">
-                                        <label class="custom-control-label" for="customRadio8">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="input-group input-group-alternative">
-                                    <select class="custom-select custom-select-sm">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">S</option>
-                                        <option value="2">M</option>
-                                        <option value="3">L</option>
-                                        <option value="3">XL</option>
-                                        <option value="3">2XL</option>
-                                        <option value="3">3XL</option>
-                                    </select>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
