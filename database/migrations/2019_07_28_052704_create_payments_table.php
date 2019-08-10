@@ -17,11 +17,11 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('evidence');
             $table->string('description');
-            $table->string('teams_id');
+            $table->string('team_id');
             $table->timestamps();
             $table->softDeletes();
             
-            $table->foreign('teams_id')
+            $table->foreign('team_id')
                     ->references('id')->on('teams')
                     ->onUpdate('cascade')
                     ->onDelete('restrict');

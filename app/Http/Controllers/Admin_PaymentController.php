@@ -16,17 +16,13 @@ class Admin_PaymentController extends Controller
      */
     public function index()
     {
-        // $payment = Payment::all();
-        // return view('admin.admin-payment',['payment' => $payment]);
+        $payment = Payment::all();
+        $team = Team::all();
+        return view('admin.admin-payment',[
+            'payment'=> $payment,
+            'team'=> $team
+        ]);
 
-        $payment = DB::Table('Teams')->join('Payments','teams.id','=','payments.team_id')->get();
-        return view('admin.admin-payment',['payment' => $payment]);
-
-        if ($payment->status == '1'){
-            echo "<span class='label label-danger'>Pending</span>";
-        }else{
-            echo "<span class='label label-success'>Approve</span>";
-        }
 
     }
 
@@ -60,7 +56,7 @@ class Admin_PaymentController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -71,7 +67,14 @@ class Admin_PaymentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pay = Payment::find($id);
+        $tm = Team::all();
+
+        return view('admin.admin-payment-detail',[
+            'pay'=> $pay,
+            'tm'=> $tm
+        ]);
+
     }
 
     /**
@@ -83,7 +86,18 @@ class Admin_PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Team::where('id', $id)->update(array('status' => 'Sudah'));
+        return redirect('admin/admin-payment')->with('success', 'Data telah terkirim');
+
+        // $pay = Payment::find($id);
+        // $tm = Team::all();
+        // $pay->team->status = $request->input('status');
+        // $pay = $pay->team->status;
+        // //dd($pay);
+        // $pay->save();
+        // return redirect('admin/admin-payment')->with('success', 'Data telah terkirim');
+
+
     }
 
     /**

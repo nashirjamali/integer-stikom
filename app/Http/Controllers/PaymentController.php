@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
+use App\Models\Team;
+use App\User;
+use Illuminate\Support\Facades\Session;
+
+
 use App\Models\Payment;
 
 class PaymentController extends Controller
@@ -14,8 +19,22 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payment = Payment::all();
-        return view('team.payments',['payment' => $payment]);
+        // $payment = Payment::all();
+        // return view('team.payments',['payment' => $payment]);
+
+        $team_id = Auth::user()->team_id;
+    
+        $payments = Payment::where('team_id', Auth::user()->team_id);
+
+        $payment = $payments->get();
+
+        $done = $payments->first();
+                    
+        
+        return view('team.payments',[
+            'payment' => $payment,
+            'done' => $done,
+        ]);
     }
 
     /**
@@ -37,14 +56,31 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         $data = new Payment();
-        $file = $request->file('evidence');
-        $ext = $file->getClientOriginalName();
-        $file->move('uploads/payment',$ext);
-        $data->file = $ext;
+        $evidence = $request->file('evidence');
+        $file_extension = $evidence->getClientOriginalExtension(); //** get filename extension
+        $fileName = Auth::user()->team_id .".". $file_extension;
+        $evidence->move('uploads/payment',$fileName);
+        $data->evidence = $fileName;
         $data->description = $request->input('description');
-        $data->team_id = $request->input('team_id');
+        $data->team_id = Auth::user()->team_id;
         $data->save();
         return redirect('team/payments')->with('success', 'Data telah terkirim');
+
+        // $team_id = Auth::user()->team_id;
+        // $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
+
+        // $document = $request->document;
+        // $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
+        //                                          ->where('competition_id', $competition_id)
+        //                                          ->first()->id;
+
+        // Submission_team::create([
+        //     'submission_id' => $submission_id,
+        //     'team_id'       => $team_id,
+        //     'document'      => $document,
+        // ]);
+
+        // return redirect('team/video')->with('success', 'Data telah terkirim');
     }
 
     /**
