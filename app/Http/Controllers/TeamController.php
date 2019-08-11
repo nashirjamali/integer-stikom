@@ -11,6 +11,7 @@ use App\User;
 use App\Models\Submission_team;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Session;
+use Dotenv\Regex\Success;
 
 class TeamController extends Controller
 {
@@ -18,8 +19,25 @@ class TeamController extends Controller
         $teams = Auth::user()->username;
         // dd($teams);
         $team_ahh = Team::join('competitions', 'teams.competition_id', '=', 'competitions.id')->where('username', $teams)->get();
-        $participants = Participants::where('team_id' , $teams )->get();
+        $participants = Participants::where('team_id' , $teams )->orderBy('id', 'asc')->get();
         return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh]);
+    }
+
+    public function update($id, Request $request){
+
+        $participants = Participants::find($id);
+        $participants->identity_card = $request->identity_card;
+        $participants->name = $request->name;
+        $participants->birth_date = $request->birth_date;
+        $participants->email = $request->email;
+        $participants->phone = $request->phone;
+        $participants->save();
+        return redirect('team');
+
+        // $participants->update($request->all());
+        // return redirect('team')->with('succes','sukses bro'); 
+
+        // return $request;
     }
 
     public function payments(){
