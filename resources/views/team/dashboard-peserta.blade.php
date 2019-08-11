@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
-        @foreach ($teamku as $y)
+            @foreach ($teamku as $y)
             <div class="card-header" style="padding-bottom:1px;">
                 <h5 class="card-title" style="margin-bottom:1px;">Nama Team</h5>
             </div>
@@ -57,7 +57,7 @@
                         <tbody>
                             @foreach ($participants as $x)
                             <tr>
-                                <td>{{ $x->identity_card }}</td>
+                                <td><img src="{{ url('./uploads/file/'.$x->identity_card) }}" style="width:50%;" alt="identitiy_card"></td>
                                 <td>{{ $x->name }}</td>
                                 <td>{{ $x->email }}</td>
                                 <td>{{ $x->phone }}</td>
@@ -65,11 +65,11 @@
                                 <td>{{ $x->status }}</td>
                                 <td>
                                     @if( $x->status=="Ketua" )
-                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta">
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
                                         <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
                                     </button>
                                     @else
-                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta">
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
                                         <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-sm">
@@ -96,8 +96,9 @@
     </div>
 </div>
 
+@foreach ($participants as $x)
 <!-- modal update peserta -->
-<div class="modal fade" id="update-peserta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="update-peserta{{ $x->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -107,13 +108,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form role="form">
+                <form method="POST" name="list_anggota" enctype="multipart/form-data" action="{{ route('team.participants.update',[$x->id])}}">
+                    {{csrf_field()}}
+                    {{ method_field('PUT')}}
                     <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-image"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Kartu Identitas" type="file">
+                            <input class="form-control" type="hidden" name="id">
+                            <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="{{ url('./uploads/file/'.$x->identity_card) }}" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -121,7 +125,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Nama Lengkap" type="text">
+                            <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" value="{{ $x->name }}">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -129,7 +133,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Tanggal Lahir" type="date">
+                            <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" value="{{ $x->birth_date }}">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -137,7 +141,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Email" type="email">
+                            <input class="form-control" placeholder="Email" type="email" name="email" value="{{ $x->email }}">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -145,12 +149,12 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Phone" type="number">
+                            <input class="form-control" placeholder="Phone" type="number" name="phone" value="{{ $x->phone }}">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
             </div>
@@ -158,4 +162,6 @@
     </div>
 </div>
 <!-- modal update peserta -->
+@endforeach
+
 @endsection
