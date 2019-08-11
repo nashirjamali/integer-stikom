@@ -108,7 +108,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data" action="{{ route('team.participants.update',[$x->id])}}">
+                <form method="POST" name="list_anggota" enctype="multipart/form-data" action="{{ route('team.participants.update',[$x->id])}}">
                     {{csrf_field()}}
                     {{ method_field('PUT')}}
                     <div class="form-group mb-3">
@@ -117,7 +117,7 @@
                                 <span class="input-group-text"><i class="ni ni-image"></i></span>
                             </div>
                             <input class="form-control" type="hidden" name="id">
-                            <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" accept="{{ url('./uploads/file/'.$x->identity_card) }}">
+                            <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="{{ url('./uploads/file/'.$x->identity_card) }}" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
