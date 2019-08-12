@@ -66,9 +66,9 @@
                                     <td>{{ $pay->evidence }}</td>
                                     <td>  
                                     @if($pay->team->status == 'belum')
-                                        <a class="btn btn-danger btn-sm" href="{{route('admin.admin-payment.edit',[$pay->id])}}">Pending</a>
+                                        <button type="button" class="btn btn-danger btn-sm">Pending</button>
                                     @elseif($pay->team->status == 'Sudah')
-                                        <a class="btn btn-success btn-sm" href="{{route('admin.admin-payment.edit',[$pay->id])}}">Success</a>
+                                        <button type="button" class="btn btn-success btn-sm">Success</button>
                                           
                                     @endif
                                     </td>
