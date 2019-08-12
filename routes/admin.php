@@ -21,9 +21,6 @@ Route::name('admin.')->group(function () {
             return View::make('admin.admin-detail');
         })->name('admin-detail');
 
-        Route::get('admin/admin-payment', function () {
-            return View::make('admin.admin-payment');
-        })->name('admin-payment');
 
         Route::resource('admin/admin-payment','Admin_PaymentController');
 

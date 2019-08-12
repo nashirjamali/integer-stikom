@@ -40,16 +40,20 @@
                                 <th>Edit</th>
                             </tr>
                         </thead>
-                        @foreach ($payment as $payments)
+                        @foreach ($payment as $pay)
                         <tbody>
                             <tr>
-                                <td>{{ $payments->name }}</td>
-                                <td>{{ $payments->institution }}</td>
-                                <td>{{ $payments->evidence }}</td>
-                                <td>{{ $payments->description }}</td>
-                                <td>{{ $payments->status }}</td>
-                                <td>
-                                <a class="btn btn-primary btn-sm" href="{{URL::to('admin/admin-detail')}}">Detail</a>
+                                <td>{{ $pay->team->name }}</td>
+                                <td>{{ $pay->team->institution }}</td>
+                                <td>{{ $pay->evidence }}</td>
+                                <td>{{ $pay->description }}</td>
+                                <td>{{ $pay->team->status }}</td>
+                                <td> 
+                                @if($pay->team->status == 'belum')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.admin-payment.edit',[$pay->id])}}">Detail</a>
+                                @else
+                                    -   
+                                @endif
                                 </td>
                             </tr>
                         </tbody>
