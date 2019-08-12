@@ -26,6 +26,11 @@
             <i class="ni ni-folder-17 text-green"></i> Submission
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('admin/admin-payment') ? 'active' : '' }}" href="{{URL::to('/admin/admin-payment')}}">
+            <i class="ni ni-folder-17 text-green"></i> Payment
+          </a>
+        </li>
       </ul>
       <!-- Divider -->
       <hr class="my-3">

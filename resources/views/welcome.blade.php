@@ -98,7 +98,7 @@
                                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                     consequat
                                 </p>
-                                <a href="https://docs.google.com/document/u/0/d/1KZ-j4HQdTsd82Q6MYCT0PLIpODpS4dPNFNlQIgBKLJk/export?format=docx" class="btn-solid-reg">Download</a>
+                                <a href="https://doc-0k-b8-docs.googleusercontent.com/docs/securesc/u9nbgnip0pbbcvvmg74mvcdaj8uv2mrn/e0toje7rktumlmgbhtikgn7a786dsl46/1565229600000/08747568890016240498/08747568890016240498/1IZrHF4OKMILNeIiGbKfI-GmgUF_VkHkd?e=download" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                     consequat
                                 </p>
-                                <a href="https://docs.google.com/document/u/0/d/1WxYokVf34tFBA6HVzeg8-lI-4wWCLfgxS4hEpvGs_h4/export?format=docx" class="btn-solid-reg">Download</a>
+                                <a href="https://doc-04-b8-docs.googleusercontent.com/docs/securesc/u9nbgnip0pbbcvvmg74mvcdaj8uv2mrn/0meho4iaoulr4o540ml9451rnom89nr2/1565229600000/08747568890016240498/08747568890016240498/12AF_QEGit5Wn0gmqNyT82P1Xv9BNhic9?e=download&nonce=n3anre15j8v92&user=08747568890016240498&hash=728n6d50hurulkeltlqr3t36ei7oo6kg" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>

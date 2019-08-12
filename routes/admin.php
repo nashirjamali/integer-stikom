@@ -21,6 +21,9 @@ Route::name('admin.')->group(function () {
             return View::make('admin.admin-detail');
         })->name('admin-detail');
 
+
+        Route::resource('admin/admin-payment','Admin_PaymentController');
+
     });
 });
 
