@@ -135,7 +135,7 @@ class LandingPageController extends Controller
         $user->team_id = $username;
         $user->password = $password;
         $user->name = $name_team;
-        $user->role = "user";
+        $user->role = "team";
         $user->save();
 
         return redirect('/');

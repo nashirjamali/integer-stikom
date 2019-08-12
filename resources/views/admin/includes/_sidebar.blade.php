@@ -11,11 +11,7 @@
     <!-- Collapse -->
     <div class="collapse navbar-collapse" id="sidenav-collapse-main">
       <!-- Navigation -->
-      <ul class="navbar-nav">
-        <li class="nav-item" class="" active>
-          <a class=" nav-link active {{ request()->is('team') ? 'active' : '' }}" href="{{URL::to('/admin')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
-          </a>
-        </li>
+      <ul class="navbar-nav"
         <li class="nav-item">
           <a class="nav-link {{ request()->is('admin/dashboard-admin') ? 'active' : '' }}" href="{{URL::to('/admin/list-tim')}}">
             <i class="ni ni-book-bookmark text-red"></i> List Tim

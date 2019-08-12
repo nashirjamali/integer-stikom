@@ -1,21 +1,5 @@
 @extends('admin.layouts')
 
-@section('content-head')
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-header" style="padding-bottom:1px;">
-                <h5 class="card-title" style="margin-bottom:1px;">Quotes</h5>
-            </div>
-            <div class="card-body" style="padding-bottom:1em;">
-                <h3 class="card-subtitle mb-2">Welcome Admin</h3>
-                <h4 class="card-subtitle mb-2 text-muted">Integer Stikom</h4>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
-
 @section('content-body')
 <div class="row">
     <div class="col-xl-12 col-md-12 col-sm-12 order-xl-1">
