@@ -23,9 +23,9 @@
                 <h3 class="card-subtitle mb-2">{{ $y->name }}</h3>
                 <h4 class="card-subtitle mb-2 text-muted">
                     @if($y->status == "Sudah")
-                        Terverifikasi
+                    Terverifikasi
                     @else
-                        Belum Terverifikasi
+                    Belum Terverifikasi
                     @endif
                 </h4>
             </div>
@@ -43,6 +43,12 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h3 class="mb-0">List Anggota</h3>
+                        <div style="margin-top:1em;">
+                            <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
+                                <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+                                <span class="btn-inner--text">Tambah Anggota</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,6 +98,86 @@
         </div>
     </div>
 </div>
+
+
+<!-- modal insert peserta -->
+<div class="modal fade" id="tambah-anggota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" name="list_anggota" enctype="multipart/form-data" action="{{ route('team.participants.update',[$x->id])}}">
+                    {{csrf_field()}}
+                    <input type="hidden" value="{{ (Auth::user()->team_id) }}" name="team">
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                            </div>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Jabatan Anggota Team</option>
+                                <option>Ketua</option>
+                                <option>Anggota</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-image"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="" required>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" value="">
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" value="">
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Email" type="email" name="email" value="">
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Phone" type="number" name="phone" value="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal insert peserta -->
+
+
 @foreach ($participants as $x)
 <!-- modal update peserta -->
 <div class="modal fade" id="update-peserta{{ $x->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
