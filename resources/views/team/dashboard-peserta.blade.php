@@ -21,7 +21,13 @@
             </div>
             <div class="card-body" style="padding-bottom:1em;">
                 <h3 class="card-subtitle mb-2">{{ $y->name }}</h3>
-                <h4 class="card-subtitle mb-2 text-muted">{{ $y->status}}</h4>
+                <h4 class="card-subtitle mb-2 text-muted">
+                    @if($y->status == "Sudah")
+                        Terverifikasi
+                    @else
+                        Belum Terverifikasi
+                    @endif
+                </h4>
             </div>
         </div>
     </div>
@@ -86,16 +92,6 @@
         </div>
     </div>
 </div>
-
-<div class="card" style="margin-top:1em;">
-    <div class="card-header" style="padding-bottom:1px;">
-        <h5 class="card-title" style="margin-bottom:1px;">Unduh Bukti Registrasi</h5>
-    </div>
-    <div class="card-body" style="padding-bottom:1em;">
-        <button type="button" style="padding: 12px 16px;" class="btn btn-primary"><i class="ni ni-cloud-download-95"></i> Unduh</button>
-    </div>
-</div>
-
 @foreach ($participants as $x)
 <!-- modal update peserta -->
 <div class="modal fade" id="update-peserta{{ $x->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

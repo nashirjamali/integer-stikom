@@ -65,22 +65,6 @@ class PaymentController extends Controller
         $data->team_id = Auth::user()->team_id;
         $data->save();
         return redirect('team/payments')->with('success', 'Data telah terkirim');
-
-        // $team_id = Auth::user()->team_id;
-        // $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
-
-        // $document = $request->document;
-        // $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
-        //                                          ->where('competition_id', $competition_id)
-        //                                          ->first()->id;
-
-        // Submission_team::create([
-        //     'submission_id' => $submission_id,
-        //     'team_id'       => $team_id,
-        //     'document'      => $document,
-        // ]);
-
-        // return redirect('team/video')->with('success', 'Data telah terkirim');
     }
 
     /**

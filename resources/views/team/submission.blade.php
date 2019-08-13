@@ -1,6 +1,18 @@
 @extends('team.layouts')
 
 @section('content-head')
+    @if(isset($done->id))
+        <div class="alert alert-success">
+            <strong>Sukses!</strong> Terimakasih atas partisipasi anda.
+        </div>
+    @endif
+
+    @if($payment->status == 'Belum Terverifikasi')
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">HI, {{Auth::user()->name}}</h4>
+            <p>Silahkan melakukan pembayaran terlebih dahulu sebelum melakukan upload proposal. terimakasih :)</p>
+        </div>
+    @endif
 @endsection
 
 @section('content-body')
@@ -15,10 +27,12 @@
                 </div>
             </div>
             <div class="col-md-2" style="margin-top:1em;">
-                <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
-                    <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
-                    <span class="btn-inner--text">Upload Proposal</span>
-                </button>
+                @if($payment->status == "Sudah" && !isset($done->id))
+                    <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
+                        <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
+                        <span class="btn-inner--text">Upload Proposal</span>
+                    </button>
+                @endif
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -29,7 +43,7 @@
                                 <th>Waktu Submit</th>
                             </tr>
                         </thead>
-                        @foreach ($submissionsteam as $submissionteam)
+                        @foreach ($submission_team as $submissionteam)
                         <tbody>
                             <tr>
                                 <td>{{ $submissionteam->document }}</td>
@@ -58,9 +72,6 @@
                 <form method="post" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group">
-                        <input type="text" hidden name="submission_id" value="uiux1" >
-                        <input type="text" hidden name="team_id"  value="Stikomdev" >
-                        
                         <input type="file" class="form-control-file" name="document" id="exampleFormControlFile1">
                     </div>
                 
