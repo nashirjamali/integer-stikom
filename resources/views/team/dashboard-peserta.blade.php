@@ -86,16 +86,6 @@
         </div>
     </div>
 </div>
-
-<div class="card" style="margin-top:1em;">
-    <div class="card-header" style="padding-bottom:1px;">
-        <h5 class="card-title" style="margin-bottom:1px;">Unduh Bukti Registrasi</h5>
-    </div>
-    <div class="card-body" style="padding-bottom:1em;">
-        <button type="button" style="padding: 12px 16px;" class="btn btn-primary"><i class="ni ni-cloud-download-95"></i> Unduh</button>
-    </div>
-</div>
-
 @foreach ($participants as $x)
 <!-- modal update peserta -->
 <div class="modal fade" id="update-peserta{{ $x->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,6 +1,15 @@
 @extends('team.layouts')
 
 @section('content-head')
+
+    <div class="alert alert-success">
+        <strong>Sukses!</strong> Terimakasih atas partisipasi anda.
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">HI, {{Auth::user()->name}}</h4>
+        <p>Silahkan melakukan pembayaran terlebih dahulu sebelum melakukan upload proposal. terimakasih :)</p>
+    </div>
 @endsection
 
 @section('content-body')
