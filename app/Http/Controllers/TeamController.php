@@ -23,6 +23,22 @@ class TeamController extends Controller
         return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh]);
     }
 
+    public function store(Request $request){
+ 
+        Participants::create([
+            'team_id' => $request->team,
+            'status' => $request->status,
+            'identity_card' => $request->identity_card,
+    		'name' => $request->name,
+            'birth_date' => $request->birth_date,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'tshirt' => $request->kaos
+    	]);
+ 
+    	return redirect('team');
+    }
+
     public function update($id, Request $request){
 
         $participants = Participants::find($id);
@@ -33,11 +49,6 @@ class TeamController extends Controller
         $participants->phone = $request->phone;
         $participants->save();
         return redirect('team');
-
-        // $participants->update($request->all());
-        // return redirect('team')->with('succes','sukses bro'); 
-
-        // return $request;
     }
 
     public function payments(){
