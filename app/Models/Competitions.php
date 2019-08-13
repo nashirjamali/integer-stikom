@@ -15,7 +15,7 @@ class Competitions extends MasterModel
 
     public function team()
     {
-        return $this->hasMany(Teams::class);
+        return $this->hasMany(Team::class);
     }
 
     public function submission()

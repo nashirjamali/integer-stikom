@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::name('admin.')->group(function () {
     Route::group([
 
@@ -10,12 +12,10 @@ Route::name('admin.')->group(function () {
       ], function () {
 
         Route::get('admin', function () {
-            return View::make('admin.dashboard-admin');
-        })->name('dashboard-admin');
+            return redirect('/admin/list-tim');
+        });
 
-        Route::get('admin/list-tim', function () {
-            return View::make('admin.list-tim');
-        })->name('list-tim');
+        Route::resource('admin/list-tim', 'Admin_ListTimController');
         
         Route::get('admin/admin-detail', function () {
             return View::make('admin.admin-detail');

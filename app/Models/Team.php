@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\MasterModel;
 use App\User;
+use App\Models\Competitions;
 
 class Team extends MasterModel
 {
@@ -22,7 +23,7 @@ class Team extends MasterModel
     // public $incrementing = false;
     public function competitions()
     {
-        return $this->belongsTo(Competitions::class);
+        return $this->belongsTo(Competitions::class, 'competition_id', 'id');
     }
 
     public function participants()

@@ -19,26 +19,22 @@
                                 <th>Nama Tim</th>
                                 <th>Institusi</th>
                                 <th>Kategori Lomba</th>
-                                <th>Berkas</th>
-                                <th>Link Video</th>
-                                <th>Keterangan Lolos</th>
                                 <th>Status Bayar</th>
                                 <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($teams as $key)
                             <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td>{{ $key->name }}</td>
+                                <td>{{ $key->institution }}</td>
+                                <td>{{ $key->competitions->name }}</td>
+                                <td>{{ $key->status }}</td>
                                 <td>
-                                <a class="btn btn-primary btn-sm" href="{{URL::to('admin/admin-detail')}}">Detail</a>
+                                <a class="btn btn-primary btn-sm" href="/admin/list-tim/{{ $key->username }}">Detail</a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
