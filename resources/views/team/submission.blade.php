@@ -10,7 +10,7 @@
     @if($payment->status == 'Belum Terverifikasi')
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">HI, {{Auth::user()->name}}</h4>
-            <p>Silahkan melakukan pembayaran terlebih dahulu sebelum melakukan upload proposal. terimakasih :)</p>
+            <p>Silahkan melakukan pembayaran terlebih dahulu dan tunggu approve dari panitia sebelum melakukan upload proposal. terimakasih :)</p>
         </div>
     @endif
 @endsection
