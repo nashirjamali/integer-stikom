@@ -21,7 +21,13 @@
             </div>
             <div class="card-body" style="padding-bottom:1em;">
                 <h3 class="card-subtitle mb-2">{{ $y->name }}</h3>
-                <h4 class="card-subtitle mb-2 text-muted">{{ $y->status}}</h4>
+                <h4 class="card-subtitle mb-2 text-muted">
+                    @if($y->status == "Sudah")
+                        Terverifikasi
+                    @else
+                        Belum Terverifikasi
+                    @endif
+                </h4>
             </div>
         </div>
     </div>
