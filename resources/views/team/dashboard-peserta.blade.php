@@ -111,7 +111,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" name="list_anggota" enctype="multipart/form-data" action="{{ route('team.participants.update',[$x->id])}}">
+                <form method="POST" name="list_anggota" enctype="multipart/form-data" action="{{ route('team.participants.store')}}">
                     {{csrf_field()}}
                     <input type="hidden" value="{{ (Auth::user()->team_id) }}" name="team">
                     <div class="form-group mb-3">
@@ -119,8 +119,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                             </div>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Jabatan Anggota Team</option>
+                            <select class="form-control" id="exampleFormControlSelect1" name="status">
+                                <option>Status Anggota Team</option>
                                 <option>Ketua</option>
                                 <option>Anggota</option>
                             </select>
@@ -164,6 +164,21 @@
                                 <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                             </div>
                             <input class="form-control" placeholder="Phone" type="number" name="phone" value="">
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-bag-17"></i></span>
+                            </div>
+                            <select class="form-control" id="exampleFormControlSelect1" name="kaos">
+                                <option>Ukuran Baju</option>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
+                                <option>XXL</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
