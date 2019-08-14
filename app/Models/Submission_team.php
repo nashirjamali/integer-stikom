@@ -20,6 +20,6 @@ class Submission_team extends MasterModel
     }
     public function submission()
     {
-        return $this->belongsTo(Submission::class);
+        return $this->belongsTo(Submission::class, 'submission_id', 'id');
     }
 }
