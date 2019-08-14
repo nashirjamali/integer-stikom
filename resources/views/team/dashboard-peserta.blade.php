@@ -84,9 +84,13 @@
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
                                         <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm">
-                                        <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
-                                    </button>
+                                    <form action="{{ route('team.participants.destroy', $x->id) }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}  
+                                         <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')"><span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span></button>
+                                    </form>
+
+                                    
                                     @endif
                                 </td>
                             </tr>
