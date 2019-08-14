@@ -20,7 +20,8 @@
     let Dashboard = {
         init: function() {
             $(document).ready(function() {
-                $('#list_anggota').DataTable({});
+                $('#list_anggota').DataTable();
+                $('.table').DataTable();
             });
         }
     };

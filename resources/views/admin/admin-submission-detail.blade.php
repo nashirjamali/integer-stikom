@@ -21,9 +21,9 @@
             <div class="card-body">
                 <div class="tab-content" id="myTabContent">
                     @foreach($submissions as $key)
-                    <div class="tab-pane fade show active" id="{{ $key->id }}-text" role="tabpanel" aria-labelledby="{{ $key->id }}-tab">
+                    <div class="tab-pane fade show" id="{{ $key->id }}-text" role="tabpanel" aria-labelledby="{{ $key->id }}-tab">
                         <div class="table-responsive">
-                            <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
+                            <table id="" class="table table-striped table-bordered second" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>Nama Tim</th>
@@ -31,16 +31,22 @@
                                         <th>Tanggal Upload</th>
                                         <th>Terakhir update</th>
                                         <th>Status</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($submissionsTeams as $key_1)
                                     @if($key->id == $key_1->submission_id)
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $key_1->team->name }}</td>
+                                        <td>{{ $key_1->team->institution }}</td>
+                                        <td>{{ $key_1->created_at }}</td>
+                                        <td>{{ $key_1->updated_at }}</td>
+                                        <td>{{ $key_1->status }}</td>
+                                        <td>
+                                            <a href="" class="btn btn-warning"><i class="cloud-download-95"></i></a>
+                                            <a href="{{ $key->document }}">{{ $key->document }}</a>
+                                        </td>
                                     </tr>
                                     @endif
                                     @endforeach
