@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('admin/admin-submission') ? 'active' : '' }}" href="{{URL::to('/admin/admin-submission')}}">
+          <a class="nav-link {{ request()->is('admin/submission') ? 'active' : '' }}" href="{{url('/admin/submission')}}">
             <i class="ni ni-folder-17 text-green"></i> Submission
           </a>
         </li>
