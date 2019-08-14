@@ -3,7 +3,7 @@
 @section('content-head')
     @if(isset($done->id))
         <div class="alert alert-success">
-            <strong>Sukses!</strong> Terimakasih atas partisipasi anda.
+            <strong>Sukses!</strong> Terimakasih atas partisipasi anda.Silahkan tunggu pengumuman selanjutnya
         </div>
     @endif
 

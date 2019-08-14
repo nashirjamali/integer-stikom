@@ -7,10 +7,25 @@
         </div>
     @endif
 
-    <div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">HI, {{Auth::user()->name}}</h4>
-        <p>Silahkan menunggu hasil pengumuman dari pengumpulan proposal sebelum bisa mengupload link video:)</p>
-    </div>
+    @if(isset($submission_team_before->status))
+        @if($submission_team_before->status == "On Progress")
+            <div class="alert alert-primary" role="alert">
+                <h4 class="alert-heading">HI, {{Auth::user()->name}}</h4>
+                <p>Silahkan menunggu hasil pengumuman dari pengumpulan proposal, sebelum bisa mengupload link video:)</p>
+            </div>
+        @elseif($submission_team_before->status == "Failed")
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">HI, {{Auth::user()->name}}</h4>
+                <p>Maaf silahkan coba tahun depan lagi</p>
+            </div>
+        @endif
+    @else
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">HI, {{Auth::user()->name}}</h4>
+            <p>Silahkan mengupload submission sebelumnya, sebelum melakukan upload link video</p>
+        </div>
+    @endif
+
 @endsection
 
 @section('content-body')
@@ -24,13 +39,15 @@
                         </div>
                     </div>
                 </div>
-                @if(!isset($done->id))
-                    <div class="col-md-2" style="margin-top:1em;">
-                        <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
-                            <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
-                            <span class="btn-inner--text">Upload Video</span>
-                        </button>
-                    </div>
+                @if(isset($submission_team_before->status))
+                    @if($submission_team_before->status == "Success")
+                        <div class="col-md-2" style="margin-top:1em;">
+                            <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
+                                <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
+                                <span class="btn-inner--text">Upload Video</span>
+                            </button>
+                        </div>
+                    @endif
                 @endif
                 <div class="card-body">
                     <div class="table-responsive">
