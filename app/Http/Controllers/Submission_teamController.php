@@ -59,9 +59,24 @@ class Submission_teamController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'file' => 'required|mimes:pdf|max:5000',
-        ]);
+        $team_id = Auth::user()->team_id;
+        $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
+        $submission_id = Submission::select('id')->where('name', 'Pengumpulan Proposal')
+            ->where('competition_id', $competition_id)
+            ->first()->id;
+
+        $data = new Submission_team();
+        $evidence = $request->file('document');
+        $file_extension = $evidence->getClientOriginalExtension(); //** get filename extension
+        $fileName = Auth::user()->team_id .".". $file_extension;
+        $evidence->move('uploads/submission',$fileName);
+        $data->submission_id = $submission_id;
+        $data->team_id = Auth::user()->team_id;
+        $data->document = $fileName;
+
+        $data->save();
+
+
         
         return redirect('team/submission')->with('success', 'Data telah terkirim');
     }

@@ -43,6 +43,7 @@ Route::name('team.')->group(function () {
         // Route::get('team/video', function () {
         //     return View::make('team.video');
         // })->name('video');
+
         
     });
 });

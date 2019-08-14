@@ -26,6 +26,26 @@
                     </div>
                 </div>
             </div>
+            <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>File </th>
+                                    <th>Waktu Submit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($submission_team as $sub)
+                                    <tr>
+                                        <td>{{ $sub->document }}</td>
+                                        <td>{{ $sub->created_at }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             <div class="col-md-2" style="margin-top:1em;">
                 @if($payment->status == "Sudah" && !isset($done->id))
                 <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
