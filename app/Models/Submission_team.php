@@ -12,6 +12,7 @@ class Submission_team extends MasterModel
         'submission_id',
         'team_id',
         'document',
+        'status',
     ];
     public function team()
     {

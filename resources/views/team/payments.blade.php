@@ -3,7 +3,7 @@
 @section('content-head')
     @if( isset($done->id) ) 
         <div class="alert alert-success">
-            <strong>Success!</strong> Bukti Pembayaran telah terupload 
+            <strong>Sukses!</strong> Bukti Pembayaran telah terupload 
         </div>  
     @endif 
 
