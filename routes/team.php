@@ -10,6 +10,7 @@ Route::name('team.')->group(function () {
 
 
         Route::get( 'team', 'TeamController@index' )->name('team');
+        Route::post( 'team/store/', 'TeamController@store')->name('participants.store');
         Route::put( 'team/update/{id}', 'TeamController@update')->name('participants.update');
         Route::get( 'team/payments', 'TeamController@payments' );
         Route::get( 'team/submission', 'TeamController@submission' );
@@ -42,6 +43,7 @@ Route::name('team.')->group(function () {
         // Route::get('team/video', function () {
         //     return View::make('team.video');
         // })->name('video');
+
         
     });
 });

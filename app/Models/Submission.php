@@ -21,7 +21,7 @@ class Submission extends MasterModel
     // protected $primaryKey = 'id';
     public function competition()
     {
-        return $this->belongsTo(Competition::class);
+        return $this->belongsTo(Competitions::class, 'competition_id', 'id');
     }
 
     public function submission_team()

@@ -23,6 +23,22 @@ class TeamController extends Controller
         return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh]);
     }
 
+    public function store(Request $request){
+ 
+        Participants::create([
+            'team_id' => $request->team,
+            'status' => $request->status,
+            'identity_card' => $request->identity_card,
+    		'name' => $request->name,
+            'birth_date' => $request->birth_date,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'tshirt' => $request->kaos
+    	]);
+ 
+    	return redirect('team');
+    }
+
     public function update($id, Request $request){
 
         $participants = Participants::find($id);
@@ -33,11 +49,6 @@ class TeamController extends Controller
         $participants->phone = $request->phone;
         $participants->save();
         return redirect('team');
-
-        // $participants->update($request->all());
-        // return redirect('team')->with('succes','sukses bro'); 
-
-        // return $request;
     }
 
     public function payments(){
@@ -55,16 +66,29 @@ class TeamController extends Controller
         $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
                                                  ->where('competition_id', $competition_id)
                                                  ->first()->id;
+
+        
+        $submission_id_before = Submission::select('id')->where('name', 'Pengumpulan Proposal')
+                                                        ->where('competition_id', $competition_id)
+                                                        ->first()->id;
+
+
         $submission_teams = Submission_team::where('team_id', Auth::user()->team_id)
                                             ->where('submission_id', $submission_id);
 
+        $submission_teams_before = Submission_team::where('team_id', Auth::user()->team_id)
+                                                    ->where('submission_id',  $submission_id_before);
+
         $submission_team = $submission_teams->get();
 
+        $submission_team_before =  $submission_teams_before->first();
+
         $done = $submission_teams->first();
+
                     
-        
         return view('team.video',[
             'submission_team' => $submission_team,
+            'submission_team_before' => $submission_team_before,
             'done' => $done,
         ]);
     }
