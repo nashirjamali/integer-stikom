@@ -110,4 +110,15 @@ class TeamController extends Controller
         return redirect('team/setting')->with('success', 'Data telah terkirim');
     }
 
+    public function destroy($id)
+    {
+        $tm = Participants::findOrFail($id); 
+        $tm->delete();
+        return redirect('team')->with(['message'=> 'Successfully deleted!!']);
+    }
+
+
+       
+
+
 }

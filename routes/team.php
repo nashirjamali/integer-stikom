@@ -21,6 +21,11 @@ Route::name('team.')->group(function () {
         Route::resource('team/submission','Submission_teamController');
         Route::resource('team/payments','PaymentController');
 
+        Route::delete('/team/destroy/{id}', 'TeamController@destroy')->name('participants.destroy'); 
+
+        
+        Route::get('/team/hapus/{id}', 'TeamController@hapus');
+
 
         // Route::get('team', function () {
         //     return View::make('team.dashboard-peserta');
