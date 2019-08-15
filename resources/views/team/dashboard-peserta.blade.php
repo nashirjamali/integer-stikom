@@ -4,12 +4,12 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
-            @foreach ($teamku as $y)
             <div class="card-header" style="padding-bottom:1px;">
                 <h5 class="card-title" style="margin-bottom:1px;">Nama Team</h5>
             </div>
             <div class="card-body" style="padding-bottom:1em;">
-                <h3 class="card-subtitle mb-2">{{ $y->name }}</h3>
+                <h3 class="card-subtitle mb-2">{{ Auth::user()->name }}</h3>
+            @foreach ($teamku as $y)
                 <h4 class="card-subtitle mb-2 text-muted">{{ $y->institution }}</h4>
             </div>
         </div>
@@ -84,9 +84,13 @@
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
                                         <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm">
-                                        <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
-                                    </button>
+                                    <form action="{{ route('team.participants.destroy', $x->id) }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}  
+                                         <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')"><span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span></button>
+                                    </form>
+
+                                    
                                     @endif
                                 </td>
                             </tr>

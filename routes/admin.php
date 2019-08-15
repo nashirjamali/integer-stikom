@@ -16,12 +16,7 @@ Route::name('admin.')->group(function () {
         });
 
         Route::resource('admin/list-tim', 'Admin_ListTimController');
-        
-        Route::get('admin/admin-detail', function () {
-            return View::make('admin.admin-detail');
-        })->name('admin-detail');
-
-
+        Route::resource('admin/submission', 'Admin_SubmissionController');
         Route::resource('admin/admin-payment','Admin_PaymentController');
 
     });

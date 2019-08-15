@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
-    <a class="navbar-brand pt-0" href="./index.html">
+    <a class="navbar-brand pt-0" href="/admin">
       <img src="{{ asset('/assets/argon/img/brand/integer-1.png') }}" class="navbar-brand-img" alt="...">
     </a>
     <!-- Collapse -->
@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('admin/admin-submission') ? 'active' : '' }}" href="{{URL::to('/admin/admin-submission')}}">
+          <a class="nav-link {{ request()->is('admin/submission') ? 'active' : '' }}" href="{{url('/admin/submission')}}">
             <i class="ni ni-folder-17 text-green"></i> Submission
           </a>
         </li>

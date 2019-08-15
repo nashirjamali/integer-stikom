@@ -66,16 +66,29 @@ class TeamController extends Controller
         $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
                                                  ->where('competition_id', $competition_id)
                                                  ->first()->id;
+
+        
+        $submission_id_before = Submission::select('id')->where('name', 'Pengumpulan Proposal')
+                                                        ->where('competition_id', $competition_id)
+                                                        ->first()->id;
+
+
         $submission_teams = Submission_team::where('team_id', Auth::user()->team_id)
                                             ->where('submission_id', $submission_id);
 
+        $submission_teams_before = Submission_team::where('team_id', Auth::user()->team_id)
+                                                    ->where('submission_id',  $submission_id_before);
+
         $submission_team = $submission_teams->get();
 
+        $submission_team_before =  $submission_teams_before->first();
+
         $done = $submission_teams->first();
+
                     
-        
         return view('team.video',[
             'submission_team' => $submission_team,
+            'submission_team_before' => $submission_team_before,
             'done' => $done,
         ]);
     }
@@ -120,5 +133,16 @@ class TeamController extends Controller
 
         return redirect('team/setting')->with('success', 'Data telah terkirim');
     }
+
+    public function destroy($id)
+    {
+        $tm = Participants::findOrFail($id); 
+        $tm->delete();
+        return redirect('team')->with(['message'=> 'Successfully deleted!!']);
+    }
+
+
+       
+
 
 }
