@@ -20,7 +20,11 @@ class TeamController extends Controller
         // dd($teams);
         $team_ahh = Team::join('competitions', 'teams.competition_id', '=', 'competitions.id')->where('username', $teams)->get();
         $participants = Participants::where('team_id' , $teams )->orderBy('id', 'asc')->get();
-        return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh]);
+        $pc = $participants->count();
+        // $pc = "anjing";
+        // dd($pc);
+       
+        return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh])->with ('pc',$pc);
     }
 
     public function store(Request $request){
@@ -134,8 +138,7 @@ class TeamController extends Controller
         return redirect('team/setting')->with('success', 'Data telah terkirim');
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         $tm = Participants::findOrFail($id); 
         $tm->delete();
         return redirect('team')->with(['message'=> 'Successfully deleted!!']);
