@@ -43,7 +43,8 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h3 class="mb-0">List Anggota</h3>
-                        @if( $pc<=3)
+                        {{ $pc }}
+                        @if( $pc < 3)
                         <div style="margin-top:1em;">
                             <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
                                 <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
