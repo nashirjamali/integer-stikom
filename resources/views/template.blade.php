@@ -36,7 +36,7 @@
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
         <div class="container">
             <!-- Image Logo -->
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Integer"></a>
+            <a class="navbar-brand" href="/"><img src="images/logo.png" alt="Integer"></a>
 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">

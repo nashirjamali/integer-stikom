@@ -4,12 +4,12 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
-            @foreach ($teamku as $y)
             <div class="card-header" style="padding-bottom:1px;">
                 <h5 class="card-title" style="margin-bottom:1px;">Nama Team</h5>
             </div>
             <div class="card-body" style="padding-bottom:1em;">
-                <h3 class="card-subtitle mb-2">{{ $y->name }}</h3>
+                <h3 class="card-subtitle mb-2">{{ Auth::user()->name }}</h3>
+                @foreach ($teamku as $y)
                 <h4 class="card-subtitle mb-2 text-muted">{{ $y->institution }}</h4>
             </div>
         </div>
@@ -43,12 +43,15 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h3 class="mb-0">List Anggota</h3>
+                        {{ $pc }}
+                        @if( $pc < 3)
                         <div style="margin-top:1em;">
                             <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
                                 <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                                 <span class="btn-inner--text">Tambah Anggota</span>
                             </button>
                         </div>
+                       @endif
                     </div>
                 </div>
             </div>
@@ -61,7 +64,7 @@
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>No. Telepon</th>
-                                <th>T-Shirt</th>
+                                <!-- <th>T-Shirt</th> -->
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -69,11 +72,11 @@
                         <tbody>
                             @foreach ($participants as $x)
                             <tr>
-                                <td><img src="{{ url('./uploads/file/'.$x->identity_card) }}" style="width:50%;" alt="identitiy_card"></td>
+                                <td><img src="{{ url('./uploads/file/'.$x->identity_card) }}" style="width:35%;" alt="identitiy_card"></td>
                                 <td>{{ $x->name }}</td>
                                 <td>{{ $x->email }}</td>
                                 <td>{{ $x->phone }}</td>
-                                <td>{{ $x->tshirt }}</td>
+                                <!-- <td>{{ $x->tshirt }}</td> -->
                                 <td>{{ $x->status }}</td>
                                 <td>
                                     @if( $x->status=="Ketua" )
@@ -84,9 +87,11 @@
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
                                         <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm">
-                                        <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
-                                    </button>
+                                    <form action="{{ route('team.participants.destroy', $x->id) }}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')"><span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span></button>
+                                    </form>
                                     @endif
                                 </td>
                             </tr>
