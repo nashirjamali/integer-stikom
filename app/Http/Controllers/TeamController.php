@@ -28,31 +28,51 @@ class TeamController extends Controller
     }
 
     public function store(Request $request){
+
+        // $this->validate($request, [
+		// 	'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048'
+        // ]);
+        
+        $teams = Auth::user()->username;
+        $id = $request->name;
+        $file = $request->file('identity_card');
+        $filename = $teams."_".$id.".".$file->getClientOriginalExtension();
+        $destinationPath = 'uploads/file';
+		$file->move($destinationPath,$filename);
  
         Participants::create([
             'team_id' => $request->team,
             'status' => $request->status,
-            'identity_card' => $request->identity_card,
+            'identity_card' => $filename,
     		'name' => $request->name,
             'birth_date' => $request->birth_date,
             'email' => $request->email,
             'phone' => $request->phone,
             'tshirt' => $request->kaos
-    	]);
- 
-    	return redirect('team');
+        ]);
+        
+        // return $request;
+    	return redirect('team')->with('success', 'Data telah tersimpan');
     }
 
     public function update($id, Request $request){
 
+        $teams = Auth::user()->username;
+        $id = $request->name;
+        $file = $request->identity_card;
+        $filename = $teams."_".$id.".".$file->getClientOriginalExtension();
+        $destinationPath = 'uploads/file';
+		$file->move($destinationPath,$filename);
+
         $participants = Participants::find($id);
-        $participants->identity_card = $request->identity_card;
+        // dd($participants);
+        $participants->identity_card = $file;
         $participants->name = $request->name;
         $participants->birth_date = $request->birth_date;
         $participants->email = $request->email;
         $participants->phone = $request->phone;
         $participants->save();
-        return redirect('team');
+        return redirect('team')->with('success', 'Data telah tersimpan');;
     }
 
     public function payments(){

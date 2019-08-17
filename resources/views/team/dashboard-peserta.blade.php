@@ -43,7 +43,6 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h3 class="mb-0">List Anggota</h3>
-                        {{ $pc }}
                         @if( $pc < 3)
                         <div style="margin-top:1em;">
                             <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
@@ -51,7 +50,9 @@
                                 <span class="btn-inner--text">Tambah Anggota</span>
                             </button>
                         </div>
-                       @endif
+                        @else
+                        <div style='margin-top:2%' class='alert alert-success' role='alert'></span>  Jumlah Anggota Team Max: 3 Orang</div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -136,7 +137,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-image"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="" required>
+                            <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -144,7 +145,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" value="">
+                            <input class="form-control" placeholder="Nama Lengkap" type="text" name="name">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -152,7 +153,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" value="">
+                            <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -160,7 +161,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Email" type="email" name="email" value="">
+                            <input class="form-control" placeholder="Email" type="email" name="email">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -168,7 +169,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Phone" type="number" name="phone" value="">
+                            <input class="form-control" placeholder="Phone" type="number" name="phone">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -213,13 +214,13 @@
                 <form method="POST" name="list_anggota" enctype="multipart/form-data" action="{{ route('team.participants.update',[$x->id])}}">
                     {{csrf_field()}}
                     {{ method_field('PUT')}}
+                    <input class="form-control" type="text" name="id" value="{{ $x->id }}">
                     <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-image"></i></span>
                             </div>
-                            <input class="form-control" type="hidden" name="id">
-                            <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="{{ url('./uploads/file/'.$x->identity_card) }}" required>
+                            <input class="form-control" name="identity_card" type="file" value="{{ $x->identity_card }}" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">
