@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Submission_team;
 use App\Models\Team;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Validator;
 
 class Submission_teamController extends Controller
 {
@@ -59,25 +58,25 @@ class Submission_teamController extends Controller
      */
     public function store(Request $request)
     {
-        $team_id = Auth::user()->team_id;
-        $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
+        $this->validate($request, [
+            'document'  => 'required|mimes:pdf|max:10000'
+        ]);
+
+        $competition_id = Team::select('competition_id')->where('id', Auth::user()->team_id)->first()->competition_id;
         $submission_id = Submission::select('id')->where('name', 'Pengumpulan Proposal')
             ->where('competition_id', $competition_id)
             ->first()->id;
 
-        $data = new Submission_team();
         $evidence = $request->file('document');
-        $file_extension = $evidence->getClientOriginalExtension(); //** get filename extension
-        $fileName = Auth::user()->team_id .".". $file_extension;
-        $evidence->move('uploads/submission',$fileName);
+        $fileName = Auth::user()->team_id . '_' . $competition_id . '_' . $submission_id . ".pdf";
+        $evidence->move('uploads/submission/', $fileName);
+
+        $data = new Submission_team();
         $data->submission_id = $submission_id;
         $data->team_id = Auth::user()->team_id;
         $data->document = $fileName;
-
         $data->save();
 
-
-        
         return redirect('team/submission')->with('success', 'Data telah terkirim');
     }
 
@@ -89,7 +88,7 @@ class Submission_teamController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

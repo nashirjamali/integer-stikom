@@ -27,37 +27,38 @@
                 </div>
             </div>
             <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>File </th>
-                                    <th>Waktu Submit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($submission_team as $sub)
-                                    <tr>
-                                        <td>{{ $sub->document }}</td>
-                                        <td>{{ $sub->created_at }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col-md-2" style="">
+                    @if($payment->status == "Sudah" && !isset($done->id))
+                    <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
+                        <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
+                        <span class="btn-inner--text">Upload Proposal</span>
+                    </button>
+                    @endif
                 </div>
-            <div class="col-md-2" style="margin-top:1em;">
-                @if($payment->status == "Sudah" && !isset($done->id))
-                <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
-                    <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
-                    <span class="btn-inner--text">Upload Proposal</span>
-                </button>
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    Upload Validation Error<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
-            </div>
-            <div class="card-body">
                 @if($proposal == null)
                 <div class="alert alert-warning">
                     Belum ada proposal yang di upload
+                </div>
+                @else
+                <div class="row">
+                    <div class="col-6">
+                        <b>Proposal</b><br><br>
+                        <a href="{{ asset('uploads/submission/'.$proposal->document) }}">{{ $proposal->document }}</a>
+                    </div>
+                    <div class="col-6">
+                        <b>Waktu Submit</b><br><br>
+                        {{ $proposal->updated_at }}
+                    </div>
                 </div>
                 @endif
             </div>
@@ -79,7 +80,7 @@
                 <form method="post" action="{{ route('team.submission.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <input type="file" class="form-control-file" name="document" id="exampleFormControlFile1">
+                        <input type="file" class="form-control-file" name="document" id="exampleFormControlFile1" data-max-file-size="10MB" data-max-files="1">
                     </div>
 
                     <div class="modal-footer">

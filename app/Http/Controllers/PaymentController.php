@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\Team;
@@ -19,21 +20,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        // $payment = Payment::all();
-        // return view('team.payments',['payment' => $payment]);
-
-        $team_id = Auth::user()->team_id;
-    
-        $payments = Payment::where('team_id', Auth::user()->team_id);
-
-        $payment = $payments->get();
-
-        $done = $payments->first();
-                    
-        
-        return view('team.payments',[
-            'payment' => $payment,
-            'done' => $done,
+        $payment = Payment::all()->where('team_id', Auth::user()->team_id)->first();            
+        return view('team.payments', [
+            'payment' => $payment
         ]);
     }
 
@@ -58,8 +47,8 @@ class PaymentController extends Controller
         $data = new Payment();
         $evidence = $request->file('evidence');
         $file_extension = $evidence->getClientOriginalExtension(); //** get filename extension
-        $fileName = Auth::user()->team_id .".". $file_extension;
-        $evidence->move('uploads/payment',$fileName);
+        $fileName = Auth::user()->team_id . "." . $file_extension;
+        $evidence->move('uploads/payment', $fileName);
         $data->evidence = $fileName;
         $data->description = $request->input('description');
         $data->team_id = Auth::user()->team_id;
