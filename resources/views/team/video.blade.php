@@ -3,7 +3,7 @@
 @section('content-head')
     @if(isset($done->id))
         <div class="alert alert-success">
-            <strong>Sukses!</strong> Terimakasih atas partisipasi anda. Di tunggu di STIKOM SURABAYA
+            <strong>Sukses!</strong> Terimakasih atas partisipasi anda. Di tunggu di Universitas Dinamika SURABAYA
         </div>
     @endif
 

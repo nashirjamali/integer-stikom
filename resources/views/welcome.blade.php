@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h2>INTEGER STIKOM 2019</h2>
+                    <h2>INTEGER UNIVERSITAS DINAMIKA 2019</h2>
                     <h2 id="js-rotating">UI UX DESIGN, SOFTWARE DEVELOPMENT</h2>
                     <h2>COMPETITION</h2>
                     <div class="mt-5">
@@ -30,14 +30,14 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="text-center">
-                    <h3>Tentang Integer Stikom 2019</h3>
+                    <h3>Tentang Integer Universitas Dinamika 2019</h3>
                     <img src="images/line.svg" alt="" srcset="">
                     <div class="mt-3">
                         <p>
-                            Institut Bisnis dan Informatika Stikom Surabaya merupakan sebuah instansi yang mendukung
+                            Institut Bisnis dan Informatika Universitas Dinamika Surabaya merupakan sebuah instansi yang mendukung
                             perkembangan teknologi informasi khususnya di Surabaya, dan di Indonesia pada umumnya.
                             Sebagai bentuk perwujudan tersebut, Senat Mahasiswa Institut Bisnis dan Informatika
-                            Stikom Surabaya mengadakan sebuah lomba yang dapat menghasilkan sebuah solusi terhadap
+                            Universitas Dinamika Surabaya mengadakan sebuah lomba yang dapat menghasilkan sebuah solusi terhadap
                             permasalahan yang ada pada pelayanan publik di Indonesia, sehingga dapat mengurangi
                             keterlambatan perkembangan yang ada. <br><br> Lomba ini membidik generasi SMA/SMK/MA dan
                             Mahasiswa/i se-Jawa Timur untuk berpartisipasi dalam lomba yang kami adakan. Lomba
@@ -277,11 +277,11 @@
             </div>
             <div class="col-lg-8 offset-lg-2 mt-5">
                 <h4>Instagram</h4>
-                <a href="https://www.instagram.com/integer.stikomsby/" target="_blank">@integer.stikomsby</a>
+                <a href="https://www.instagram.com/integer.Universitas Dinamikasby/" target="_blank">@integerdinamikasby</a>
             </div>
             <div class="col-lg-8 offset-lg-2 mt-5">
                 <h4>Alamat</h4>
-                <p><b>Institut Bisnis dan Informatika Stikom Surabaya</b></p>
+                <p><b>Universitas Dinamika Surabaya</b></p>
                 <a target="_blank" href="https://goo.gl/maps/ByTA7yALdJB1X5Qq9"><b>Raya Kedung Baruk No.98, Kedung
                         Baruk </b><br> Kec. Rungkut, Kota Surabaya, Jawa Timur <br> 60298</a>
             </div>
