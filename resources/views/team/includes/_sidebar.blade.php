@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
-    <a class="navbar-brand pt-0" href="./index.html">
+    <a class="navbar-brand pt-0" href="/team">
       <img src="{{ asset('/assets/argon/img/brand/integer-1.png') }}" class="navbar-brand-img" alt="...">
     </a>
     <!-- Collapse -->
@@ -37,7 +37,7 @@
       <hr class="my-3">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('team/setting') ? 'active' : '' }}" href="{{URL::to('/team/submission')}}">
+          <a class="nav-link {{ request()->is('team/setting') ? 'active' : '' }}" href="{{URL::to('/team/setting')}}">
             <i class="ni ni-settings-gear-65 text-black"></i> Setting
           </a>
         </li>

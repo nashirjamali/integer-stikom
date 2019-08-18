@@ -15,11 +15,13 @@ class Submission extends MasterModel
         'date_end',
         'competition_id',
     ];
+    protected $primaryKey = 'id'; // or null
 
+    public $incrementing = false;
     // protected $primaryKey = 'id';
     public function competition()
     {
-        return $this->belongsTo(Competition::class);
+        return $this->belongsTo(Competitions::class, 'competition_id', 'id');
     }
 
     public function submission_team()

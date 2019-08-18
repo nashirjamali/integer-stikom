@@ -107,7 +107,7 @@ class LandingPageController extends Controller
         $team->username = $username;
         $team->password = $password;
         $team->institution = $institution;
-        $team->status = "belum";
+        $team->status = "Belum Terverifikasi";
         $team->competition_id = $competition_id;
         $team->save();
 
@@ -135,7 +135,7 @@ class LandingPageController extends Controller
         $user->team_id = $username;
         $user->password = $password;
         $user->name = $name_team;
-        $user->role = "user";
+        $user->role = "team";
         $user->save();
 
         return redirect('/');

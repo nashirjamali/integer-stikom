@@ -374,7 +374,7 @@
 
 
     // Coutdown
-    var date = new Date("Aug 10, 2019 23:59:00").getTime();
+    var date = new Date("Oct 10, 2019 23:59:00").getTime();
 
     setInterval(function () {
         var now = new Date().getTime()

@@ -18,6 +18,7 @@ class CreateSubmissionTeamsTable extends Migration
             $table->string('submission_id');
             $table->string('team_id');
             $table->string('document');
+            $table->string('status')->default('On Progress');
             $table->timestamps();
             $table->softDeletes();
 

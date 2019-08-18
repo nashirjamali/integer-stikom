@@ -2,10 +2,10 @@
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::resource('/', 'LandingPageController');
-Route::post('/register', 'LandingPageController@registerteam')->name('register-team');
+Route::post('/register-team', 'LandingPageController@registerteam')->name('register-team');
 
 
 require('admin.php');

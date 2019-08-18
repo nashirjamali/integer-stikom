@@ -12,13 +12,14 @@ class Submission_team extends MasterModel
         'submission_id',
         'team_id',
         'document',
+        'status',
     ];
     public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'team_id', 'id');
     }
     public function submission()
     {
-        return $this->belongsTo(Submission::class);
+        return $this->belongsTo(Submission::class, 'submission_id', 'id');
     }
 }

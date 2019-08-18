@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h2>INTEGER STIKOM 2019</h2>
+                    <h2>INTEGER UNIVERSITAS DINAMIKA 2019</h2>
                     <h2 id="js-rotating">UI UX DESIGN, SOFTWARE DEVELOPMENT</h2>
                     <h2>COMPETITION</h2>
                     <div class="mt-5">
@@ -30,14 +30,14 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="text-center">
-                    <h3>Tentang Integer Stikom 2019</h3>
+                    <h3>Tentang Integer Universitas Dinamika 2019</h3>
                     <img src="images/line.svg" alt="" srcset="">
                     <div class="mt-3">
                         <p>
-                            Institut Bisnis dan Informatika Stikom Surabaya merupakan sebuah instansi yang mendukung
+                            Institut Bisnis dan Informatika Universitas Dinamika Surabaya merupakan sebuah instansi yang mendukung
                             perkembangan teknologi informasi khususnya di Surabaya, dan di Indonesia pada umumnya.
                             Sebagai bentuk perwujudan tersebut, Senat Mahasiswa Institut Bisnis dan Informatika
-                            Stikom Surabaya mengadakan sebuah lomba yang dapat menghasilkan sebuah solusi terhadap
+                            Universitas Dinamika Surabaya mengadakan sebuah lomba yang dapat menghasilkan sebuah solusi terhadap
                             permasalahan yang ada pada pelayanan publik di Indonesia, sehingga dapat mengurangi
                             keterlambatan perkembangan yang ada. <br><br> Lomba ini membidik generasi SMA/SMK/MA dan
                             Mahasiswa/i se-Jawa Timur untuk berpartisipasi dalam lomba yang kami adakan. Lomba
@@ -53,7 +53,7 @@
             </div>
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="mt-5">
-                    <h3>Pendaftaran Akan Segera Dibuka</h3>
+                    <h3>Pendaftaran Akan Berakhir</h3>
                     <div class="mt-5">
                         <div class="row w-75 m-auto">
                             <div class="col-3">
@@ -93,12 +93,11 @@
                             </div>
                             <article class="text-center">
                                 <h5 class="text-solid">Software Development <br> Competition</h5>
-                                <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat
+                                <p class="text-dark">Cabang lomba ini merupakan kompetisi untuk membuat aplikasi yang berbasis web/mobile
+                                    untuk dapat membantu permasalahan yang ada pada masyarakat sekitar dengan ide yang
+                                    original dari para peserta. Pada cabang lomba ini peserta harus dalam institusi yang sama.
                                 </p>
-                                <a href="" class="btn-solid-reg">Selengkapnya</a>
+                                <a href="https://drive.google.com/file/d/1jRGVW2jutJeOlC0WT_8tLVO9PTxIePz9/view" target="_blank" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>
@@ -108,12 +107,11 @@
                             </div>
                             <article class="text-center">
                                 <h5 class="text-solid">UI UX Design <br> Competition</h5>
-                                <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat
+                                <p class="text-dark">User Experience Design Competition
+                                    merupakan kompetisi desain antarmuka sistem/aplikasi dengan tujuan untuk membuat
+                                    desain antarmuka pengguna yang mudah dan nyaman kepada pengguna (user).
                                 </p>
-                                <a href="" class="btn-solid-reg">Selengkapnya</a>
+                                <a href="https://drive.google.com/file/d/11gbevLPJHgRrtN0nRqgC_WN_fCDbbSxt/view?usp=sharing" target="_blank" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>
@@ -136,32 +134,50 @@
                         <div class="timeline__items">
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">5 Februari 2019</h2>
-                                    <p class="text-solid">Tahun Baru Imlek</p>
+                                    <h2 class="text-dark">15 Agustus 2019</h2>
+                                    <p class="text-solid">Pembukaan Pendaftaran dan Babak Penyisihan 1</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">7 Maret 2019</h2>
-                                    <p class="text-solid">Hari Raya Nyepi</p>
+                                    <h2 class="text-dark">10 Oktober 2019</h2>
+                                    <p class="text-solid">Penutupan Pendaftaran dan Babak Penyisihan 1</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">5 Juni 2019</h2>
-                                    <p class="text-solid">Hari Raya Idul Fitri</p>
+                                    <h2 class="text-dark">15 Oktober 2019</h2>
+                                    <p class="text-solid">Pengumuman Babak Penyisihan 1</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">17 Agustus 2019</h2>
-                                    <p class="text-solid">Kemerdekaan Indonesia</p>
+                                    <h2 class="text-dark">16 Oktober 2019</h2>
+                                    <p class="text-solid">Babak Penyisihan 2</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">25 Desember 2019</h2>
-                                    <p class="text-solid">Hari Raya Natal</p>
+                                    <h2 class="text-dark">24 Oktober 2019</h2>
+                                    <p class="text-solid">Penutupan Babak Penyisihan 2</p>
+                                </div>
+                            </div>
+                            <div class="timeline__item">
+                                <div class="timeline__content">
+                                    <h2 class="text-dark">29 Oktober 2019</h2>
+                                    <p class="text-solid">Pengumuman Babak Penyisihan 2</p>
+                                </div>
+                            </div>
+                            <div class="timeline__item">
+                                <div class="timeline__content">
+                                    <h2 class="text-dark">7 November 2019</h2>
+                                    <p class="text-solid">Technical Meeting</p>
+                                </div>
+                            </div>
+                            <div class="timeline__item">
+                                <div class="timeline__content">
+                                    <h2 class="text-dark">9 November 2019</h2>
+                                    <p class="text-solid">Babak Final</p>
                                 </div>
                             </div>
                         </div>
@@ -174,79 +190,79 @@
 
 <div class="slider-2" id="pendaftaran">
     <div class="container">
-            @if (Route::has('login'))
-                @auth
-                    
-                @else
-                    <div class="text-center">
-                        <h3 class="text-dark">Pendaftaran Tim</h3>
-                        <img src="images/line.svg" alt="" srcset="">
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-12 col-lg-8 offset-lg-2">
-                            @if($errors->any())
-                            <div class="alert alert-danger" role="alert">
-                                {{$errors->first()}}
-                            </div>
-                            @endif
-                            <div class="card" style="background-color: #001E36; padding: 1rem">
-                                <div class="card-body">
-                                    <form action="{{ route('register-team') }}" method="POST">
-                                        {{ csrf_field() }}
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label>Nama Tim</label>
-                                                    <input id="name" type="text" class="form-control-input" name="name" required>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label>Institusi</label>
-                                                    <input type="text" class="form-control-input" name="institution" required>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label>Kategori Lomba</label>
-                                                    <select class="form-control-select" name="competition_id">
-                                                        @foreach($competitions as $key)
-                                                        <option value="{{ $key->id }}">{{ $key->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label>Username (Terisi Otomatis)</label>
-                                                    <input type="text" class="form-control-input username" disabled>
-                                                    <input type="text" class="username" hidden name="username">
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input type="password" class="form-control-input" name="password" required>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mt-4">
-                                                <div class="form-group">
-                                                    <button type="submit" class="form-control-submit-button">DAFTAR</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+        @if (Route::has('login'))
+        @auth
+
+        @else
+        <div class="text-center">
+            <h3 class="text-dark">Pendaftaran Tim</h3>
+            <img src="images/line.svg" alt="" srcset="">
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                @if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    {{$errors->first()}}
+                </div>
+                @endif
+                <div class="card" style="background-color: #001E36; padding: 1rem">
+                    <div class="card-body">
+                        <form action="{{ route('register-team') }}" method="POST">
+                            {{ csrf_field() }}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Nama Tim</label>
+                                        <input id="name" type="text" class="form-control-input" name="name" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Institusi</label>
+                                        <input type="text" class="form-control-input" name="institution" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Kategori Lomba</label>
+                                        <select class="form-control-select" name="competition_id">
+                                            @foreach($competitions as $key)
+                                            <option value="{{ $key->id }}">{{ $key->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Username (Terisi Otomatis)</label>
+                                        <input type="text" class="form-control-input username" disabled>
+                                        <input type="text" class="username" hidden name="username">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control-input" name="password" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <div class="form-group">
+                                        <button type="submit" class="form-control-submit-button">DAFTAR</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                @endauth
-            @endif
+                </div>
+            </div>
+        </div>
+        @endauth
+        @endif
     </div>
 </div>
 <div class="basic-1" id="kontak">
@@ -261,11 +277,11 @@
             </div>
             <div class="col-lg-8 offset-lg-2 mt-5">
                 <h4>Instagram</h4>
-                <a href="https://www.instagram.com/integer.stikomsby/" target="_blank">@integer.stikomsby</a>
+                <a href="https://www.instagram.com/integer.Universitas Dinamikasby/" target="_blank">@integerdinamikasby</a>
             </div>
             <div class="col-lg-8 offset-lg-2 mt-5">
                 <h4>Alamat</h4>
-                <p><b>Institut Bisnis dan Informatika Stikom Surabaya</b></p>
+                <p><b>Universitas Dinamika Surabaya</b></p>
                 <a target="_blank" href="https://goo.gl/maps/ByTA7yALdJB1X5Qq9"><b>Raya Kedung Baruk No.98, Kedung
                         Baruk </b><br> Kec. Rungkut, Kota Surabaya, Jawa Timur <br> 60298</a>
             </div>

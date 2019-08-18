@@ -11,10 +11,5 @@ class Submission_teamsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('submission_teams')->insert([
-            'submission_id'=> 'uiux1',
-            'team_id'=> 'stikomdev',
-            'document' => 'berkas.pdf',
-        ]);
     }
 }

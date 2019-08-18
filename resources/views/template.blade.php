@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Integer Stikom 2019</title>
+    <title>Integer Universitas Dinamika 2019</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
@@ -36,7 +36,7 @@
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
         <div class="container">
             <!-- Image Logo -->
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Integer"></a>
+            <a class="navbar-brand" href="/"><img src="images/logo.png" alt="Integer"></a>
 
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">

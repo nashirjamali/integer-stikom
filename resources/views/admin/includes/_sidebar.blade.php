@@ -5,27 +5,36 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
-    <a class="navbar-brand pt-0" href="./index.html">
+    <a class="navbar-brand pt-0" href="/admin">
       <img src="{{ asset('/assets/argon/img/brand/integer-1.png') }}" class="navbar-brand-img" alt="...">
     </a>
     <!-- Collapse -->
     <div class="collapse navbar-collapse" id="sidenav-collapse-main">
       <!-- Navigation -->
-      <ul class="navbar-nav">
-        <li class="nav-item" class="" active>
-          <a class=" nav-link active {{ request()->is('team') ? 'active' : '' }}" href="{{URL::to('/admin')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
-          </a>
+      <ul class="navbar-nav" <li class="nav-item">
+        <a class="nav-link {{ request()->is('admin/dashboard-admin*') ? 'active' : '' }}" href="{{URL::to('/admin/list-tim')}}">
+          <i class="ni ni-book-bookmark text-red"></i> List Tim
+        </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('admin/dashboard-admin') ? 'active' : '' }}" href="{{URL::to('/admin/list-tim')}}">
-            <i class="ni ni-book-bookmark text-red"></i> List Tim
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ request()->is('admin/admin-submission') ? 'active' : '' }}" href="{{URL::to('/admin/admin-submission')}}">
+          <a class="nav-link {{ request()->is('admin/submission*') ? 'active' : '' }}" href="{{url('/admin/submission')}}">
             <i class="ni ni-folder-17 text-green"></i> Submission
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('admin/admin-payment*') ? 'active' : '' }}" href="{{URL::to('/admin/admin-payment')}}">
+            <i class="ni ni-folder-17 text-green"></i> Payment
+          </a>
+        </li>
+
+        @if(Auth::user()->role = "commite")
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('admin/commite*') ? 'active' : '' }}" href="{{URL::to('/admin/commite')}}">
+            <i class="fas fa-user text-yellow"></i> User
+          </a>
+        </li>
+        @endif
+
       </ul>
       <!-- Divider -->
       <hr class="my-3">
