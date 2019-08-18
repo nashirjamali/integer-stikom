@@ -43,65 +43,63 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <h3 class="mb-0">List Anggota</h3>
-                        {{ $pc }}
-                        @if( $pc < 3)
-                        <div style="margin-top:1em;">
+                        @if( $pc < 3) <div style="margin-top:1em;">
                             <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
                                 <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                                 <span class="btn-inner--text">Tambah Anggota</span>
                             </button>
-                        </div>
-                       @endif
                     </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Kartu Identitas</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>No. Telepon</th>
-                                <!-- <th>T-Shirt</th> -->
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($participants as $x)
-                            <tr>
-                                <td><img src="{{ url('./uploads/file/'.$x->identity_card) }}" style="width:35%;" alt="identitiy_card"></td>
-                                <td>{{ $x->name }}</td>
-                                <td>{{ $x->email }}</td>
-                                <td>{{ $x->phone }}</td>
-                                <!-- <td>{{ $x->tshirt }}</td> -->
-                                <td>{{ $x->status }}</td>
-                                <td>
-                                    @if( $x->status=="Ketua" )
-                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
-                                        <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
-                                    </button>
-                                    @else
-                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
-                                        <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
-                                    </button>
-                                    <form action="{{ route('team.participants.destroy', $x->id) }}" method="post">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                        <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')"><span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span></button>
-                                    </form>
-                                    @endif
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    @endif
                 </div>
             </div>
         </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Kartu Identitas</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>No. Telepon</th>
+                            <!-- <th>T-Shirt</th> -->
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($participants as $x)
+                        <tr>
+                            <td><img src="{{ url('./uploads/identity_card/'.$x->identity_card) }}" style="width:35%;" alt="identitiy_card"></td>
+                            <td>{{ $x->name }}</td>
+                            <td>{{ $x->email }}</td>
+                            <td>{{ $x->phone }}</td>
+                            <!-- <td>{{ $x->tshirt }}</td> -->
+                            <td>{{ $x->status }}</td>
+                            <td>
+                                @if( $x->status=="Ketua" )
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
+                                    <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
+                                </button>
+                                @else
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
+                                    <span class="btn-inner--icon"><i class="ni ni-check-bold"></i></span>
+                                </button>
+                                <form action="{{ route('team.participants.destroy', $x->id) }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')"><span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span></button>
+                                </form>
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+</div>
 </div>
 
 
@@ -116,21 +114,20 @@
                 </button>
             </div>
             <div class="modal-body">
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    Error<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
                 <form method="POST" name="list_anggota" enctype="multipart/form-data" action="{{ route('team.participants.store')}}">
                     {{csrf_field()}}
                     <input type="hidden" value="{{ (Auth::user()->team_id) }}" name="team">
-                    <div class="form-group mb-3">
-                        <div class="input-group input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                            </div>
-                            <select class="form-control" id="exampleFormControlSelect1" name="status">
-                                <option>Status Anggota Team</option>
-                                <option>Ketua</option>
-                                <option>Anggota</option>
-                            </select>
-                        </div>
-                    </div>
                     <div class="form-group mb-3">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
@@ -169,21 +166,6 @@
                                 <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                             </div>
                             <input class="form-control" placeholder="Phone" type="number" name="phone" value="">
-                        </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <div class="input-group input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-bag-17"></i></span>
-                            </div>
-                            <select class="form-control" id="exampleFormControlSelect1" name="kaos">
-                                <option>Ukuran Baju</option>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                                <option>XXL</option>
-                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">

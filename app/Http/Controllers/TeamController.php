@@ -11,7 +11,6 @@ use App\User;
 use App\Models\Submission_team;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Session;
-use Dotenv\Regex\Success;
 
 class TeamController extends Controller
 {
@@ -21,25 +20,34 @@ class TeamController extends Controller
         $team_ahh = Team::join('competitions', 'teams.competition_id', '=', 'competitions.id')->where('username', $teams)->get();
         $participants = Participants::where('team_id' , $teams )->orderBy('id', 'asc')->get();
         $pc = $participants->count();
-        // $pc = "anjing";
         // dd($pc);
        
         return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh])->with ('pc',$pc);
     }
 
     public function store(Request $request){
- 
-        Participants::create([
-            'team_id' => $request->team,
-            'status' => $request->status,
-            'identity_card' => $request->identity_card,
-    		'name' => $request->name,
-            'birth_date' => $request->birth_date,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'tshirt' => $request->kaos
-    	]);
- 
+
+
+        // $this->validate($request, [
+        //     'identity_card'  => 'required|mimes:jpg, png, bmp|max:5000'
+        // ]);
+
+        $count = Team::all()->where('team_id', Auth::user()->team_id)->count();
+
+        $identity_card = $request->file('identity_card');
+        $file_name = Auth::user()->team_id . '_' . $count . '.' . $identity_card->getExtension();
+        $identity_card->move('uploads/identity_card/', $file_name);
+
+        $participant = new Participants;
+        $participant->team_id = Auth::user()->team_id;
+        $participant->status = 'Anggota';
+        $participant->identity_card = $file_name;
+        $participant->name = $request->name;
+        $participant->birth_date = $request->birth_date;
+        $participant->email = $request->email;
+        $participant->phone = $request->phone;
+        $participant->save();
+
     	return redirect('team');
     }
 
