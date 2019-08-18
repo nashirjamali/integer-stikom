@@ -32,9 +32,7 @@ Route::name('admin.')->group(function () {
       ], function () {
 
 
-        Route::get('admin/admin-submission', function () {
-            return View::make('admin.admin-submission');
-        })->name('admin-submission');
+        Route::resource('admin/commite', 'CreateCommite');
         
 
     });

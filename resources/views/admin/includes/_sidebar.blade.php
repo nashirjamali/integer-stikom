@@ -11,22 +11,30 @@
     <!-- Collapse -->
     <div class="collapse navbar-collapse" id="sidenav-collapse-main">
       <!-- Navigation -->
-      <ul class="navbar-nav"
-        <li class="nav-item">
-          <a class="nav-link {{ request()->is('admin/dashboard-admin') ? 'active' : '' }}" href="{{URL::to('/admin/list-tim')}}">
-            <i class="ni ni-book-bookmark text-red"></i> List Tim
-          </a>
+      <ul class="navbar-nav" <li class="nav-item">
+        <a class="nav-link {{ request()->is('admin/dashboard-admin*') ? 'active' : '' }}" href="{{URL::to('/admin/list-tim')}}">
+          <i class="ni ni-book-bookmark text-red"></i> List Tim
+        </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('admin/submission') ? 'active' : '' }}" href="{{url('/admin/submission')}}">
+          <a class="nav-link {{ request()->is('admin/submission*') ? 'active' : '' }}" href="{{url('/admin/submission')}}">
             <i class="ni ni-folder-17 text-green"></i> Submission
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('admin/admin-payment') ? 'active' : '' }}" href="{{URL::to('/admin/admin-payment')}}">
+          <a class="nav-link {{ request()->is('admin/admin-payment*') ? 'active' : '' }}" href="{{URL::to('/admin/admin-payment')}}">
             <i class="ni ni-folder-17 text-green"></i> Payment
           </a>
         </li>
+
+        @if(Auth::user()->role = "commite")
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('admin/commite*') ? 'active' : '' }}" href="{{URL::to('/admin/commite')}}">
+            <i class="fas fa-user text-yellow"></i> User
+          </a>
+        </li>
+        @endif
+
       </ul>
       <!-- Divider -->
       <hr class="my-3">
