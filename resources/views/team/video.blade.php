@@ -3,7 +3,7 @@
 @section('content-head')
     @if(isset($done->id))
         <div class="alert alert-success">
-            <strong>Sukses!</strong> Terimakasih atas partisipasi anda. Di tunggu di STIKOM SURABAYA
+            <strong>Sukses!</strong> Terimakasih atas partisipasi anda. Di tunggu di Universitas Dinamika SURABAYA
         </div>
     @endif
 
@@ -35,7 +35,7 @@
                 <div class="card-header bg-white border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Submission 2</h3>
+                            <h3 class="mb-0">Pengumpulan Video</h3>
                         </div>
                     </div>
                 </div>
@@ -50,24 +50,7 @@
                     @endif
                 @endif
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Link Video</th>
-                                    <th>Waktu Submit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($submission_team as $sub)
-                                    <tr>
-                                        <td>{{ $sub->document }}</td>
-                                        <td>{{ $sub->created_at }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                    <div class="text-danger">Babak 2 belum di mulai</div>
                 </div>
             </div>
         </div>

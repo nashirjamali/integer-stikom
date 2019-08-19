@@ -44,8 +44,8 @@
                                         <td>{{ $key_1->updated_at }}</td>
                                         <td>{{ $key_1->status }}</td>
                                         <td>
-                                            <a href="" class="btn btn-warning"><i class="cloud-download-95"></i></a>
-                                            <a href="{{ $key->document }}">{{ $key->document }}</a>
+                                            <a href="{{ asset('uploads/submission/' . $key_1->document) }}" target="_blank" class="btn btn-warning"><i class="cloud-download-95"></i>Download</a>
+                                            <a href="{{ $key->document }}">{{ $key_1->document }}</a>
                                         </td>
                                     </tr>
                                     @endif

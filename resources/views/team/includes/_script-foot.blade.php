@@ -8,6 +8,8 @@
 <script src="{{ asset('assets/argon/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- js files -->
 <script src="{{ asset('assets/argon/js/argon-dashboard.min.js') }}"></script>
+
+
 <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 <script>
     window.TrackJS &&

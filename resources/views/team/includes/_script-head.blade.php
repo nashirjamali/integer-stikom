@@ -13,3 +13,5 @@
 <link rel="stylesheet" href="{{ asset('/assets/argon/css/argon-dashboard.css') }}">
 <!-- datatable -->
 <link rel="stylesheet" href="{{ asset('/assets/argon/vendor/datatable.js/datatables.min.css') }}">
+<!-- filepond -->
+<link href="{{asset('/assets/argon/vendor/filepond/filepond.css')}}" rel="stylesheet">

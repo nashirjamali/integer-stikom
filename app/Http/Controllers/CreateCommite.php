@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use Illuminate\Http\Request;
-use App\Models\Team;
 use App\User;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
-
-use App\Models\Payment;
-
-class PaymentController extends Controller
+class CreateCommite extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +14,8 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payment = Payment::all()->where('team_id', Auth::user()->team_id)->first();            
-        return view('team.payments', [
-            'payment' => $payment
-        ]);
+        $users = User::all()->whereIn('role', ['commite', 'admin']);
+        return view('admin.commite', ['users' => $users]);
     }
 
     /**
@@ -33,7 +25,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        return view('team.payments');
+        //
     }
 
     /**
@@ -44,16 +36,14 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Payment();
-        $evidence = $request->file('evidence');
-        $file_extension = $evidence->getClientOriginalExtension(); //** get filename extension
-        $fileName = Auth::user()->team_id . "." . $file_extension;
-        $evidence->move('uploads/payment', $fileName);
-        $data->evidence = $fileName;
-        $data->description = $request->input('description');
-        $data->team_id = Auth::user()->team_id;
-        $data->save();
-        return redirect('team/payments')->with('success', 'Data telah terkirim');
+        $user = new User;
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->role = $request->role;
+        $user->save();
+
+        return redirect('admin/commite');
     }
 
     /**
@@ -75,7 +65,7 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -87,7 +77,24 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->password == null) {
+            
+            User::find($id)->update([
+                'name' => $request->name,
+                'username' => $request->username,
+                'role' => $request->role
+            ]);
+
+        } else {
+            User::find($id)->update([
+                'name' => $request->name,
+                'username' => $request->username,
+                'password' => bcrypt($request->password),
+                'role' => $request->role
+            ]);
+        }
+        
+        return redirect('admin/commite');
     }
 
     /**
@@ -98,6 +105,7 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect()->back();
     }
 }
