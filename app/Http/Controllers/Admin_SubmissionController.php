@@ -18,7 +18,7 @@ class Admin_SubmissionController extends Controller
     {
         $submissions = Submission::all();
         $competitions = Competitions::all();
-        return view('admin.admin-submission', ['submissions' => $submissions, 'competitions' => $competitions]);
+        return view('admin.new.admin-submission', ['submissions' => $submissions, 'competitions' => $competitions]);
     }
 
     /**
@@ -54,7 +54,7 @@ class Admin_SubmissionController extends Controller
         $submissions = Submission::where('competition_id', $id)->get();
         $submissionsTeams = Submission_team::all();        
 
-        return view('admin.admin-submission-detail', ['submissions' => $submissions, 'competition' => $competition, 'submissionsTeams' => $submissionsTeams]);
+        return view('admin.new.admin-submission-detail', ['submissions' => $submissions, 'competition' => $competition, 'submissionsTeams' => $submissionsTeams]);
     }
 
     /**

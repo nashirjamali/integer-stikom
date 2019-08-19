@@ -17,7 +17,7 @@ class Admin_ListTimController extends Controller
     {
         $teams = Team::all();
         
-        return view('admin.list-tim', ['teams' => $teams]);
+        return view('admin.new.admin-list-tim', ['teams' => $teams]);
     }
 
     /**
@@ -54,7 +54,7 @@ class Admin_ListTimController extends Controller
         $participant2 = Participants::where('team_id', $id)->where('status', 'Anggota')->get();
         
         
-        return view('admin.tim-detail', ['team' => $team, 'participant1' => $participant1, 'participant2' => $participant2]);
+        return view('admin.new.admin-detail-tim', ['team' => $team, 'participant1' => $participant1, 'participant2' => $participant2]);
     }
 
     /**

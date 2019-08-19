@@ -18,7 +18,7 @@ class Admin_PaymentController extends Controller
     {
         $payment = Payment::all();
         $team = Team::all();
-        return view('admin.admin-payment',[
+        return view('admin.new.admin-payment',[
             'payment'=> $payment,
             'team'=> $team
         ]);
@@ -70,7 +70,7 @@ class Admin_PaymentController extends Controller
         $pay = Payment::find($id);
         $tm = Team::all();
 
-        return view('admin.admin-payment-detail',[
+        return view('admin.new.admin-payment-detail',[
             'pay'=> $pay,
             'tm'=> $tm
         ]);

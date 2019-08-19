@@ -57,8 +57,10 @@
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
 
-            @if(url('/team'))
+            @if(\Request::is('team*'))
             @include('team.new.sidebar')
+            @elseif(\Request::is('admin*'))
+            @include('admin.new.sidebar')
             @endif
         </ul>
 
