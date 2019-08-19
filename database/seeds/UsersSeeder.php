@@ -13,39 +13,46 @@ class UsersSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'id'           => '1',
-            'team_id'      => 'stikomdev',
-            'name'         => 'Stikom Dev',
-            'username'     => 'stikomdev',
-            'password'     => Hash::make('1234567890'),
-            'role'         => 'team',
-        ]);
-
-        $user = User::create([
-            'id'           => '2',
-            'team_id'      => 'ubayadev',
-            'name'         => 'Ubaya Dev',
-            'username'     => 'ubayadev',
-            'password'     => Hash::make('1234567890'),
-            'role'         => 'team',
-        ]);
-
-        $user = User::create([
-            'id'           => '3',
-            'team_id'      => '',
-            'name'         => 'admin',
-            'username'     => 'admin',
-            'password'     => Hash::make('1234567890'),
-            'role'         => 'admin',
-        ]);
-
-        $user = User::create([
-            'id'           => '4',
-            'team_id'      => '',
-            'name'         => 'ibnu',
-            'username'     => 'ibnuprtma',
-            'password'     => Hash::make('1234567890'),
-            'role'         => 'commite',
+            [
+                'id'           => '1',
+                'team_id'      => '',
+                'name'         => 'Nashir Jamali',
+                'username'     => 'nashirjamali',
+                'password'     => bcrypt('nashir1999'),
+                'role'         => 'admin'
+            ],
+            [
+                'id'           => '2',
+                'team_id'      => '',
+                'name'         => 'Sebastianus Sembara',
+                'username'     => 'babaskece',
+                'password'     => bcrypt('bastian2k19'),
+                'role'         => 'admin'
+            ],
+            [
+                'id'           => '3',
+                'team_id'      => '',
+                'name'         => 'Ayub Rizki Wardhana',
+                'username'     => 'ayubrw',
+                'password'     => bcrypt('ayub2k19'),
+                'role'         => 'admin'
+            ],
+            [
+                'id'           => '4',
+                'team_id'      => '',
+                'name'         => 'Shofa Wardatul Jannah',
+                'username'     => 'shofawj',
+                'password'     => bcrypt('shofa2k19'),
+                'role'         => 'admin'
+            ],
+            [
+                'id'           => '5',
+                'team_id'      => '',
+                'name'         => 'Ibnu Pratama',
+                'username'     => 'ibnuprtma',
+                'password'     => bcrypt('ibnu1945'),
+                'role'         => 'admin'
+            ]
         ]);
     }
 }
