@@ -63,11 +63,11 @@ class LandingPageController extends Controller
             'name_1'  => 'required',
             'email_1' => 'required|email',
             'phone_1' => 'required',
-            'identity_card_1' => 'required',
+            'identity_card_1' => 'required|mime:jpg',
             'name_2'  => 'required',
             'email_2' => 'required|email',
             'phone_2' => 'required',
-            'identity_card_2' => 'required',
+            'identity_card_2' => 'required|mime:jpg',
         ]);
 
         if ($validator->fails()) {
