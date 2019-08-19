@@ -9,9 +9,21 @@
                     <h5>Silahkan lengkapi data diri ketua dan anggota <br>
                         untuk melanjutkan ke proses selanjutnya</h5>
                 </div>
+
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    Upload Validation Error<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                
                 <div class="col-lg-8 m-auto">
                     <!-- multistep form -->
-                    <form id="msform" action="{{ route('store') }}" method="POST">
+                    <form id="msform" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <!-- progressbar -->
                         <ul id="progressbar">

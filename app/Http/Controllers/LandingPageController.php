@@ -63,82 +63,95 @@ class LandingPageController extends Controller
             'name_1'  => 'required',
             'email_1' => 'required|email',
             'phone_1' => 'required',
-            'identity_card_1' => 'required|mime:jpg',
+            'identity_card_1' => 'required|image|mimes:jpeg,png,jpg',
             'name_2'  => 'required',
             'email_2' => 'required|email',
             'phone_2' => 'required',
-            'identity_card_2' => 'required|mime:jpg',
+            'identity_card_2' => 'required|image|mimes:jpeg,png,jpg',
+            'identity_card_3' => 'image|mimes:jpeg,png,jpg'
         ]);
 
         if ($validator->fails()) {
-            redirect()
-                ->back()
+            return redirect('/')
                 ->withErrors($validator->errors());
+        } else {
+            $name_1 = $request->get('name_1');
+            $name_2 = $request->get('name_2');
+            $birth_date_1 = $request->get('birth_date_1');
+            $birth_date_2 = $request->get('birth_date_2');
+            $birth_date_3 = $request->get('birth_date_3');
+            $email_1 = $request->get('email_1');
+            $email_2 = $request->get('email_2');
+            $email_3 = $request->get('email_3');
+            $phone_1 = $request->get('phone_1');
+            $phone_2 = $request->get('phone_2');
+            $phone_3 = $request->get('phone_3');
+            $identity_card_1 = $request->file('identity_card_1');
+            $identity_card_2 = $request->file('identity_card_2');
+            $identity_card_3 = $request->file('identity_card_3');
+            $status_1 = "Ketua";
+            $status_2 = "Anggota";
+            $status_3 = "Anggota";
+
+
+            $name_team = $request->get('name_team');
+            $username = $request->get('username');
+            $password = $request->get('password');
+            $institution = $request->get('institution');
+            $competition_id = $request->get('competition_id');
+
+            $identity_card_1_name =  $username . '-1' . '.' . $identity_card_1->getClientOriginalExtension();
+            $identity_card_2_name =  $username . '-2' . '.' . $identity_card_2->getClientOriginalExtension();
+
+            if ($identity_card_3 != null) {
+                $identity_card_3_name =  $username . '-3' . '.' . $identity_card_3->getClientOriginalExtension();
+                $identity_card_3->move('uploads/identity_card' . $identity_card_3);
+            } else {
+                $identity_card_3_name = null;
+            }
+
+            $identity_card_1->move('uploads/identity_card' . $identity_card_1);
+            $identity_card_2->move('uploads/identity_card' . $identity_card_2);
+
+            $team = new Team;
+            $team->id = $username;
+            $team->name = $name_team;
+            $team->username = $username;
+            $team->password = $password;
+            $team->institution = $institution;
+            $team->status = "Belum Terverifikasi";
+            $team->competition_id = $competition_id;
+            $team->save();
+
+            for ($i = 1; $i < 3; $i++) {
+                $participant = new Participants;
+                $team_id = $username;
+                $participant->team_id = $team_id;
+                $name = 'name_' . $i;
+                $birth_date = 'birth_date_' . $i;
+                $email = 'email_' . $i;
+                $phone = 'phone_' . $i;
+                $status = 'status_' . $i;
+                $identity_card = 'identity_card_' . $i . '_name';
+                $participant->name = $$name;
+                $participant->birth_date = $$birth_date;
+                $participant->email = $$email;
+                $participant->identity_card = $$identity_card;
+                $participant->status = $$status;
+                $participant->phone = $$phone;
+                $participant->save();
+            }
+
+            $user = new User;
+            $user->username = $username;
+            $user->team_id = $username;
+            $user->password = $password;
+            $user->name = $name_team;
+            $user->role = "team";
+            $user->save();
+
+            return redirect('/login');
         }
-
-        $name_1 = $request->get('name_1');
-        $name_2 = $request->get('name_2');
-        $birth_date_1 = $request->get('birth_date_1');
-        $birth_date_2 = $request->get('birth_date_2');
-        $birth_date_3 = $request->get('birth_date_3');
-        $email_1 = $request->get('email_1');
-        $email_2 = $request->get('email_2');
-        $email_3 = $request->get('email_3');
-        $phone_1 = $request->get('phone_1');
-        $phone_2 = $request->get('phone_2');
-        $phone_3 = $request->get('phone_3');
-        $identity_card_1 = $request->get('identity_card_1');
-        $identity_card_2 = $request->get('identity_card_2');
-        $identity_card_3 = $request->get('identity_card_3');
-        $status_1 = "Ketua";
-        $status_2 = "Anggota";
-        $status_3 = "Anggota";
-        
-
-        $name_team = $request->get('name_team');
-        $username = $request->get('username');
-        $password = $request->get('password');
-        $institution = $request->get('institution');
-        $competition_id = $request->get('competition_id');
-
-        $team = new Team;
-        $team->id = $username;
-        $team->name = $name_team;
-        $team->username = $username;
-        $team->password = $password;
-        $team->institution = $institution;
-        $team->status = "Belum Terverifikasi";
-        $team->competition_id = $competition_id;
-        $team->save();
-
-        for ($i = 1; $i < 3; $i++) {
-            $participant = new Participants;
-            $team_id = $username;
-            $participant->team_id = $team_id;
-            $name = 'name_' . $i;
-            $birth_date = 'birth_date_' . $i;
-            $email = 'email_' . $i;
-            $phone = 'phone_' . $i;
-            $status = 'status_' . $i;
-            $identity_card = 'identity_card_' . $i;
-            $participant->name = $$name;
-            $participant->birth_date = $$birth_date;
-            $participant->email = $$email;
-            $participant->identity_card = $$identity_card;
-            $participant->status = $$status;
-            $participant->phone = $$phone;
-            $participant->save();
-        }
-
-        $user = new User;
-        $user->username = $username;
-        $user->team_id = $username;
-        $user->password = $password;
-        $user->name = $name_team;
-        $user->role = "team";
-        $user->save();
-
-        return redirect('/');
     }
 
     /**
