@@ -33,7 +33,7 @@ Route::name('admin.')->group(function () {
 
 
         Route::resource('admin/commite', 'CreateCommite');
-        
+        Route::resource('admin/delete', 'DeleteFile');
 
     });
 });

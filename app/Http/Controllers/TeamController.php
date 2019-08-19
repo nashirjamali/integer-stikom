@@ -22,7 +22,7 @@ class TeamController extends Controller
         $pc = $participants->count();
         // dd($pc);
        
-        return view('team.dashboard-peserta',['participants' => $participants],['teamku' => $team_ahh])->with ('pc',$pc);
+        return view('team.new.team',['participants' => $participants],['teamku' => $team_ahh])->with ('pc',$pc);
     }
 
     public function store(Request $request){
@@ -106,7 +106,7 @@ class TeamController extends Controller
         $done = $submission_teams->first();
 
                     
-        return view('team.video',[
+        return view('team.new.video',[
             'submission_team' => $submission_team,
             'submission_team_before' => $submission_team_before,
             'done' => $done,
@@ -133,7 +133,7 @@ class TeamController extends Controller
     }
 
     public function setting(){
-        return view('team.setting');
+        return view('team.new.setting');
     }
 
 

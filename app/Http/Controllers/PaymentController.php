@@ -21,7 +21,7 @@ class PaymentController extends Controller
     public function index()
     {
         $payment = Payment::all()->where('team_id', Auth::user()->team_id)->first();            
-        return view('team.payments', [
+        return view('team.new.payment', [
             'payment' => $payment
         ]);
     }

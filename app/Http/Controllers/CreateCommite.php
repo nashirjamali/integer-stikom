@@ -15,7 +15,7 @@ class CreateCommite extends Controller
     public function index()
     {
         $users = User::all()->whereIn('role', ['commite', 'admin']);
-        return view('admin.commite', ['users' => $users]);
+        return view('admin.new.commite', ['users' => $users]);
     }
 
     /**

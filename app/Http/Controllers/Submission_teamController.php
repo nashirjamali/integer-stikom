@@ -32,7 +32,7 @@ class Submission_teamController extends Controller
 
         $proposal = Submission_team::where('team_id', Auth::user()->team_id)->where('submission_id', $submission_id)->first();
 
-        return view('team.submission', [
+        return view('team.new.proposal', [
             'submission_team' => $submission_team,
             'payment' => $payment,
             'done' => $done,

@@ -1,7 +1,0 @@
-@font-face { 
-    font-family: 'DimitriSwank';
-    font-weight: 400; 
-    src: url('./DIMIS__.TTF');
-    src: url('./DIMIS__.TTF') format('ttf'), 
-    url('./DIMIS__.TTF') format('truetype');
-}
