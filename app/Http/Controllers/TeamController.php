@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Team;
@@ -33,11 +34,8 @@ class TeamController extends Controller
 
         $teams = Auth::user()->team_id;
 
-        $participants = Participants::where('team_id' , $teams )->orderBy('id', 'asc')->get();
-        $pc = $participants->count();
-
         $identity_card = $request->file('identity_card');
-        $file_name = Auth::user()->team_id . '_' . $pc . '.' . $identity_card->getClientOriginalExtension();
+        $file_name = Auth::user()->team_id . '_' . $request->name . '.' . $identity_card->getClientOriginalExtension();
         $identity_card->move('uploads/identity_card/', $file_name);
 
         $participant = new Participants;
@@ -50,27 +48,40 @@ class TeamController extends Controller
         $participant->phone = $request->phone;
         $participant->save();
 
-    	return redirect('team')->withErrors($participant->errors());
+    	return redirect('team');
     }
 
     public function update($id, Request $request){
+        
+        $file_name = Participants::select('identity_card')->where('id',$id)->first()->identity_card;
+        File::delete('uploads/identity_card/' . $file_name);
 
-        $teams = Auth::user()->username;
-        $id = $request->name;
         $file = $request->identity_card;
-        $filename = $teams."_".$id.".".$file->getClientOriginalExtension();
-        $destinationPath = 'uploads/file';
+        $filename = Auth::user()->team_id . '_' . $request->name . '_update' .'.' . $file->getClientOriginalExtension();
+        $destinationPath = 'uploads/identity_card/';
+
+        File::delete('uploads/identity_card/' . $filename);
 		$file->move($destinationPath,$filename);
 
         $participants = Participants::find($id);
         // dd($participants);
-        $participants->identity_card = $file;
+        $participants->identity_card = $filename;
         $participants->name = $request->name;
         $participants->birth_date = $request->birth_date;
         $participants->email = $request->email;
         $participants->phone = $request->phone;
         $participants->save();
-        return redirect('team')->with('success', 'Data telah tersimpan');;
+        
+        return redirect('team')->with('success', 'Data telah tersimpan');
+    }
+
+    public function destroy($id){
+        $tm = Participants::findOrFail($id); 
+        $file_name = Participants::select('identity_card')->where('id',$id)->first()->identity_card;
+        
+        File::delete('uploads/identity_card/' . $file_name);
+        $tm->delete();
+        return redirect('team')->with(['message'=> 'Successfully deleted!!']);
     }
 
     public function payments(){
@@ -156,11 +167,7 @@ class TeamController extends Controller
         return redirect('team/setting')->with('success', 'Data telah terkirim');
     }
 
-    public function destroy($id){
-        $tm = Participants::findOrFail($id); 
-        $tm->delete();
-        return redirect('team')->with(['message'=> 'Successfully deleted!!']);
-    }
+
 
 
        
