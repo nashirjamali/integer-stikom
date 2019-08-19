@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class UsersSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
+        DB::table('users')->insert([
             [
                 'id'           => '1',
                 'team_id'      => '',
