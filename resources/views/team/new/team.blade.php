@@ -38,7 +38,7 @@
     <div style="margin-top: 1em;">
         <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
             <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-            <span class="btn-inner--text">Tambah Anggota</span>
+            <i class="fa fa-plus" aria-hidden="true"><span>  Tambah Anggota</span></i>
         </button>
     </div>
     @endif
@@ -62,7 +62,7 @@
                     <thead>
                         <tr style="text-align: center">
                             <th>Kartu Identitas</th>
-                            <th>Nama</th>
+                            <th style="width: 150px;">Nama</th>
                             <th>Email</th>
                             <th>No. Telepon</th>
                             <th>Status</th>
@@ -112,8 +112,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
-
                     <form method="POST" name="list_anggota" enctype="multipart/form-data" action="{{ route('team.participants.store')}}">
                         {{csrf_field()}}
                         <input type="hidden" value="{{ (Auth::user()->team_id) }}" name="team">
@@ -122,7 +120,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-image"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="" required>
+                                <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -130,7 +128,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" value="">
+                                <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -138,7 +136,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" value="">
+                                <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -146,7 +144,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Email" type="email" name="email" value="">
+                                <input class="form-control" placeholder="Email" type="email" name="email" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -154,7 +152,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Phone" type="number" name="phone" value="">
+                                <input class="form-control" placeholder="Phone" type="number" name="phone" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -190,7 +188,7 @@
                                     <span class="input-group-text"><i class="ni ni-image"></i></span>
                                 </div>
                                 <input class="form-control" type="hidden" name="id">
-                                <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="{{ url('./uploads/file/'.$x->identity_card) }}" required>
+                                <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="{{ $x->identity_card }}" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -198,7 +196,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" value="{{ $x->name }}">
+                                <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" value="{{ $x->name }}" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -206,7 +204,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" value="{{ $x->birth_date }}">
+                                <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" value="{{ $x->birth_date }}" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -214,7 +212,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Email" type="email" name="email" value="{{ $x->email }}">
+                                <input class="form-control" placeholder="Email" type="email" name="email" value="{{ $x->email }}" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -222,7 +220,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Phone" type="number" name="phone" value="{{ $x->phone }}">
+                                <input class="form-control" placeholder="Phone" type="number" name="phone" value="{{ $x->phone }}" required>
                             </div>
                         </div>
                         <div class="modal-footer">
