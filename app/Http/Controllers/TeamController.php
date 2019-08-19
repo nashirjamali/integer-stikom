@@ -27,15 +27,17 @@ class TeamController extends Controller
 
     public function store(Request $request){
 
+        request()->validate([
+            'identity_card' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        // $this->validate($request, [
-        //     'identity_card'  => 'required|mimes:jpg, png, bmp|max:5000'
-        // ]);
+        $teams = Auth::user()->team_id;
 
-        $count = Team::all()->where('team_id', Auth::user()->team_id)->count();
+        $participants = Participants::where('team_id' , $teams )->orderBy('id', 'asc')->get();
+        $pc = $participants->count();
 
         $identity_card = $request->file('identity_card');
-        $file_name = Auth::user()->team_id . '_' . $count . '.' . $identity_card->getExtension();
+        $file_name = Auth::user()->team_id . '_' . $pc . '.' . $identity_card->getClientOriginalExtension();
         $identity_card->move('uploads/identity_card/', $file_name);
 
         $participant = new Participants;
@@ -48,19 +50,27 @@ class TeamController extends Controller
         $participant->phone = $request->phone;
         $participant->save();
 
-    	return redirect('team');
+    	return redirect('team')->withErrors($participant->errors());
     }
 
     public function update($id, Request $request){
 
+        $teams = Auth::user()->username;
+        $id = $request->name;
+        $file = $request->identity_card;
+        $filename = $teams."_".$id.".".$file->getClientOriginalExtension();
+        $destinationPath = 'uploads/file';
+		$file->move($destinationPath,$filename);
+
         $participants = Participants::find($id);
-        $participants->identity_card = $request->identity_card;
+        // dd($participants);
+        $participants->identity_card = $file;
         $participants->name = $request->name;
         $participants->birth_date = $request->birth_date;
         $participants->email = $request->email;
         $participants->phone = $request->phone;
         $participants->save();
-        return redirect('team');
+        return redirect('team')->with('success', 'Data telah tersimpan');;
     }
 
     public function payments(){
