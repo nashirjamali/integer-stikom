@@ -49,6 +49,7 @@ class PaymentController extends Controller
         $file_extension = $evidence->getClientOriginalExtension(); //** get filename extension
         $fileName = Auth::user()->team_id . "." . $file_extension;
         $evidence->move('uploads/payment', $fileName);
+        
         $data->evidence = $fileName;
         $data->description = $request->input('description');
         $data->team_id = Auth::user()->team_id;
