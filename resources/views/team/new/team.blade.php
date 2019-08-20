@@ -6,13 +6,13 @@
 </ol>
 
 <!-- Page Content -->
-<div class="card w-50">
+<div class="card">
     <div class="card-body">
         <div class="row">
             @foreach ($teamku as $y)
             <div class="col-xl-6">
                 <h3><b>{{ Auth::user()->name }}</b></h3>
-                <span>{{ $y->institution }}</span>
+                <h4><small>{{ $y->institution }}</small></h4>
             </div>
             <div class="col-xl-6 mt-3">
                 Kategori
@@ -34,12 +34,15 @@
     </div>
 </div>
 
-    @if($pc < 3) 
-    <div style="margin-top: 1em;">
-        <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
-            <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-            <i class="fa fa-plus" aria-hidden="true"><span>  Tambah Anggota</span></i>
-        </button>
+@if($pc < 3) <div style="margin-top: 1em;">
+    <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
+        <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+        <i class="fa fa-plus" aria-hidden="true"><span> Tambah Anggota</span></i>
+    </button>
+    </div>
+    @else
+    <div class="alert alert-info" role="alert" style="margin-top: 1em;">
+    <i class="fa fa-info-circle" aria-hidden="true">   Anggota Team Maximal 3 Orang</i>
     </div>
     @endif
 
@@ -58,11 +61,11 @@
         <h4 class="card-header">List Anggota</h4>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="list_anggota" class="table table-striped table-bordered second" style="width:100%">
+                <table id="table_team" class="table table-striped table-bordered second" style="width:100%">
                     <thead>
                         <tr style="text-align: center">
                             <th>Kartu Identitas</th>
-                            <th style="width: 150px;">Nama</th>
+                            <th style="width: 200px;">Nama</th>
                             <th>Email</th>
                             <th>No. Telepon</th>
                             <th>Status</th>
@@ -79,7 +82,7 @@
                             <td>{{ $x->status }}</td>
                             <td>
                                 @if( $x->status=="Ketua" )
-                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}">
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update-peserta{{ $x->id }}" style="float: left;">
                                     <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
                                 </button>
                                 @else
@@ -118,7 +121,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-image"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-id-card" aria-hidden="true"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" required>
                             </div>
@@ -126,7 +129,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" required>
                             </div>
@@ -134,7 +137,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-birthday-cake"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" required>
                             </div>
@@ -142,7 +145,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-envelope-open"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Email" type="email" name="email" required>
                             </div>
@@ -150,7 +153,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-phone-square"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Phone" type="number" name="phone" required>
                             </div>
@@ -185,7 +188,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-image"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-id-card"></i></span>
                                 </div>
                                 <input class="form-control" type="hidden" name="id">
                                 <input class="form-control" placeholder="Kartu Identitas" name="identity_card" type="file" value="{{ $x->identity_card }}" required>
@@ -194,7 +197,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Nama Lengkap" type="text" name="name" value="{{ $x->name }}" required>
                             </div>
@@ -202,7 +205,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-birthday-cake"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Tanggal Lahir" type="date" name="birth_date" value="{{ $x->birth_date }}" required>
                             </div>
@@ -210,7 +213,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-envelope-open"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Email" type="email" name="email" value="{{ $x->email }}" required>
                             </div>
@@ -218,7 +221,7 @@
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-phone-square"></i></span>
                                 </div>
                                 <input class="form-control" placeholder="Phone" type="number" name="phone" value="{{ $x->phone }}" required>
                             </div>
