@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="col-6">
                         <b>Proposal</b><br><br>
-                        <a href="{{ asset('uploads/submission/'.$proposal->document) }}">{{ $proposal->document }}</a>
+                        <a href="{{ asset('uploads/proposal/'.$proposal->document) }}">{{ $proposal->document }}</a>
                     </div>
                     <div class="col-6">
                         <b>Waktu Submit</b><br><br>

@@ -69,7 +69,7 @@ class Submission_teamController extends Controller
 
         $evidence = $request->file('document');
         $fileName = Auth::user()->team_id . '_' . $competition_id . '_' . $submission_id . ".pdf";
-        $evidence->move('uploads/submission/', $fileName);
+        $evidence->move('uploads/proposal/', $fileName);
 
         $data = new Submission_team();
         $data->submission_id = $submission_id;
