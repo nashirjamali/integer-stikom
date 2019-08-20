@@ -36,7 +36,6 @@
 
 @if($pc < 3) <div style="margin-top: 1em;">
     <button class="btn btn-icon btn-sm btn-success" data-toggle="modal" data-target="#tambah-anggota" type="button">
-        <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
         <i class="fa fa-plus" aria-hidden="true"><span> Tambah Anggota</span></i>
     </button>
     </div>

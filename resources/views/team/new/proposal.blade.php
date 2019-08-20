@@ -26,8 +26,7 @@
             <div class="col-xl-12" style="">
                 @if($payment->status == "Sudah" && !isset($done->id))
                 <button class="btn btn-icon btn-3 btn-success" data-toggle="modal" data-target="#proposal" type="button">
-                    <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
-                    <span class="btn-inner--text">Upload Proposal</span>
+                    <i class="fa fa-plus" aria-hidden="true"> Upload Proposal</i>
                 </button>
                 @endif
             </div>
@@ -43,8 +42,8 @@
                 </div>
                 @endif
                 @if($proposal == null)
-                <div class="alert alert-warning">
-                    Belum ada proposal yang di upload
+                <div class="alert alert-danger" role="alert" style="margin-top: 1em;">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true">   Belum ada proposal yang diupload</i>
                 </div>
                 @else
                 <div class="row">
