@@ -57,7 +57,7 @@ class TeamController extends Controller
         File::delete('uploads/identity_card/' . $file_name);
 
         $file = $request->identity_card;
-        $filename = Auth::user()->team_id . '_' . $request->name . '_update' .'.' . $file->getClientOriginalExtension();
+        $filename = Auth::user()->team_id . '_' . $request->name . '_update' . '.' . $file->getClientOriginalExtension();
         $destinationPath = 'uploads/identity_card/';
 
         File::delete('uploads/identity_card/' . $filename);
