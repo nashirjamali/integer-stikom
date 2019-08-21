@@ -11,15 +11,15 @@
     <p>Silahkan melakukan pembayaran pendaftaran ke :</p>
     <hr>
     <h5 class="alert-heading">
-        Jenis Bank : BCA (Bank Central Asia) <br>
-        No. Rekening : 1880568805 a.n Nashir Jamali <br>
+        Jenis Bank : Mandiri <br>
+        No. Rekening : 141-00-1778933 a.n Ayu Bhuana <br>
         Nominal : Rp 150,000
     </h5>
     <hr>
     <h4 class="alert-heading mb-0">INGAT! Nominal harus sesuai dengan yang disebutkan diatas. Jika tidak, maka data tidak akan diproses.</h4>
     <p class="mb-0">
         Setelah melakukan pembayaran, upload bukti pembayaran dan mohon menunggu verifikasi oleh panitia INTEGER maksimal 2 x 24 jam.
-        Contact Person : Afif Susanto - <span><a href="https://wa.me/6281216536655">081216536655 (WA)</a></span>
+        <br> Contact Person : Imam Mahudi - <span><a href="https://wa.me/6285748966083">085748966083 (WA)</a></span>
     </p>
 </div>
 

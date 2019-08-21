@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Participants;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class Admin_ListTimController extends Controller
 {
@@ -52,8 +53,7 @@ class Admin_ListTimController extends Controller
         $team = Team::find($id);
         $participant1 = Participants::where('team_id', $id)->where('status', 'Ketua')->get();
         $participant2 = Participants::where('team_id', $id)->where('status', 'Anggota')->get();
-        
-        
+
         return view('admin.new.admin-detail-tim', ['team' => $team, 'participant1' => $participant1, 'participant2' => $participant2]);
     }
 
@@ -88,6 +88,14 @@ class Admin_ListTimController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $file_name = Participants::all()->where('team_id', $id);
+        foreach ($file_name as $key) {
+            File::delete('uploads/identity_card/'. $key->identity_card);
+        }
+
+        Participants::where('team_id', $id)->delete();
+        Team::where('id', $id)->delete();
+
+        return redirect('/admin/list-tim');
     }
 }

@@ -58,7 +58,7 @@
                         <h5>Kartu Identitas</h5>
                     </div>
                     <div class="col-lg-12">
-                        <img src="{{ asset('uploads/file/'.$key->identity_card) }}" alt="" srcset="" width="50%">
+                        <img src="{{ asset('uploads/identity_card/'.$key->identity_card) }}" alt="" srcset="" width="50%">
                     </div>
 
                 </div>
@@ -100,7 +100,7 @@
                         <h5>Kartu Identitas</h5>
                     </div>
                     <div class="col-lg-12">
-                        <img src="{{ asset('uploads/file/'.$key->identity_card) }}" alt="" srcset="" width="50%">
+                        <img src="{{ asset('uploads/identity_card/'.$key->identity_card) }}" alt="" srcset="" width="50%">
                     </div>
 
                 </div>
@@ -109,5 +109,17 @@
     </div>
     @endforeach
 </div>
+<div class="mt-5">
+    <div class="card">
+        <div class="card-body">
+            <form action="{{ route('admin.list-tim.destroy', $team->username) }}" method="post">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button class="btn btn-lg btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')" style="float: left;"><span class="btn-inner--icon"><i class="fas fa-trash"></i> Hapus Tim</span></button>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 @stop
