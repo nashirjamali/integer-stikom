@@ -52,7 +52,7 @@ class Admin_SubmissionController extends Controller
     {
         $competition = Competitions::where('id', $id)->first();
         $submissions = Submission::where('competition_id', $id)->get();
-        $submissionsTeams = Submission_team::all();        
+        $submissionsTeams = Submission_team::all();
 
         return view('admin.new.admin-submission-detail', ['submissions' => $submissions, 'competition' => $competition, 'submissionsTeams' => $submissionsTeams]);
     }
@@ -77,7 +77,23 @@ class Admin_SubmissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $submission = Submission_team::all()->where('id', $id)->where('submission_id', $request->get('submission_id'))->find(1);
+        
+        if ($submission->status == 'On Progress') {
+            $submission->update([
+                'status' => 'Lolos'
+            ]);
+        } elseif ($submission->status == 'Lolos') {
+            $submission->update([
+                'status' => 'Tidak Lolos'
+            ]);
+        } elseif ($submission->status == 'Tidak Lolos') {
+            $submission->update([
+                'status' => 'Lolos'
+            ]);
+        }
+
+        return redirect()->back();
     }
 
     /**

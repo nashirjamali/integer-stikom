@@ -32,7 +32,8 @@
                                         <th>Tanggal Upload</th>
                                         <th>Terakhir update</th>
                                         <th>Status</th>
-                                        <th></th>
+                                        <th>Download</th>
+                                        <th>lolos opo ora</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,8 +46,21 @@
                                         <td>{{ $key_1->updated_at }}</td>
                                         <td>{{ $key_1->status }}</td>
                                         <td>
-                                            <a href="{{ asset('uploads/submission/' . $key_1->document) }}" target="_blank" class="btn btn-warning"><i class="cloud-download-95"></i>Download</a>
+                                            <a href="{{ asset('uploads/proposal/' . $key_1->document) }}" target="_blank" class="btn btn-warning"><i class="cloud-download-95"></i>Download</a>
+                                            <br>
                                             <a href="{{ $key->document }}">{{ $key_1->document }}</a>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('admin.submission.update', [$key_1->id] ) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('PUT') }}
+                                                <input type="hidden" value="{{ $key_1->submission_id }}" name="submission_id">
+                                                @if($key_1->status == 'Lolos')
+                                                <button type="submit" class="btn btn-danger">Batalkan Lolos</button>
+                                                @else
+                                                <button type="submit" class="btn btn-success">Loloskan</button>
+                                                @endif
+                                            </form>
                                         </td>
                                     </tr>
                                     @endif
@@ -62,4 +76,4 @@
     </div>
 </div>
 
-@stop 
+@stop

@@ -15,18 +15,20 @@ use Illuminate\Support\Facades\Session;
 
 class TeamController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $teams = Auth::user()->username;
         // dd($teams);
         $team_ahh = Team::join('competitions', 'teams.competition_id', '=', 'competitions.id')->where('username', $teams)->get();
-        $participants = Participants::where('team_id' , $teams )->orderBy('id', 'asc')->get();
+        $participants = Participants::where('team_id', $teams)->orderBy('id', 'asc')->get();
         $pc = $participants->count();
         // dd($pc);
-       
-        return view('team.new.team',['participants' => $participants],['teamku' => $team_ahh])->with ('pc',$pc);
+
+        return view('team.new.team', ['participants' => $participants], ['teamku' => $team_ahh])->with('pc', $pc);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         request()->validate([
             'identity_card' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -48,12 +50,13 @@ class TeamController extends Controller
         $participant->phone = $request->phone;
         $participant->save();
 
-    	return redirect('team');
+        return redirect('team');
     }
 
-    public function update($id, Request $request){
-        
-        $file_name = Participants::select('identity_card')->where('id',$id)->first()->identity_card;
+    public function update($id, Request $request)
+    {
+
+        $file_name = Participants::select('identity_card')->where('id', $id)->first()->identity_card;
         File::delete('uploads/identity_card/' . $file_name);
 
         $file = $request->identity_card;
@@ -61,7 +64,7 @@ class TeamController extends Controller
         $destinationPath = 'uploads/identity_card/';
 
         File::delete('uploads/identity_card/' . $filename);
-		$file->move($destinationPath,$filename);
+        $file->move($destinationPath, $filename);
 
         $participants = Participants::find($id);
         // dd($participants);
@@ -71,106 +74,99 @@ class TeamController extends Controller
         $participants->email = $request->email;
         $participants->phone = $request->phone;
         $participants->save();
-        
+
         return redirect('team')->with('success', 'Data telah tersimpan');
     }
 
-    public function destroy($id){
-        $tm = Participants::findOrFail($id); 
-        $file_name = Participants::select('identity_card')->where('id',$id)->first()->identity_card;
-        
+    public function destroy($id)
+    {
+        $tm = Participants::findOrFail($id);
+        $file_name = Participants::select('identity_card')->where('id', $id)->first()->identity_card;
+
         File::delete('uploads/identity_card/' . $file_name);
         $tm->delete();
-        return redirect('team')->with(['message'=> 'Successfully deleted!!']);
+        return redirect('team')->with(['message' => 'Successfully deleted!!']);
     }
 
-    public function payments(){
-        return view('team.payments');
-    }
-
-    public function submission(){
-        return view('team.submission');
-    }
-
-    public function video(){
+    public function video()
+    {
         $team_id = Auth::user()->team_id;
         $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
 
         $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
-                                                 ->where('competition_id', $competition_id)
-                                                 ->first()->id;
+            ->where('competition_id', $competition_id)
+            ->first()->id;
 
-        
+
         $submission_id_before = Submission::select('id')->where('name', 'Pengumpulan Proposal')
-                                                        ->where('competition_id', $competition_id)
-                                                        ->first()->id;
-
-
-        $submission_teams = Submission_team::where('team_id', Auth::user()->team_id)
-                                            ->where('submission_id', $submission_id);
-
+            ->where('competition_id', $competition_id)
+            ->first()->id;
+        $submission_team = Submission_team::all()->where('team_id', Auth::user()->team_id)
+            ->where('submission_id', $submission_id)->first();
         $submission_teams_before = Submission_team::where('team_id', Auth::user()->team_id)
-                                                    ->where('submission_id',  $submission_id_before);
-
-        $submission_team = $submission_teams->get();
-
+            ->where('submission_id',  $submission_id_before);
         $submission_team_before =  $submission_teams_before->first();
+        
+        $id = str_replace('/', '', parse_url($submission_team->document, PHP_URL_PATH));
 
-        $done = $submission_teams->first();
-
-                    
-        return view('team.new.video',[
+        return view('team.new.video', [
             'submission_team' => $submission_team,
             'submission_team_before' => $submission_team_before,
-            'done' => $done,
+            'done' => $submission_team,
+            'id' => $id,
         ]);
     }
 
-    public function videostore(Request $request){
-
+    public function videostore(Request $request)
+    {
         $team_id = Auth::user()->team_id;
         $competition_id = Team::select('competition_id')->where('id', $team_id)->first()->competition_id;
-
-        $document = $request->document;
+        $url = $request->get('link');
         $submission_id = Submission::select('id')->where('name', 'Pengumpulan Link Video')
-                                                 ->where('competition_id', $competition_id)
-                                                 ->first()->id;
-
-        Submission_team::create([
-            'submission_id' => $submission_id,
-            'team_id'       => $team_id,
-            'document'      => $document,
-        ]);
-
-        return redirect('team/video')->with('success', 'Data telah terkirim');
+            ->where('competition_id', $competition_id)
+            ->first()->id;
+        $domain = parse_url($url, PHP_URL_HOST);
+        if ($domain == 'www.youtube.com' || $domain == 'youtube.com') {
+            $submission = new Submission_team;
+            $submission->submission_id = $submission_id;
+            $submission->team_id = $team_id;
+            $submission->document = $url;
+            $submission->status = 'On Progress';
+            $submission->save();
+            return redirect('team/video')->with('success', 'Data telah terkirim');
+        } elseif ($domain == 'youtu.be') {
+            $submission = new Submission_team;
+            $submission->submission_id = $submission_id;
+            $submission->team_id = $team_id;
+            $submission->document = $url;
+            $submission->status = 'On Progress';
+            $submission->save();
+            return redirect('team/video')->with('success', 'Data telah terkirim');
+        } else {
+            return redirect('team/video')->with('error', 'Format link salah');
+        }
     }
 
-    public function setting(){
+    public function setting()
+    {
         return view('team.new.setting');
     }
 
 
-    public function settingstore(Request $request){
+    public function settingstore(Request $request)
+    {
 
         $pass = User::select('password')->where('team_id', Auth::user()->team_id)->first()->password;
 
         if (Hash::check($request->password_lama, $pass)) {
-            
+
             User::where('team_id', Auth::user()->team_id)->update(array('password' => Hash::make($request->password)));
             Team::where('id', Auth::user()->team_id)->update(array('password' => Hash::make($request->password)));
-            Session::flash('sukses','Selamat password anda telah diubah');
-            
-        }else{
-            Session::flash('gagal','Maaf password yang anda masukan salah');
+            Session::flash('sukses', 'Selamat password anda telah diubah');
+        } else {
+            Session::flash('gagal', 'Maaf password yang anda masukan salah');
         }
 
         return redirect('team/setting')->with('success', 'Data telah terkirim');
     }
-
-
-
-
-       
-
-
 }
