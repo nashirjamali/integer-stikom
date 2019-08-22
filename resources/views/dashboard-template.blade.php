@@ -77,7 +77,7 @@
             <footer class="sticky-footer">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>&copy Reach and Developer Integer Stikom 2019</span>
+                        <span>&copy Research and Development Integer Stikom 2019</span>
                     </div>
                 </div>
             </footer>

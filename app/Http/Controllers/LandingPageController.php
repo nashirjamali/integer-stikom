@@ -93,8 +93,12 @@ class LandingPageController extends Controller
             $status_1 = "Ketua";
             $status_2 = "Anggota";
             $status_3 = "Anggota";
-
-
+            
+            $no = 2;
+            if ($name_3) {
+                $no = 3;
+            }
+            
             $name_team = $request->get('name_team');
             $username = $request->get('username');
             $password = $request->get('password');
@@ -124,7 +128,9 @@ class LandingPageController extends Controller
             $team->competition_id = $competition_id;
             $team->save();
 
-            for ($i = 1; $i <= 3; $i++) {
+            
+
+            for ($i = 1; $i <= $no; $i++) {
                 $participant = new Participants;
                 $team_id = $username;
                 $participant->team_id = $team_id;

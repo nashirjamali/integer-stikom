@@ -19,7 +19,7 @@
     <h4 class="alert-heading mb-0">INGAT! Nominal harus sesuai dengan yang disebutkan diatas. Jika tidak, maka data tidak akan diproses.</h4>
     <p class="mb-0">
         Setelah melakukan pembayaran, upload bukti pembayaran dan mohon menunggu verifikasi oleh panitia INTEGER maksimal 2 x 24 jam.
-        <br> Contact Person : Imam Mahudi - <span><a href="https://wa.me/6285748966083">085748966083 (WA)</a></span>
+        <br> Contact Person : Imam Mahudi - <span><a target="_blank" href="https://wa.me/6285748966083">085748966083 (WA)</a></span>
     </p>
 </div>
 

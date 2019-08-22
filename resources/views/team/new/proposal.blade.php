@@ -7,9 +7,19 @@
 
 
 @if(isset($done->id))
+@if($proposal->status == 'Lolos')
+<div class="alert alert-success">
+    <strong>Selamat!</strong> Tim anda lolos, dan melanjutkan ke tahap berikutnya
+</div>
+@elseif($proposal->status == 'Tidak Lolos')
+<div class="alert alert-danger">
+    <strong>Maaf!</strong> Tim anda tidak lolos, tetap semangat dan coba lagi di lain kesempatan
+</div>
+@else
 <div class="alert alert-success">
     <strong>Sukses!</strong> Terimakasih atas partisipasi anda. Silahkan menunggu pengumuman selanjutnya
 </div>
+@endif
 @endif
 
 @if($payment->status == 'Belum Terverifikasi')
@@ -41,9 +51,12 @@
                     </ul>
                 </div>
                 @endif
-                @if($proposal == null)
+                 @if($proposal == null)
                 <div class="alert alert-danger" role="alert" style="margin-top: 1em;">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true">   Belum ada proposal yang diupload</i>
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    <br>
+                    Belum ada proposal yang diupload <br>
+                    Proposal di upload wajib dalam bentuk file <b>.pdf</b>
                 </div>
                 @else
                 <div class="row">
