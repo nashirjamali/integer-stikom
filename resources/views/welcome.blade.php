@@ -97,7 +97,7 @@
                                     untuk dapat membantu permasalahan yang ada pada masyarakat sekitar dengan ide yang
                                     original dari para peserta. Pada cabang lomba ini peserta harus dalam institusi yang sama.
                                 </p>
-                                <a href="https://drive.google.com/open?id=1HJNwj-fmIL0g2VNU6i6ev67ubvibwVhn" target="_blank" class="btn-solid-reg">Download</a>
+                                <a href="https://drive.google.com/open?id=1mQ6K5CAJPE7Jrf1AyW-LpXJlV_38tEks" target="_blank" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                                     merupakan kompetisi desain antarmuka sistem/aplikasi dengan tujuan untuk membuat
                                     desain antarmuka pengguna yang mudah dan nyaman kepada pengguna (user).
                                 </p>
-                                <a href="https://drive.google.com/open?id=1CVrTLJAmXuYXjdC5PV9WyjZYSTiTfsRC" target="_blank" class="btn-solid-reg">Download</a>
+                                <a href="https://drive.google.com/open?id=1ZJ3Bea062Cc9ZK_r1Lwv-P3x2zk-2GPL" target="_blank" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>
