@@ -111,7 +111,7 @@
                                     merupakan kompetisi desain antarmuka sistem/aplikasi dengan tujuan untuk membuat
                                     desain antarmuka pengguna yang mudah dan nyaman kepada pengguna (user).
                                 </p>
-                                <a href="https://drive.google.com/open?id=1ZJ3Bea062Cc9ZK_r1Lwv-P3x2zk-2GPL" target="_blank" class="btn-solid-reg">Download</a>
+                                <a href="https://drive.google.com/open?id=1ZJ3Bea062Cc9ZK_r1Lwv-P3x2zk-2GPL " target="_blank" class="btn-solid-reg">Download</a>
                             </article>
                         </div>
                     </div>
