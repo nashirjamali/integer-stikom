@@ -39,7 +39,7 @@
                             Sebagai bentuk perwujudan tersebut, Senat Mahasiswa Institut Bisnis dan Informatika
                             Stikom Surabaya mengadakan sebuah lomba yang dapat menghasilkan sebuah solusi terhadap
                             permasalahan yang ada pada pelayanan publik di Indonesia, sehingga dapat mengurangi
-                            keterlambatan perkembangan yang ada. <br><br> Lomba ini membidik generasi SMA/SMK/MA dan
+                            keterlambatan perkembangan yang ada. <br><br> Lomba ini membidik generasi
                             Mahasiswa/i se-Jawa Timur untuk berpartisipasi dalam lomba yang kami adakan. Lomba
                             dengan tema “Mensejahterahkan Masyarakat dengan TI”. Lomba ini diharapkan dapat
                             memberikan solusi
