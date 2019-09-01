@@ -40,10 +40,12 @@
                             {{ $pay->team->status }}</td>
                             @endif
                         <td>
-                            @if($pay->team->status == 'Belum Terverifikasi')
-                            <a class="btn btn-primary btn-sm" href="{{route('admin.admin-payment.edit',[$pay->id])}}">Detail</a>
-                            @else
-                            <button type="button" class="btn btn-success btn-sm">Success</button>
+                            @if(isset($pay->team->status))
+                                @if($pay->team->status == 'Belum Terverifikasi')
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.admin-payment.edit',[$pay->id])}}">Detail</a>
+                                @else
+                                <button type="button" class="btn btn-success btn-sm">Success</button>
+                                @endif
                             @endif
                         </td>
                     </tr>
