@@ -35,7 +35,10 @@
                         </td>
                         <td>{{ $pay->evidence }}</td>
                         <td>{{ $pay->description }}</td>
-                        <td>{{ $pay->team->status }}</td>
+                        <td>
+                            @if(isset($pay->team->status))
+                            {{ $pay->team->status }}</td>
+                            @endif
                         <td>
                             @if($pay->team->status == 'Belum Terverifikasi')
                             <a class="btn btn-primary btn-sm" href="{{route('admin.admin-payment.edit',[$pay->id])}}">Detail</a>
