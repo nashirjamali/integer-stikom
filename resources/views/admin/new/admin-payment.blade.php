@@ -23,8 +23,16 @@
                 @foreach ($payment as $pay)
                 <tbody>
                     <tr>
-                        <td>{{ $pay->team->name }}</td>
-                        <td>{{ $pay->team->institution }}</td>
+                        <td>
+                            @if(isset($pay->team->name))
+                            {{ $pay->team->name }}
+                            @endif
+                        </td>
+                        <td>
+                            @if(isset($pay->team->institution))
+                            {{ $pay->team->institution }}
+                            @endif
+                        </td>
                         <td>{{ $pay->evidence }}</td>
                         <td>{{ $pay->description }}</td>
                         <td>{{ $pay->team->status }}</td>
