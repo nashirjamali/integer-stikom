@@ -142,31 +142,31 @@
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">10 Oktober 2019</h2>
+                                    <h2 class="text-dark">18 Oktober 2019</h2>
                                     <p class="text-solid">Penutupan Pendaftaran dan Babak Penyisihan 1</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">15 Oktober 2019</h2>
+                                    <h2 class="text-dark">22 Oktober 2019</h2>
                                     <p class="text-solid">Pengumuman Babak Penyisihan 1</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">16 Oktober 2019</h2>
+                                    <h2 class="text-dark">22 Oktober 2019</h2>
                                     <p class="text-solid">Babak Penyisihan 2</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">24 Oktober 2019</h2>
+                                    <h2 class="text-dark">30 Oktober 2019</h2>
                                     <p class="text-solid">Penutupan Babak Penyisihan 2</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">29 Oktober 2019</h2>
+                                    <h2 class="text-dark">4 November 2019</h2>
                                     <p class="text-solid">Pengumuman Babak Penyisihan 2</p>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@
                             </div>
                             <div class="timeline__item">
                                 <div class="timeline__content">
-                                    <h2 class="text-dark">9 November 2019</h2>
+                                    <h2 class="text-dark">8 November 2019</h2>
                                     <p class="text-solid">Babak Final</p>
                                 </div>
                             </div>
