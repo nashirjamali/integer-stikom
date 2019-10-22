@@ -12,7 +12,7 @@
     <hr>
     <h5 class="alert-heading">
         Jenis Bank : Mandiri <br>
-        No. Rekening : 141-00-1778933 a.n Ayu Bhuana <br>
+        No. Rekening : 141-00-17789330 a.n Ayu Bhuana <br>
         Nominal : Rp 150,000
     </h5>
     <hr>
